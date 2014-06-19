@@ -1,0 +1,289 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4480C3A01953476E00B15428 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C39F1953476E00B15428 /* Cocoa.framework */; };
+		4480C3AA1953476F00B15428 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4480C3A81953476F00B15428 /* InfoPlist.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4480C39C1953476E00B15428 /* SIPEServicePlugin.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SIPEServicePlugin.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		4480C39F1953476E00B15428 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		4480C3A21953476E00B15428 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4480C3A31953476E00B15428 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4480C3A41953476E00B15428 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		4480C3A71953476F00B15428 /* SIPEServicePlugin-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SIPEServicePlugin-Info.plist"; sourceTree = "<group>"; };
+		4480C3A91953476F00B15428 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4480C3AB1953476F00B15428 /* SIPEServicePlugin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SIPEServicePlugin-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4480C3991953476E00B15428 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4480C3A01953476E00B15428 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4480C3931953476E00B15428 = {
+			isa = PBXGroup;
+			children = (
+				4480C3A51953476E00B15428 /* SIPEServicePlugin */,
+				4480C39E1953476E00B15428 /* Frameworks */,
+				4480C39D1953476E00B15428 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4480C39D1953476E00B15428 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4480C39C1953476E00B15428 /* SIPEServicePlugin.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4480C39E1953476E00B15428 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4480C39F1953476E00B15428 /* Cocoa.framework */,
+				4480C3A11953476E00B15428 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4480C3A11953476E00B15428 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4480C3A21953476E00B15428 /* Foundation.framework */,
+				4480C3A31953476E00B15428 /* CoreData.framework */,
+				4480C3A41953476E00B15428 /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		4480C3A51953476E00B15428 /* SIPEServicePlugin */ = {
+			isa = PBXGroup;
+			children = (
+				4480C3A61953476F00B15428 /* Supporting Files */,
+			);
+			path = SIPEServicePlugin;
+			sourceTree = "<group>";
+		};
+		4480C3A61953476F00B15428 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4480C3A71953476F00B15428 /* SIPEServicePlugin-Info.plist */,
+				4480C3A81953476F00B15428 /* InfoPlist.strings */,
+				4480C3AB1953476F00B15428 /* SIPEServicePlugin-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4480C39B1953476E00B15428 /* SIPEServicePlugin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4480C3AE1953476F00B15428 /* Build configuration list for PBXNativeTarget "SIPEServicePlugin" */;
+			buildPhases = (
+				4480C3981953476E00B15428 /* Sources */,
+				4480C3991953476E00B15428 /* Frameworks */,
+				4480C39A1953476E00B15428 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SIPEServicePlugin;
+			productName = SIPEServicePlugin;
+			productReference = 4480C39C1953476E00B15428 /* SIPEServicePlugin.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4480C3941953476E00B15428 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = ArkDev;
+			};
+			buildConfigurationList = 4480C3971953476E00B15428 /* Build configuration list for PBXProject "SIPEServicePlugin" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4480C3931953476E00B15428;
+			productRefGroup = 4480C39D1953476E00B15428 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4480C39B1953476E00B15428 /* SIPEServicePlugin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4480C39A1953476E00B15428 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4480C3AA1953476F00B15428 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4480C3981953476E00B15428 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4480C3A81953476F00B15428 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4480C3A91953476F00B15428 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4480C3AC1953476F00B15428 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4480C3AD1953476F00B15428 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4480C3AF1953476F00B15428 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SIPEServicePlugin/SIPEServicePlugin-Prefix.pch";
+				INFOPLIST_FILE = "SIPEServicePlugin/SIPEServicePlugin-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		4480C3B01953476F00B15428 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SIPEServicePlugin/SIPEServicePlugin-Prefix.pch";
+				INFOPLIST_FILE = "SIPEServicePlugin/SIPEServicePlugin-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4480C3971953476E00B15428 /* Build configuration list for PBXProject "SIPEServicePlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4480C3AC1953476F00B15428 /* Debug */,
+				4480C3AD1953476F00B15428 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4480C3AE1953476F00B15428 /* Build configuration list for PBXNativeTarget "SIPEServicePlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4480C3AF1953476F00B15428 /* Debug */,
+				4480C3B01953476F00B15428 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4480C3941953476E00B15428 /* Project object */;
+}
