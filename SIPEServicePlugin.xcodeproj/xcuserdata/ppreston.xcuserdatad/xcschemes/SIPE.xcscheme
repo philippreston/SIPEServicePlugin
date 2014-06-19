@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4480C39B1953476E00B15428"
-               BuildableName = "SIPE.imserviceplugin"
-               BlueprintName = "SIPE Plugin"
+               BlueprintIdentifier = "4480C3B6195348DA00B15428"
+               BuildableName = "Preference Pane.impreferencepane"
+               BlueprintName = "SIPE Plugin PrefPane"
                ReferencedContainer = "container:SIPEServicePlugin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

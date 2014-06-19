@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>SIPE Library.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>SIPE.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>SIPEServicePlugin.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +23,16 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>4480C39B1953476E00B15428</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4480C3B6195348DA00B15428</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4480C3D419534B1700B15428</key>
 		<dict>
 			<key>primary</key>
 			<true/>
