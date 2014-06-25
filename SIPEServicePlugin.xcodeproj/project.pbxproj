@@ -146,7 +146,6 @@
 		44170E8F195AFF7E005F433F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E8E195AFF7E005F433F /* libz.dylib */; };
 		44170E91195B010B005F433F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C39F1953476E00B15428 /* Cocoa.framework */; };
 		44170E94195B0130005F433F /* Kerberos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E92195B0122005F433F /* Kerberos.framework */; };
-		44170EA5195B0384005F433F /* libgssapi_krb5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170EA4195B0384005F433F /* libgssapi_krb5.dylib */; };
 		44170EA7195B04B1005F433F /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170EA6195B04B1005F433F /* libcrypto.dylib */; };
 		44170EA8195B04F6005F433F /* SIPE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C500195418D600B15428 /* SIPE.framework */; };
 		44170EB6195B0834005F433F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44170EB4195B0834005F433F /* InfoPlist.strings */; };
@@ -243,10 +242,8 @@
 		44170E8E195AFF7E005F433F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		44170E92195B0122005F433F /* Kerberos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kerberos.framework; path = System/Library/Frameworks/Kerberos.framework; sourceTree = SDKROOT; };
 		44170EA0195B0218005F433F /* GSS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSS.framework; path = System/Library/Frameworks/GSS.framework; sourceTree = SDKROOT; };
-		44170EA4195B0384005F433F /* libgssapi_krb5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgssapi_krb5.dylib; path = usr/lib/libgssapi_krb5.dylib; sourceTree = SDKROOT; };
 		44170EA6195B04B1005F433F /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
 		44170EAE195B0834005F433F /* SIPETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SIPETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		44170EAF195B0834005F433F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		44170EB3195B0834005F433F /* SIPETests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SIPETests-Info.plist"; sourceTree = "<group>"; };
 		44170EB5195B0834005F433F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		44170EB7195B0834005F433F /* SIPETests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SIPETests.m; sourceTree = "<group>"; };
@@ -468,7 +465,6 @@
 				44170D4D19588E86005F433F /* libsipe_core.a in Frameworks */,
 				44170EA7195B04B1005F433F /* libcrypto.dylib in Frameworks */,
 				44170E8F195AFF7E005F433F /* libz.dylib in Frameworks */,
-				44170EA5195B0384005F433F /* libgssapi_krb5.dylib in Frameworks */,
 				44170E36195A2FA2005F433F /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,8 +501,9 @@
 		44170EA3195B02B2005F433F /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				44170E8E195AFF7E005F433F /* libz.dylib */,
 				44170E45195A3472005F433F /* libgmime-2.6.a */,
+				44170E8E195AFF7E005F433F /* libz.dylib */,
+				44170EA6195B04B1005F433F /* libcrypto.dylib */,
 				4480C4D61953570900B15428 /* libxml2.dylib */,
 			);
 			name = Libraries;
@@ -561,11 +558,8 @@
 		4480C39E1953476E00B15428 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				44170EA6195B04B1005F433F /* libcrypto.dylib */,
-				44170EA4195B0384005F433F /* libgssapi_krb5.dylib */,
 				44170EA3195B02B2005F433F /* Libraries */,
 				44170E90195B00AC005F433F /* Linked Frameworks */,
-				44170EAF195B0834005F433F /* XCTest.framework */,
 				4480C3A11953476E00B15428 /* Other Frameworks */,
 				44170E25195A2EAF005F433F /* Project Frameworks */,
 			);
