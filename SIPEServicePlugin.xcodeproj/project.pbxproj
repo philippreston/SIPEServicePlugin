@@ -7,82 +7,250 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44170D4D19588E86005F433F /* libsipe_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C3D519534B1700B15428 /* libsipe_core.a */; };
+		44170D4E19588F85005F433F /* sipmsg.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C45319534B9700B15428 /* sipmsg.c */; };
+		44170D4F19588F85005F433F /* sipmsg.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C45419534B9700B15428 /* sipmsg.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D5019588F8C005F433F /* sip-csta.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3E619534B9700B15428 /* sip-csta.c */; };
+		44170D5119588F8C005F433F /* sip-csta.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3E719534B9700B15428 /* sip-csta.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D5219588F98005F433F /* sip-sec.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3FA19534B9700B15428 /* sip-sec.c */; };
+		44170D5319588F98005F433F /* sip-sec.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3FB19534B9700B15428 /* sip-sec.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D5419588FA6005F433F /* sip-sec-basic.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3E819534B9700B15428 /* sip-sec-basic.c */; };
+		44170D5519588FA6005F433F /* sip-sec-basic.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3E919534B9700B15428 /* sip-sec-basic.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D5619588FA6005F433F /* sip-sec-digest.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3EB19534B9700B15428 /* sip-sec-digest.c */; };
+		44170D5719588FA6005F433F /* sip-sec-digest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3EC19534B9700B15428 /* sip-sec-digest.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D5819588FBA005F433F /* sip-sec-mech.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3EF19534B9700B15428 /* sip-sec-mech.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D5919588FBA005F433F /* sip-sec-tls-dsk.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3F819534B9700B15428 /* sip-sec-tls-dsk.c */; };
+		44170D5A19588FBA005F433F /* sip-sec-tls-dsk.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3F919534B9700B15428 /* sip-sec-tls-dsk.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D5B19588FDA005F433F /* sip-soap.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3FC19534B9700B15428 /* sip-soap.c */; };
+		44170D5C19588FDA005F433F /* sip-soap.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3FD19534B9700B15428 /* sip-soap.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D5D19588FE9005F433F /* sip-transport.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3FE19534B9700B15428 /* sip-transport.c */; };
+		44170D5E19588FE9005F433F /* sip-transport.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3FF19534B9700B15428 /* sip-transport.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D5F1958904A005F433F /* sipe-buddy.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C40019534B9700B15428 /* sipe-buddy.c */; };
+		44170D601958904A005F433F /* sipe-buddy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C40119534B9700B15428 /* sipe-buddy.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D611958904A005F433F /* sipe-cal.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C40219534B9700B15428 /* sipe-cal.c */; };
+		44170D621958904A005F433F /* sipe-cal.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C40319534B9700B15428 /* sipe-cal.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D631958904A005F433F /* sipe-cert-crypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C40619534B9700B15428 /* sipe-cert-crypto.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D641958904A005F433F /* sipe-certificate.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C40719534B9700B15428 /* sipe-certificate.c */; };
+		44170D651958904A005F433F /* sipe-certificate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C40819534B9700B15428 /* sipe-certificate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D661958904A005F433F /* sipe-chat.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C40919534B9700B15428 /* sipe-chat.c */; };
+		44170D671958904A005F433F /* sipe-chat.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C40A19534B9700B15428 /* sipe-chat.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D681958904A005F433F /* sipe-conf.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C40B19534B9700B15428 /* sipe-conf.c */; };
+		44170D691958904A005F433F /* sipe-conf.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C40C19534B9700B15428 /* sipe-conf.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D6A1958904A005F433F /* sipe-core-private.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C40D19534B9700B15428 /* sipe-core-private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D6B1958904A005F433F /* sipe-core.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C40E19534B9700B15428 /* sipe-core.c */; };
+		44170D6C1958905E005F433F /* sipe-crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C41119534B9700B15428 /* sipe-crypt.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D6D1958905E005F433F /* sipe-dialog.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C41219534B9700B15428 /* sipe-dialog.c */; };
+		44170D6E1958905E005F433F /* sipe-dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C41319534B9700B15428 /* sipe-dialog.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D6F1958905E005F433F /* sipe-digest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C41619534B9700B15428 /* sipe-digest.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D701958909E005F433F /* sipe-ews-autodiscover.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C41919534B9700B15428 /* sipe-ews-autodiscover.c */; };
+		44170D711958909E005F433F /* sipe-ews-autodiscover.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C41A19534B9700B15428 /* sipe-ews-autodiscover.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D721958909E005F433F /* sipe-ews.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C41B19534B9700B15428 /* sipe-ews.c */; };
+		44170D731958909E005F433F /* sipe-ews.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C41C19534B9700B15428 /* sipe-ews.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D741958909E005F433F /* sipe-ft-tftp.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C41D19534B9700B15428 /* sipe-ft-tftp.c */; };
+		44170D751958909E005F433F /* sipe-ft.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C41E19534B9700B15428 /* sipe-ft.c */; };
+		44170D761958909E005F433F /* sipe-ft.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C41F19534B9700B15428 /* sipe-ft.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D771958909E005F433F /* sipe-group.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C42019534B9700B15428 /* sipe-group.c */; };
+		44170D781958909E005F433F /* sipe-group.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C42119534B9700B15428 /* sipe-group.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D791958909E005F433F /* sipe-groupchat.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C42219534B9700B15428 /* sipe-groupchat.c */; };
+		44170D7A1958909E005F433F /* sipe-groupchat.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C42319534B9700B15428 /* sipe-groupchat.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D7B1958909E005F433F /* sipe-http-request.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C42419534B9700B15428 /* sipe-http-request.c */; };
+		44170D7C1958909E005F433F /* sipe-http-request.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C42519534B9700B15428 /* sipe-http-request.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D7D1958909E005F433F /* sipe-http-transport.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C42619534B9700B15428 /* sipe-http-transport.c */; };
+		44170D7E1958909E005F433F /* sipe-http-transport.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C42719534B9700B15428 /* sipe-http-transport.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D7F1958909E005F433F /* sipe-http.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C42819534B9700B15428 /* sipe-http.c */; };
+		44170D801958909E005F433F /* sipe-http.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C42919534B9700B15428 /* sipe-http.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D811958909E005F433F /* sipe-im.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C42A19534B9700B15428 /* sipe-im.c */; };
+		44170D821958909E005F433F /* sipe-im.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C42B19534B9700B15428 /* sipe-im.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D831958909E005F433F /* sipe-incoming.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C42C19534B9700B15428 /* sipe-incoming.c */; };
+		44170D841958909E005F433F /* sipe-incoming.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C42D19534B9700B15428 /* sipe-incoming.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D8519589111005F433F /* sipe-notify.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C43119534B9700B15428 /* sipe-notify.c */; };
+		44170D8619589111005F433F /* sipe-notify.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C43219534B9700B15428 /* sipe-notify.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D8719589111005F433F /* sipe-ocs2005.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C43319534B9700B15428 /* sipe-ocs2005.c */; };
+		44170D8819589111005F433F /* sipe-ocs2005.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C43419534B9700B15428 /* sipe-ocs2005.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D8919589111005F433F /* sipe-ocs2007.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C43519534B9700B15428 /* sipe-ocs2007.c */; };
+		44170D8A19589111005F433F /* sipe-ocs2007.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C43619534B9700B15428 /* sipe-ocs2007.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D8B19589111005F433F /* sipe-schedule.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C43719534B9700B15428 /* sipe-schedule.c */; };
+		44170D8C19589111005F433F /* sipe-schedule.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C43819534B9700B15428 /* sipe-schedule.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D8D19589111005F433F /* sipe-session.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C43919534B9700B15428 /* sipe-session.c */; };
+		44170D8E19589111005F433F /* sipe-session.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C43A19534B9700B15428 /* sipe-session.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D8F19589111005F433F /* sipe-sign.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C43B19534B9700B15428 /* sipe-sign.c */; };
+		44170D9019589111005F433F /* sipe-sign.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C43C19534B9700B15428 /* sipe-sign.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D9119589111005F433F /* sipe-status.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C43D19534B9700B15428 /* sipe-status.c */; };
+		44170D9219589111005F433F /* sipe-status.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C43E19534B9700B15428 /* sipe-status.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D9319589111005F433F /* sipe-subscriptions.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C43F19534B9700B15428 /* sipe-subscriptions.c */; };
+		44170D9419589111005F433F /* sipe-subscriptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C44019534B9700B15428 /* sipe-subscriptions.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D9519589111005F433F /* sipe-svc.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C44119534B9700B15428 /* sipe-svc.c */; };
+		44170D9619589111005F433F /* sipe-svc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C44219534B9700B15428 /* sipe-svc.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D9719589111005F433F /* sipe-tls.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C44419534B9700B15428 /* sipe-tls.c */; };
+		44170D9819589111005F433F /* sipe-tls.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C44519534B9700B15428 /* sipe-tls.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D9919589111005F433F /* sipe-ucs.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C44619534B9700B15428 /* sipe-ucs.c */; };
+		44170D9A19589111005F433F /* sipe-ucs.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C44719534B9700B15428 /* sipe-ucs.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D9B19589111005F433F /* sipe-user.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C44819534B9700B15428 /* sipe-user.c */; };
+		44170D9C19589111005F433F /* sipe-user.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C44919534B9700B15428 /* sipe-user.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D9D19589111005F433F /* sipe-utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C44A19534B9700B15428 /* sipe-utils.c */; };
+		44170D9E19589111005F433F /* sipe-utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C44B19534B9700B15428 /* sipe-utils.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170D9F19589111005F433F /* sipe-webticket.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C44C19534B9700B15428 /* sipe-webticket.c */; };
+		44170DA019589111005F433F /* sipe-webticket.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C44D19534B9700B15428 /* sipe-webticket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170DA119589111005F433F /* sipe-xml.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C45219534B9700B15428 /* sipe-xml.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170DA219589111005F433F /* uuid.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C45519534B9700B15428 /* uuid.c */; };
+		44170DA319589111005F433F /* uuid.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C45619534B9700B15428 /* uuid.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		44170E0919589290005F433F /* sipe-cert-crypto-openssl.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C40519534B9700B15428 /* sipe-cert-crypto-openssl.c */; };
+		44170E0A19589290005F433F /* sipe-crypt-openssl.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C41019534B9700B15428 /* sipe-crypt-openssl.c */; };
+		44170E0B19589290005F433F /* sipe-digest-openssl.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C41519534B9700B15428 /* sipe-digest-openssl.c */; };
+		44170E0C19596F32005F433F /* libsipe_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C3D519534B1700B15428 /* libsipe_core.a */; };
+		44170E13195A1FB7005F433F /* libsipe_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C3D519534B1700B15428 /* libsipe_core.a */; };
+		44170E1A195A2014005F433F /* sipe-xml.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C45119534B9700B15428 /* sipe-xml.c */; };
+		44170E21195A29B2005F433F /* libsipe_core_crypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E0819589198005F433F /* libsipe_core_crypto.a */; };
+		44170E22195A29B2005F433F /* libsipe_core_libxml2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E19195A1FB7005F433F /* libsipe_core_libxml2.a */; };
+		44170E2E195A2EF1005F433F /* libglib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E27195A2EC7005F433F /* libglib.framework */; };
+		44170E36195A2FA2005F433F /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C4D61953570900B15428 /* libxml2.dylib */; };
+		44170E3D195A3057005F433F /* libsipe_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C3D519534B1700B15428 /* libsipe_core.a */; };
+		44170E44195A30A7005F433F /* sipe-mime.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C43019534B9700B15428 /* sipe-mime.c */; };
+		44170E47195A34C3005F433F /* libgmime-2.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E45195A3472005F433F /* libgmime-2.6.a */; };
+		44170E48195A3549005F433F /* libsipe_core_mime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E43195A3057005F433F /* libsipe_core_mime.a */; };
+		44170E4F195A3D6A005F433F /* SIPEConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 44170E4D195A3D6A005F433F /* SIPEConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44170E50195A3D6A005F433F /* SIPEConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170E4E195A3D6A005F433F /* SIPEConnection.m */; };
+		44170E53195A3DA2005F433F /* SIPEDNSQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 44170E51195A3DA2005F433F /* SIPEDNSQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44170E54195A3DA2005F433F /* SIPEDNSQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170E52195A3DA2005F433F /* SIPEDNSQuery.m */; };
+		44170E57195A3DC2005F433F /* SIPEFileTransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = 44170E55195A3DC2005F433F /* SIPEFileTransfer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44170E58195A3DC2005F433F /* SIPEFileTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170E56195A3DC2005F433F /* SIPEFileTransfer.m */; };
+		44170E5B195A3DE1005F433F /* SIPEGroupChat.h in Headers */ = {isa = PBXBuildFile; fileRef = 44170E59195A3DE1005F433F /* SIPEGroupChat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44170E5C195A3DE1005F433F /* SIPEGroupChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170E5A195A3DE1005F433F /* SIPEGroupChat.m */; };
+		44170E5F195A3E03005F433F /* SIPEInstantMessenger.h in Headers */ = {isa = PBXBuildFile; fileRef = 44170E5D195A3E03005F433F /* SIPEInstantMessenger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44170E60195A3E03005F433F /* SIPEInstantMessenger.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170E5E195A3E03005F433F /* SIPEInstantMessenger.m */; };
+		44170E64195A3E3E005F433F /* SIPEStubs.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170E62195A3E3E005F433F /* SIPEStubs.m */; };
+		44170E68195A3EB1005F433F /* SIPESearch.h in Headers */ = {isa = PBXBuildFile; fileRef = 44170E66195A3EB1005F433F /* SIPESearch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44170E69195A3EB1005F433F /* SIPESearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170E67195A3EB1005F433F /* SIPESearch.m */; };
+		44170E6C195ABDFF005F433F /* SIPESchedule.h in Headers */ = {isa = PBXBuildFile; fileRef = 44170E6A195ABDFF005F433F /* SIPESchedule.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44170E6D195ABDFF005F433F /* SIPESchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170E6B195ABDFF005F433F /* SIPESchedule.m */; };
+		44170E70195ADB10005F433F /* SIPEStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 44170E6E195ADB10005F433F /* SIPEStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44170E71195ADB10005F433F /* SIPEStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170E6F195ADB10005F433F /* SIPEStatus.m */; };
+		44170E74195ADB88005F433F /* SIPETransport.h in Headers */ = {isa = PBXBuildFile; fileRef = 44170E72195ADB88005F433F /* SIPETransport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44170E75195ADB88005F433F /* SIPETransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170E73195ADB88005F433F /* SIPETransport.m */; };
+		44170E78195AF46D005F433F /* SIPEUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 44170E76195AF46D005F433F /* SIPEUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44170E79195AF46D005F433F /* SIPEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170E77195AF46D005F433F /* SIPEUser.m */; };
+		44170E7C195AF67C005F433F /* SIPEBuddy.h in Headers */ = {isa = PBXBuildFile; fileRef = 44170E7A195AF67C005F433F /* SIPEBuddy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44170E7D195AF67C005F433F /* SIPEBuddy.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170E7B195AF67C005F433F /* SIPEBuddy.m */; };
+		44170E7E195AFAB4005F433F /* md4.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3E219534B9700B15428 /* md4.c */; };
+		44170E7F195AFAB4005F433F /* sip-sec-negotiate.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3F019534B9700B15428 /* sip-sec-negotiate.c */; };
+		44170E80195AFAB4005F433F /* sip-sec-ntlm.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3F419534B9700B15428 /* sip-sec-ntlm.c */; };
+		44170E81195AFB01005F433F /* sip-sec-gssapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3ED19534B9700B15428 /* sip-sec-gssapi.c */; };
+		44170E84195AFD0E005F433F /* libintl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E2A195A2EC7005F433F /* libintl.framework */; };
+		44170E85195AFD90005F433F /* libgmodule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E2D195A2EC7005F433F /* libgmodule.framework */; };
+		44170E86195AFD9D005F433F /* libidn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E26195A2EC7005F433F /* libidn.framework */; };
+		44170E87195AFD9D005F433F /* libgthread.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E28195A2EC7005F433F /* libgthread.framework */; };
+		44170E88195AFD9D005F433F /* libgobject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E29195A2EC7005F433F /* libgobject.framework */; };
+		44170E89195AFD9D005F433F /* libgcrypt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E2B195A2EC7005F433F /* libgcrypt.framework */; };
+		44170E8A195AFD9D005F433F /* libgpgerror.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E2C195A2EC7005F433F /* libgpgerror.framework */; };
+		44170E8D195AFEBA005F433F /* libgmime-2.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E45195A3472005F433F /* libgmime-2.6.a */; };
+		44170E8F195AFF7E005F433F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E8E195AFF7E005F433F /* libz.dylib */; };
+		44170E91195B010B005F433F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C39F1953476E00B15428 /* Cocoa.framework */; };
+		44170E94195B0130005F433F /* Kerberos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E92195B0122005F433F /* Kerberos.framework */; };
+		44170EA5195B0384005F433F /* libgssapi_krb5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170EA4195B0384005F433F /* libgssapi_krb5.dylib */; };
+		44170EA7195B04B1005F433F /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170EA6195B04B1005F433F /* libcrypto.dylib */; };
+		44170EA8195B04F6005F433F /* SIPE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C500195418D600B15428 /* SIPE.framework */; };
+		44170EB6195B0834005F433F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44170EB4195B0834005F433F /* InfoPlist.strings */; };
+		44170EB8195B0834005F433F /* SIPETests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170EB7195B0834005F433F /* SIPETests.m */; };
+		44170EBF195B085C005F433F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C511195418D600B15428 /* XCTest.framework */; };
+		442B56E7195862F7003FFA3F /* sipe-backend.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3DB19534B9600B15428 /* sipe-backend.h */; };
+		442B56E8195862F9003FFA3F /* sipe-common.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3DC19534B9600B15428 /* sipe-common.h */; };
+		442B56E9195862FC003FFA3F /* sipe-core.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3DD19534B9600B15428 /* sipe-core.h */; };
+		442B56EA195862FE003FFA3F /* sipe-mime.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3DE19534B9600B15428 /* sipe-mime.h */; };
+		442B56EB19586302003FFA3F /* sipe-nls.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3DF19534B9600B15428 /* sipe-nls.h */; };
 		4480C3A01953476E00B15428 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C39F1953476E00B15428 /* Cocoa.framework */; };
 		4480C3AA1953476F00B15428 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4480C3A81953476F00B15428 /* InfoPlist.strings */; };
-		4480C3B8195348DA00B15428 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C39F1953476E00B15428 /* Cocoa.framework */; };
-		4480C3BA195348DA00B15428 /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C3B9195348DA00B15428 /* PreferencePanes.framework */; };
-		4480C3C0195348DA00B15428 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4480C3BE195348DA00B15428 /* InfoPlist.strings */; };
-		4480C3C4195348DA00B15428 /* SIPE.m in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3C3195348DA00B15428 /* SIPE.m */; };
-		4480C3C6195348DA00B15428 /* SIPE.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 4480C3C5195348DA00B15428 /* SIPE.tiff */; };
-		4480C3C9195348DA00B15428 /* SIPE.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4480C3C7195348DA00B15428 /* SIPE.xib */; };
 		4480C3CE195349D500B15428 /* IMServicePlugIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C3CD195349D500B15428 /* IMServicePlugIn.framework */; };
-		4480C47A19534B9700B15428 /* sipe-buddy.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C40019534B9700B15428 /* sipe-buddy.c */; };
-		4480C47C19534B9700B15428 /* sipe-cal.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C40219534B9700B15428 /* sipe-cal.c */; };
-		4480C47F19534B9700B15428 /* sipe-cert-crypto-openssl.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C40519534B9700B15428 /* sipe-cert-crypto-openssl.c */; };
-		4480C48119534B9700B15428 /* sipe-certificate.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C40719534B9700B15428 /* sipe-certificate.c */; };
-		4480C48319534B9700B15428 /* sipe-chat.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C40919534B9700B15428 /* sipe-chat.c */; };
-		4480C48519534B9700B15428 /* sipe-conf.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C40B19534B9700B15428 /* sipe-conf.c */; };
-		4480C48819534B9700B15428 /* sipe-core.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C40E19534B9700B15428 /* sipe-core.c */; };
-		4480C48A19534B9700B15428 /* sipe-crypt-openssl.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C41019534B9700B15428 /* sipe-crypt-openssl.c */; };
-		4480C48C19534B9700B15428 /* sipe-dialog.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C41219534B9700B15428 /* sipe-dialog.c */; };
-		4480C48F19534B9700B15428 /* sipe-digest-openssl.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C41519534B9700B15428 /* sipe-digest-openssl.c */; };
-		4480C49119534B9700B15428 /* sipe-domino.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C41719534B9700B15428 /* sipe-domino.c */; };
-		4480C49319534B9700B15428 /* sipe-ews-autodiscover.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C41919534B9700B15428 /* sipe-ews-autodiscover.c */; };
-		4480C49519534B9700B15428 /* sipe-ews.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C41B19534B9700B15428 /* sipe-ews.c */; };
-		4480C49719534B9700B15428 /* sipe-ft-tftp.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C41D19534B9700B15428 /* sipe-ft-tftp.c */; };
-		4480C49819534B9700B15428 /* sipe-ft.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C41E19534B9700B15428 /* sipe-ft.c */; };
-		4480C49A19534B9700B15428 /* sipe-group.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C42019534B9700B15428 /* sipe-group.c */; };
-		4480C49C19534B9700B15428 /* sipe-groupchat.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C42219534B9700B15428 /* sipe-groupchat.c */; };
-		4480C49E19534B9700B15428 /* sipe-http-request.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C42419534B9700B15428 /* sipe-http-request.c */; };
-		4480C4A019534B9700B15428 /* sipe-http-transport.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C42619534B9700B15428 /* sipe-http-transport.c */; };
-		4480C4A219534B9700B15428 /* sipe-http.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C42819534B9700B15428 /* sipe-http.c */; };
-		4480C4A419534B9700B15428 /* sipe-im.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C42A19534B9700B15428 /* sipe-im.c */; };
-		4480C4A619534B9700B15428 /* sipe-incoming.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C42C19534B9700B15428 /* sipe-incoming.c */; };
-		4480C4AB19534B9700B15428 /* sipe-notify.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C43119534B9700B15428 /* sipe-notify.c */; };
-		4480C4AD19534B9700B15428 /* sipe-ocs2005.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C43319534B9700B15428 /* sipe-ocs2005.c */; };
-		4480C4AF19534B9700B15428 /* sipe-ocs2007.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C43519534B9700B15428 /* sipe-ocs2007.c */; };
-		4480C4B119534B9700B15428 /* sipe-schedule.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C43719534B9700B15428 /* sipe-schedule.c */; };
-		4480C4B319534B9700B15428 /* sipe-session.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C43919534B9700B15428 /* sipe-session.c */; };
-		4480C4B519534B9700B15428 /* sipe-sign.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C43B19534B9700B15428 /* sipe-sign.c */; };
-		4480C4B719534B9700B15428 /* sipe-status.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C43D19534B9700B15428 /* sipe-status.c */; };
-		4480C4B919534B9700B15428 /* sipe-subscriptions.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C43F19534B9700B15428 /* sipe-subscriptions.c */; };
-		4480C4BB19534B9700B15428 /* sipe-svc.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C44119534B9700B15428 /* sipe-svc.c */; };
-		4480C4BD19534B9700B15428 /* sipe-tls-tester.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C44319534B9700B15428 /* sipe-tls-tester.c */; };
-		4480C4BE19534B9700B15428 /* sipe-tls.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C44419534B9700B15428 /* sipe-tls.c */; };
-		4480C4C019534B9700B15428 /* sipe-ucs.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C44619534B9700B15428 /* sipe-ucs.c */; };
-		4480C4C219534B9700B15428 /* sipe-user.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C44819534B9700B15428 /* sipe-user.c */; };
-		4480C4C419534B9700B15428 /* sipe-utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C44A19534B9700B15428 /* sipe-utils.c */; };
-		4480C4C619534B9700B15428 /* sipe-webticket.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C44C19534B9700B15428 /* sipe-webticket.c */; };
-		4480C4CB19534B9700B15428 /* sipe-xml.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C45119534B9700B15428 /* sipe-xml.c */; };
-		4480C4D5195355A300B15428 /* libsipe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C3D519534B1700B15428 /* libsipe.a */; };
-		4480C4D71953570900B15428 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C4D61953570900B15428 /* libxml2.dylib */; };
-		4480C4E4195384DE00B15428 /* uuid.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C45519534B9700B15428 /* uuid.c */; };
-		4480C4E5195384F200B15428 /* sdpmsg.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3E419534B9700B15428 /* sdpmsg.c */; };
-		4480C4E61953850E00B15428 /* md4.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3E219534B9700B15428 /* md4.c */; };
-		4480C4E71953852500B15428 /* sip-soap.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3FC19534B9700B15428 /* sip-soap.c */; };
-		4480C4E81953853800B15428 /* sip-sec-ntlm.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3F419534B9700B15428 /* sip-sec-ntlm.c */; };
-		4480C4E91953854800B15428 /* sip-sec-digest.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3EB19534B9700B15428 /* sip-sec-digest.c */; };
-		4480C4EA1953855F00B15428 /* sip-sec-tls-dsk.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3F819534B9700B15428 /* sip-sec-tls-dsk.c */; };
-		4480C4EB195385A000B15428 /* sip-sec-basic.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3E819534B9700B15428 /* sip-sec-basic.c */; };
-		4480C4EC195385A000B15428 /* sip-sec-negotiate.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3F019534B9700B15428 /* sip-sec-negotiate.c */; };
-		4480C4ED195385D500B15428 /* sip-csta.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3E619534B9700B15428 /* sip-csta.c */; };
-		4480C4EE195385E400B15428 /* sip-sec-gssapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3ED19534B9700B15428 /* sip-sec-gssapi.c */; };
-		4480C4EF1953863200B15428 /* sip-sec.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3FA19534B9700B15428 /* sip-sec.c */; };
-		4480C4F01953864200B15428 /* sip-transport.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3FE19534B9700B15428 /* sip-transport.c */; };
-		4480C4F11953865A00B15428 /* sip-sec-ntlm-tests.c in Sources */ = {isa = PBXBuildFile; fileRef = 4480C3F319534B9700B15428 /* sip-sec-ntlm-tests.c */; };
+		4480C4F419539E2100B15428 /* SIPEServicePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4480C4F319539E2100B15428 /* SIPEServicePlugin.m */; };
+		4480C4F61953B1DA00B15428 /* Campfire.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4480C4F51953B1DA00B15428 /* Campfire.icns */; };
+		4480C507195418D600B15428 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4480C505195418D600B15428 /* InfoPlist.strings */; };
+		4480C50B195418D600B15428 /* SIPEService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4480C50A195418D600B15428 /* SIPEService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4480C4D31953559700B15428 /* PBXContainerItemProxy */ = {
+		44170E1B195A299F005F433F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4480C3941953476E00B15428 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4480C3D419534B1700B15428;
-			remoteInfo = "SIPE Library";
+			remoteInfo = "SIPE Core Library";
+		};
+		44170E1D195A29A7005F433F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4480C3941953476E00B15428 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 44170DA419589198005F433F;
+			remoteInfo = "SIPE Core Crypto Library";
+		};
+		44170E1F195A29AB005F433F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4480C3941953476E00B15428 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 44170E0D195A1FB7005F433F;
+			remoteInfo = "SIPE Core XML Library";
+		};
+		44170E8B195AFE23005F433F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4480C3941953476E00B15428 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 44170E37195A3057005F433F;
+			remoteInfo = "SIPE MIME Library";
+		};
+		44170EBA195B0834005F433F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4480C3941953476E00B15428 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4480C4FF195418D600B15428;
+			remoteInfo = "SIPE Framework";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44170E0819589198005F433F /* libsipe_core_crypto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsipe_core_crypto.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		44170E19195A1FB7005F433F /* libsipe_core_libxml2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsipe_core_libxml2.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		44170E26195A2EC7005F433F /* libidn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libidn.framework; path = Frameworks/libidn.framework; sourceTree = "<group>"; };
+		44170E27195A2EC7005F433F /* libglib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libglib.framework; path = Frameworks/libglib.framework; sourceTree = "<group>"; };
+		44170E28195A2EC7005F433F /* libgthread.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libgthread.framework; path = Frameworks/libgthread.framework; sourceTree = "<group>"; };
+		44170E29195A2EC7005F433F /* libgobject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libgobject.framework; path = Frameworks/libgobject.framework; sourceTree = "<group>"; };
+		44170E2A195A2EC7005F433F /* libintl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libintl.framework; path = Frameworks/libintl.framework; sourceTree = "<group>"; };
+		44170E2B195A2EC7005F433F /* libgcrypt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libgcrypt.framework; path = Frameworks/libgcrypt.framework; sourceTree = "<group>"; };
+		44170E2C195A2EC7005F433F /* libgpgerror.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libgpgerror.framework; path = Frameworks/libgpgerror.framework; sourceTree = "<group>"; };
+		44170E2D195A2EC7005F433F /* libgmodule.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libgmodule.framework; path = Frameworks/libgmodule.framework; sourceTree = "<group>"; };
+		44170E43195A3057005F433F /* libsipe_core_mime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsipe_core_mime.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		44170E45195A3472005F433F /* libgmime-2.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgmime-2.6.a"; path = "/usr/local/Cellar/gmime/2.6.20/lib/libgmime-2.6.a"; sourceTree = "<absolute>"; };
+		44170E4D195A3D6A005F433F /* SIPEConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPEConnection.h; sourceTree = "<group>"; };
+		44170E4E195A3D6A005F433F /* SIPEConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPEConnection.m; sourceTree = "<group>"; };
+		44170E51195A3DA2005F433F /* SIPEDNSQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPEDNSQuery.h; sourceTree = "<group>"; };
+		44170E52195A3DA2005F433F /* SIPEDNSQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPEDNSQuery.m; sourceTree = "<group>"; };
+		44170E55195A3DC2005F433F /* SIPEFileTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPEFileTransfer.h; sourceTree = "<group>"; };
+		44170E56195A3DC2005F433F /* SIPEFileTransfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPEFileTransfer.m; sourceTree = "<group>"; };
+		44170E59195A3DE1005F433F /* SIPEGroupChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPEGroupChat.h; sourceTree = "<group>"; };
+		44170E5A195A3DE1005F433F /* SIPEGroupChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPEGroupChat.m; sourceTree = "<group>"; };
+		44170E5D195A3E03005F433F /* SIPEInstantMessenger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPEInstantMessenger.h; sourceTree = "<group>"; };
+		44170E5E195A3E03005F433F /* SIPEInstantMessenger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPEInstantMessenger.m; sourceTree = "<group>"; };
+		44170E62195A3E3E005F433F /* SIPEStubs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPEStubs.m; sourceTree = "<group>"; };
+		44170E66195A3EB1005F433F /* SIPESearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPESearch.h; sourceTree = "<group>"; };
+		44170E67195A3EB1005F433F /* SIPESearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPESearch.m; sourceTree = "<group>"; };
+		44170E6A195ABDFF005F433F /* SIPESchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPESchedule.h; sourceTree = "<group>"; };
+		44170E6B195ABDFF005F433F /* SIPESchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPESchedule.m; sourceTree = "<group>"; };
+		44170E6E195ADB10005F433F /* SIPEStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPEStatus.h; sourceTree = "<group>"; };
+		44170E6F195ADB10005F433F /* SIPEStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPEStatus.m; sourceTree = "<group>"; };
+		44170E72195ADB88005F433F /* SIPETransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPETransport.h; sourceTree = "<group>"; };
+		44170E73195ADB88005F433F /* SIPETransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPETransport.m; sourceTree = "<group>"; };
+		44170E76195AF46D005F433F /* SIPEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPEUser.h; sourceTree = "<group>"; };
+		44170E77195AF46D005F433F /* SIPEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPEUser.m; sourceTree = "<group>"; };
+		44170E7A195AF67C005F433F /* SIPEBuddy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPEBuddy.h; sourceTree = "<group>"; };
+		44170E7B195AF67C005F433F /* SIPEBuddy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPEBuddy.m; sourceTree = "<group>"; };
+		44170E8E195AFF7E005F433F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		44170E92195B0122005F433F /* Kerberos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kerberos.framework; path = System/Library/Frameworks/Kerberos.framework; sourceTree = SDKROOT; };
+		44170EA0195B0218005F433F /* GSS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSS.framework; path = System/Library/Frameworks/GSS.framework; sourceTree = SDKROOT; };
+		44170EA4195B0384005F433F /* libgssapi_krb5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgssapi_krb5.dylib; path = usr/lib/libgssapi_krb5.dylib; sourceTree = SDKROOT; };
+		44170EA6195B04B1005F433F /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		44170EAE195B0834005F433F /* SIPETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SIPETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		44170EAF195B0834005F433F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		44170EB3195B0834005F433F /* SIPETests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SIPETests-Info.plist"; sourceTree = "<group>"; };
+		44170EB5195B0834005F433F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		44170EB7195B0834005F433F /* SIPETests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SIPETests.m; sourceTree = "<group>"; };
+		44170EB9195B0834005F433F /* SIPETests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SIPETests-Prefix.pch"; sourceTree = "<group>"; };
 		4480C39C1953476E00B15428 /* SIPE.imserviceplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SIPE.imserviceplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		4480C39F1953476E00B15428 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4480C3A21953476E00B15428 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -91,17 +259,8 @@
 		4480C3A71953476F00B15428 /* SIPEServicePlugin-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SIPEServicePlugin-Info.plist"; sourceTree = "<group>"; };
 		4480C3A91953476F00B15428 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4480C3AB1953476F00B15428 /* SIPEServicePlugin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SIPEServicePlugin-Prefix.pch"; sourceTree = "<group>"; };
-		4480C3B7195348DA00B15428 /* SIPE.impreferencepane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SIPE.impreferencepane; sourceTree = BUILT_PRODUCTS_DIR; };
-		4480C3B9195348DA00B15428 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
-		4480C3BD195348DA00B15428 /* SIPE-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SIPE-Info.plist"; sourceTree = "<group>"; };
-		4480C3BF195348DA00B15428 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4480C3C1195348DA00B15428 /* SIPE-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SIPE-Prefix.pch"; sourceTree = "<group>"; };
-		4480C3C2195348DA00B15428 /* SIPE.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SIPE.h; sourceTree = "<group>"; };
-		4480C3C3195348DA00B15428 /* SIPE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SIPE.m; sourceTree = "<group>"; };
-		4480C3C5195348DA00B15428 /* SIPE.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = SIPE.tiff; sourceTree = "<group>"; };
-		4480C3C8195348DA00B15428 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SIPE.xib; sourceTree = "<group>"; };
 		4480C3CD195349D500B15428 /* IMServicePlugIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IMServicePlugIn.framework; path = System/Library/Frameworks/IMServicePlugIn.framework; sourceTree = SDKROOT; };
-		4480C3D519534B1700B15428 /* libsipe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsipe.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4480C3D519534B1700B15428 /* libsipe_core.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsipe_core.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4480C3DB19534B9600B15428 /* sipe-backend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sipe-backend.h"; sourceTree = "<group>"; };
 		4480C3DC19534B9600B15428 /* sipe-common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sipe-common.h"; sourceTree = "<group>"; };
 		4480C3DD19534B9600B15428 /* sipe-core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sipe-core.h"; sourceTree = "<group>"; };
@@ -225,25 +384,59 @@
 		4480C45519534B9700B15428 /* uuid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = uuid.c; sourceTree = "<group>"; };
 		4480C45619534B9700B15428 /* uuid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uuid.h; sourceTree = "<group>"; };
 		4480C4D61953570900B15428 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		4480C4F219539E2100B15428 /* SIPEServicePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPEServicePlugin.h; sourceTree = "<group>"; };
+		4480C4F319539E2100B15428 /* SIPEServicePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPEServicePlugin.m; sourceTree = "<group>"; };
+		4480C4F51953B1DA00B15428 /* Campfire.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Campfire.icns; sourceTree = "<group>"; };
+		4480C500195418D600B15428 /* SIPE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SIPE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4480C504195418D600B15428 /* SIPE-Framework-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SIPE-Framework-Info.plist"; sourceTree = "<group>"; };
+		4480C506195418D600B15428 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4480C508195418D600B15428 /* SIPE-Framework-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SIPE-Framework-Prefix.pch"; sourceTree = "<group>"; };
+		4480C509195418D600B15428 /* SIPEService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SIPEService.h; sourceTree = "<group>"; };
+		4480C50A195418D600B15428 /* SIPEService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SIPEService.m; sourceTree = "<group>"; };
+		4480C511195418D600B15428 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		44170DCF19589198005F433F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44170E0C19596F32005F433F /* libsipe_core.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44170E12195A1FB7005F433F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44170E13195A1FB7005F433F /* libsipe_core.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44170E3C195A3057005F433F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44170E47195A34C3005F433F /* libgmime-2.6.a in Frameworks */,
+				44170E3D195A3057005F433F /* libsipe_core.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44170EAB195B0834005F433F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44170EBF195B085C005F433F /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4480C3991953476E00B15428 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4480C4D5195355A300B15428 /* libsipe.a in Frameworks */,
+				44170EA8195B04F6005F433F /* SIPE.framework in Frameworks */,
 				4480C3CE195349D500B15428 /* IMServicePlugIn.framework in Frameworks */,
 				4480C3A01953476E00B15428 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4480C3B2195348DA00B15428 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4480C3B8195348DA00B15428 /* Cocoa.framework in Frameworks */,
-				4480C3BA195348DA00B15428 /* PreferencePanes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,19 +444,101 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4480C4D71953570900B15428 /* libxml2.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4480C4FC195418D600B15428 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44170E91195B010B005F433F /* Cocoa.framework in Frameworks */,
+				44170E94195B0130005F433F /* Kerberos.framework in Frameworks */,
+				44170E86195AFD9D005F433F /* libidn.framework in Frameworks */,
+				44170E2E195A2EF1005F433F /* libglib.framework in Frameworks */,
+				44170E87195AFD9D005F433F /* libgthread.framework in Frameworks */,
+				44170E88195AFD9D005F433F /* libgobject.framework in Frameworks */,
+				44170E89195AFD9D005F433F /* libgcrypt.framework in Frameworks */,
+				44170E85195AFD90005F433F /* libgmodule.framework in Frameworks */,
+				44170E8A195AFD9D005F433F /* libgpgerror.framework in Frameworks */,
+				44170E8D195AFEBA005F433F /* libgmime-2.6.a in Frameworks */,
+				44170E84195AFD0E005F433F /* libintl.framework in Frameworks */,
+				44170E48195A3549005F433F /* libsipe_core_mime.a in Frameworks */,
+				44170E21195A29B2005F433F /* libsipe_core_crypto.a in Frameworks */,
+				44170E22195A29B2005F433F /* libsipe_core_libxml2.a in Frameworks */,
+				44170D4D19588E86005F433F /* libsipe_core.a in Frameworks */,
+				44170EA7195B04B1005F433F /* libcrypto.dylib in Frameworks */,
+				44170E8F195AFF7E005F433F /* libz.dylib in Frameworks */,
+				44170EA5195B0384005F433F /* libgssapi_krb5.dylib in Frameworks */,
+				44170E36195A2FA2005F433F /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44170E25195A2EAF005F433F /* Project Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44170E26195A2EC7005F433F /* libidn.framework */,
+				44170E27195A2EC7005F433F /* libglib.framework */,
+				44170E28195A2EC7005F433F /* libgthread.framework */,
+				44170E29195A2EC7005F433F /* libgobject.framework */,
+				44170E2A195A2EC7005F433F /* libintl.framework */,
+				44170E2B195A2EC7005F433F /* libgcrypt.framework */,
+				44170E2C195A2EC7005F433F /* libgpgerror.framework */,
+				44170E2D195A2EC7005F433F /* libgmodule.framework */,
+			);
+			name = "Project Frameworks";
+			sourceTree = "<group>";
+		};
+		44170E90195B00AC005F433F /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44170EA0195B0218005F433F /* GSS.framework */,
+				44170E92195B0122005F433F /* Kerberos.framework */,
+				4480C3CD195349D500B15428 /* IMServicePlugIn.framework */,
+				4480C39F1953476E00B15428 /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		44170EA3195B02B2005F433F /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				44170E8E195AFF7E005F433F /* libz.dylib */,
+				44170E45195A3472005F433F /* libgmime-2.6.a */,
+				4480C4D61953570900B15428 /* libxml2.dylib */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		44170EB1195B0834005F433F /* SIPE Tests */ = {
+			isa = PBXGroup;
+			children = (
+				44170EB7195B0834005F433F /* SIPETests.m */,
+				44170EB2195B0834005F433F /* Supporting Files */,
+			);
+			name = "SIPE Tests";
+			path = SIPETests;
+			sourceTree = "<group>";
+		};
+		44170EB2195B0834005F433F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				44170EB3195B0834005F433F /* SIPETests-Info.plist */,
+				44170EB4195B0834005F433F /* InfoPlist.strings */,
+				44170EB9195B0834005F433F /* SIPETests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		4480C3931953476E00B15428 = {
 			isa = PBXGroup;
 			children = (
 				4480C3D919534B9600B15428 /* SIPE Backend */,
 				4480C3A51953476E00B15428 /* SIPE Plugin */,
-				4480C3BB195348DA00B15428 /* SIPE Preference Pane */,
+				4480C502195418D600B15428 /* SIPE Framework */,
+				44170EB1195B0834005F433F /* SIPE Tests */,
 				4480C39E1953476E00B15428 /* Frameworks */,
 				4480C39D1953476E00B15428 /* Products */,
 			);
@@ -273,8 +548,12 @@
 			isa = PBXGroup;
 			children = (
 				4480C39C1953476E00B15428 /* SIPE.imserviceplugin */,
-				4480C3B7195348DA00B15428 /* SIPE.impreferencepane */,
-				4480C3D519534B1700B15428 /* libsipe.a */,
+				4480C3D519534B1700B15428 /* libsipe_core.a */,
+				4480C500195418D600B15428 /* SIPE.framework */,
+				44170E0819589198005F433F /* libsipe_core_crypto.a */,
+				44170E19195A1FB7005F433F /* libsipe_core_libxml2.a */,
+				44170E43195A3057005F433F /* libsipe_core_mime.a */,
+				44170EAE195B0834005F433F /* SIPETests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -282,11 +561,13 @@
 		4480C39E1953476E00B15428 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4480C4D61953570900B15428 /* libxml2.dylib */,
-				4480C3CD195349D500B15428 /* IMServicePlugIn.framework */,
-				4480C39F1953476E00B15428 /* Cocoa.framework */,
-				4480C3B9195348DA00B15428 /* PreferencePanes.framework */,
+				44170EA6195B04B1005F433F /* libcrypto.dylib */,
+				44170EA4195B0384005F433F /* libgssapi_krb5.dylib */,
+				44170EA3195B02B2005F433F /* Libraries */,
+				44170E90195B00AC005F433F /* Linked Frameworks */,
+				44170EAF195B0834005F433F /* XCTest.framework */,
 				4480C3A11953476E00B15428 /* Other Frameworks */,
+				44170E25195A2EAF005F433F /* Project Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -294,6 +575,7 @@
 		4480C3A11953476E00B15428 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4480C511195418D600B15428 /* XCTest.framework */,
 				4480C3A21953476E00B15428 /* Foundation.framework */,
 				4480C3A31953476E00B15428 /* CoreData.framework */,
 				4480C3A41953476E00B15428 /* AppKit.framework */,
@@ -305,6 +587,8 @@
 			isa = PBXGroup;
 			children = (
 				4480C3A61953476F00B15428 /* Supporting Files */,
+				4480C4F219539E2100B15428 /* SIPEServicePlugin.h */,
+				4480C4F319539E2100B15428 /* SIPEServicePlugin.m */,
 			);
 			name = "SIPE Plugin";
 			path = SIPEServicePlugin;
@@ -313,32 +597,10 @@
 		4480C3A61953476F00B15428 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4480C4F51953B1DA00B15428 /* Campfire.icns */,
 				4480C3A71953476F00B15428 /* SIPEServicePlugin-Info.plist */,
 				4480C3A81953476F00B15428 /* InfoPlist.strings */,
 				4480C3AB1953476F00B15428 /* SIPEServicePlugin-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4480C3BB195348DA00B15428 /* SIPE Preference Pane */ = {
-			isa = PBXGroup;
-			children = (
-				4480C3C2195348DA00B15428 /* SIPE.h */,
-				4480C3C3195348DA00B15428 /* SIPE.m */,
-				4480C3C5195348DA00B15428 /* SIPE.tiff */,
-				4480C3C7195348DA00B15428 /* SIPE.xib */,
-				4480C3BC195348DA00B15428 /* Supporting Files */,
-			);
-			name = "SIPE Preference Pane";
-			path = SIPE;
-			sourceTree = "<group>";
-		};
-		4480C3BC195348DA00B15428 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4480C3BD195348DA00B15428 /* SIPE-Info.plist */,
-				4480C3BE195348DA00B15428 /* InfoPlist.strings */,
-				4480C3C1195348DA00B15428 /* SIPE-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -489,10 +751,68 @@
 			path = core;
 			sourceTree = "<group>";
 		};
+		4480C502195418D600B15428 /* SIPE Framework */ = {
+			isa = PBXGroup;
+			children = (
+				4480C509195418D600B15428 /* SIPEService.h */,
+				4480C50A195418D600B15428 /* SIPEService.m */,
+				4480C503195418D600B15428 /* Supporting Files */,
+				44170E4D195A3D6A005F433F /* SIPEConnection.h */,
+				44170E4E195A3D6A005F433F /* SIPEConnection.m */,
+				44170E51195A3DA2005F433F /* SIPEDNSQuery.h */,
+				44170E52195A3DA2005F433F /* SIPEDNSQuery.m */,
+				44170E55195A3DC2005F433F /* SIPEFileTransfer.h */,
+				44170E56195A3DC2005F433F /* SIPEFileTransfer.m */,
+				44170E59195A3DE1005F433F /* SIPEGroupChat.h */,
+				44170E5A195A3DE1005F433F /* SIPEGroupChat.m */,
+				44170E5D195A3E03005F433F /* SIPEInstantMessenger.h */,
+				44170E5E195A3E03005F433F /* SIPEInstantMessenger.m */,
+				44170E62195A3E3E005F433F /* SIPEStubs.m */,
+				44170E66195A3EB1005F433F /* SIPESearch.h */,
+				44170E67195A3EB1005F433F /* SIPESearch.m */,
+				44170E6A195ABDFF005F433F /* SIPESchedule.h */,
+				44170E6B195ABDFF005F433F /* SIPESchedule.m */,
+				44170E6E195ADB10005F433F /* SIPEStatus.h */,
+				44170E6F195ADB10005F433F /* SIPEStatus.m */,
+				44170E72195ADB88005F433F /* SIPETransport.h */,
+				44170E73195ADB88005F433F /* SIPETransport.m */,
+				44170E76195AF46D005F433F /* SIPEUser.h */,
+				44170E77195AF46D005F433F /* SIPEUser.m */,
+				44170E7A195AF67C005F433F /* SIPEBuddy.h */,
+				44170E7B195AF67C005F433F /* SIPEBuddy.m */,
+			);
+			name = "SIPE Framework";
+			path = "SIPE-Framework";
+			sourceTree = "<group>";
+		};
+		4480C503195418D600B15428 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4480C504195418D600B15428 /* SIPE-Framework-Info.plist */,
+				4480C505195418D600B15428 /* InfoPlist.strings */,
+				4480C508195418D600B15428 /* SIPE-Framework-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		4480C3B3195348DA00B15428 /* Headers */ = {
+		44170DD119589198005F433F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44170E14195A1FB7005F433F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44170E3E195A3057005F433F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -503,12 +823,152 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44170D8619589111005F433F /* sipe-notify.h in Headers */,
+				44170D8819589111005F433F /* sipe-ocs2005.h in Headers */,
+				44170D8A19589111005F433F /* sipe-ocs2007.h in Headers */,
+				44170D8C19589111005F433F /* sipe-schedule.h in Headers */,
+				44170D8E19589111005F433F /* sipe-session.h in Headers */,
+				44170D9019589111005F433F /* sipe-sign.h in Headers */,
+				44170D9219589111005F433F /* sipe-status.h in Headers */,
+				44170D9419589111005F433F /* sipe-subscriptions.h in Headers */,
+				44170D9619589111005F433F /* sipe-svc.h in Headers */,
+				44170D9819589111005F433F /* sipe-tls.h in Headers */,
+				44170D9A19589111005F433F /* sipe-ucs.h in Headers */,
+				44170D9C19589111005F433F /* sipe-user.h in Headers */,
+				44170D9E19589111005F433F /* sipe-utils.h in Headers */,
+				44170DA019589111005F433F /* sipe-webticket.h in Headers */,
+				44170DA119589111005F433F /* sipe-xml.h in Headers */,
+				44170DA319589111005F433F /* uuid.h in Headers */,
+				44170D711958909E005F433F /* sipe-ews-autodiscover.h in Headers */,
+				44170D731958909E005F433F /* sipe-ews.h in Headers */,
+				44170D761958909E005F433F /* sipe-ft.h in Headers */,
+				44170D781958909E005F433F /* sipe-group.h in Headers */,
+				44170D7A1958909E005F433F /* sipe-groupchat.h in Headers */,
+				44170D7C1958909E005F433F /* sipe-http-request.h in Headers */,
+				44170D7E1958909E005F433F /* sipe-http-transport.h in Headers */,
+				44170D801958909E005F433F /* sipe-http.h in Headers */,
+				44170D821958909E005F433F /* sipe-im.h in Headers */,
+				44170D841958909E005F433F /* sipe-incoming.h in Headers */,
+				44170D6C1958905E005F433F /* sipe-crypt.h in Headers */,
+				44170D6E1958905E005F433F /* sipe-dialog.h in Headers */,
+				44170D6F1958905E005F433F /* sipe-digest.h in Headers */,
+				44170D601958904A005F433F /* sipe-buddy.h in Headers */,
+				44170D621958904A005F433F /* sipe-cal.h in Headers */,
+				44170D631958904A005F433F /* sipe-cert-crypto.h in Headers */,
+				44170D651958904A005F433F /* sipe-certificate.h in Headers */,
+				44170D671958904A005F433F /* sipe-chat.h in Headers */,
+				44170D691958904A005F433F /* sipe-conf.h in Headers */,
+				44170D6A1958904A005F433F /* sipe-core-private.h in Headers */,
+				44170D5E19588FE9005F433F /* sip-transport.h in Headers */,
+				44170D5C19588FDA005F433F /* sip-soap.h in Headers */,
+				44170D5819588FBA005F433F /* sip-sec-mech.h in Headers */,
+				44170D5A19588FBA005F433F /* sip-sec-tls-dsk.h in Headers */,
+				44170D5519588FA6005F433F /* sip-sec-basic.h in Headers */,
+				44170D5719588FA6005F433F /* sip-sec-digest.h in Headers */,
+				44170D5319588F98005F433F /* sip-sec.h in Headers */,
+				44170D5119588F8C005F433F /* sip-csta.h in Headers */,
+				44170D4F19588F85005F433F /* sipmsg.h in Headers */,
+				442B56E7195862F7003FFA3F /* sipe-backend.h in Headers */,
+				442B56EB19586302003FFA3F /* sipe-nls.h in Headers */,
+				442B56EA195862FE003FFA3F /* sipe-mime.h in Headers */,
+				442B56E8195862F9003FFA3F /* sipe-common.h in Headers */,
+				442B56E9195862FC003FFA3F /* sipe-core.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4480C4FD195418D600B15428 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44170E53195A3DA2005F433F /* SIPEDNSQuery.h in Headers */,
+				44170E74195ADB88005F433F /* SIPETransport.h in Headers */,
+				44170E7C195AF67C005F433F /* SIPEBuddy.h in Headers */,
+				44170E78195AF46D005F433F /* SIPEUser.h in Headers */,
+				44170E68195A3EB1005F433F /* SIPESearch.h in Headers */,
+				44170E57195A3DC2005F433F /* SIPEFileTransfer.h in Headers */,
+				44170E5F195A3E03005F433F /* SIPEInstantMessenger.h in Headers */,
+				44170E4F195A3D6A005F433F /* SIPEConnection.h in Headers */,
+				44170E5B195A3DE1005F433F /* SIPEGroupChat.h in Headers */,
+				44170E6C195ABDFF005F433F /* SIPESchedule.h in Headers */,
+				44170E70195ADB10005F433F /* SIPEStatus.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		44170DA419589198005F433F /* SIPE Crypto Library */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44170E0519589198005F433F /* Build configuration list for PBXNativeTarget "SIPE Crypto Library" */;
+			buildPhases = (
+				44170DA519589198005F433F /* Sources */,
+				44170DCF19589198005F433F /* Frameworks */,
+				44170DD119589198005F433F /* Headers */,
+				44170E0419589198005F433F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SIPE Crypto Library";
+			productName = "SIPE Library";
+			productReference = 44170E0819589198005F433F /* libsipe_core_crypto.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		44170E0D195A1FB7005F433F /* SIPE XML Library */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44170E16195A1FB7005F433F /* Build configuration list for PBXNativeTarget "SIPE XML Library" */;
+			buildPhases = (
+				44170E0E195A1FB7005F433F /* Sources */,
+				44170E12195A1FB7005F433F /* Frameworks */,
+				44170E14195A1FB7005F433F /* Headers */,
+				44170E15195A1FB7005F433F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SIPE XML Library";
+			productName = "SIPE Library";
+			productReference = 44170E19195A1FB7005F433F /* libsipe_core_libxml2.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		44170E37195A3057005F433F /* SIPE MIME Library */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44170E40195A3057005F433F /* Build configuration list for PBXNativeTarget "SIPE MIME Library" */;
+			buildPhases = (
+				44170E38195A3057005F433F /* Sources */,
+				44170E3C195A3057005F433F /* Frameworks */,
+				44170E3E195A3057005F433F /* Headers */,
+				44170E3F195A3057005F433F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SIPE MIME Library";
+			productName = "SIPE Library";
+			productReference = 44170E43195A3057005F433F /* libsipe_core_mime.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		44170EAD195B0834005F433F /* SIPETests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44170EBC195B0834005F433F /* Build configuration list for PBXNativeTarget "SIPETests" */;
+			buildPhases = (
+				44170EAA195B0834005F433F /* Sources */,
+				44170EAB195B0834005F433F /* Frameworks */,
+				44170EAC195B0834005F433F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				44170EBB195B0834005F433F /* PBXTargetDependency */,
+			);
+			name = SIPETests;
+			productName = SIPETests;
+			productReference = 44170EAE195B0834005F433F /* SIPETests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		4480C39B1953476E00B15428 /* SIPE Plugin */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4480C3AE1953476F00B15428 /* Build configuration list for PBXNativeTarget "SIPE Plugin" */;
@@ -520,48 +980,51 @@
 			buildRules = (
 			);
 			dependencies = (
-				4480C4D41953559700B15428 /* PBXTargetDependency */,
 			);
 			name = "SIPE Plugin";
 			productName = SIPEServicePlugin;
 			productReference = 4480C39C1953476E00B15428 /* SIPE.imserviceplugin */;
 			productType = "com.apple.product-type.bundle";
 		};
-		4480C3B6195348DA00B15428 /* SIPE Plugin PrefPane */ = {
+		4480C3D419534B1700B15428 /* SIPE Core Library */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4480C3CA195348DA00B15428 /* Build configuration list for PBXNativeTarget "SIPE Plugin PrefPane" */;
-			buildPhases = (
-				4480C3B1195348DA00B15428 /* Sources */,
-				4480C3B2195348DA00B15428 /* Frameworks */,
-				4480C3B3195348DA00B15428 /* Headers */,
-				4480C3B4195348DA00B15428 /* Resources */,
-				4480C3B5195348DA00B15428 /* Rez */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "SIPE Plugin PrefPane";
-			productName = SIPE;
-			productReference = 4480C3B7195348DA00B15428 /* SIPE.impreferencepane */;
-			productType = "com.apple.product-type.bundle";
-		};
-		4480C3D419534B1700B15428 /* SIPE Library */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4480C3D619534B1700B15428 /* Build configuration list for PBXNativeTarget "SIPE Library" */;
+			buildConfigurationList = 4480C3D619534B1700B15428 /* Build configuration list for PBXNativeTarget "SIPE Core Library" */;
 			buildPhases = (
 				4480C3D119534B1700B15428 /* Sources */,
 				4480C3D219534B1700B15428 /* Frameworks */,
 				4480C3D319534B1700B15428 /* Headers */,
+				4480C4F71953B1F600B15428 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "SIPE Library";
+			name = "SIPE Core Library";
 			productName = "SIPE Library";
-			productReference = 4480C3D519534B1700B15428 /* libsipe.a */;
+			productReference = 4480C3D519534B1700B15428 /* libsipe_core.a */;
 			productType = "com.apple.product-type.library.static";
+		};
+		4480C4FF195418D600B15428 /* SIPE Framework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4480C51F195418D600B15428 /* Build configuration list for PBXNativeTarget "SIPE Framework" */;
+			buildPhases = (
+				4480C4FB195418D600B15428 /* Sources */,
+				4480C4FC195418D600B15428 /* Frameworks */,
+				4480C4FD195418D600B15428 /* Headers */,
+				4480C4FE195418D600B15428 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				44170E8C195AFE23005F433F /* PBXTargetDependency */,
+				44170E20195A29AB005F433F /* PBXTargetDependency */,
+				44170E1E195A29A7005F433F /* PBXTargetDependency */,
+				44170E1C195A299F005F433F /* PBXTargetDependency */,
+			);
+			name = "SIPE Framework";
+			productName = "SIPE-Framework";
+			productReference = 4480C500195418D600B15428 /* SIPE.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -571,6 +1034,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = ArkDev;
+				TargetAttributes = {
+					44170EAD195B0834005F433F = {
+						TestTargetID = 4480C4FF195418D600B15428;
+					};
+				};
 			};
 			buildConfigurationList = 4480C3971953476E00B15428 /* Build configuration list for PBXProject "SIPEServicePlugin" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -586,56 +1054,112 @@
 			projectRoot = "";
 			targets = (
 				4480C39B1953476E00B15428 /* SIPE Plugin */,
-				4480C3B6195348DA00B15428 /* SIPE Plugin PrefPane */,
-				4480C3D419534B1700B15428 /* SIPE Library */,
+				4480C3D419534B1700B15428 /* SIPE Core Library */,
+				44170DA419589198005F433F /* SIPE Crypto Library */,
+				44170E37195A3057005F433F /* SIPE MIME Library */,
+				44170E0D195A1FB7005F433F /* SIPE XML Library */,
+				4480C4FF195418D600B15428 /* SIPE Framework */,
+				44170EAD195B0834005F433F /* SIPETests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		44170E0419589198005F433F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44170E15195A1FB7005F433F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44170E3F195A3057005F433F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44170EAC195B0834005F433F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44170EB6195B0834005F433F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4480C39A1953476E00B15428 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4480C3AA1953476F00B15428 /* InfoPlist.strings in Resources */,
+				4480C4F61953B1DA00B15428 /* Campfire.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4480C3B4195348DA00B15428 /* Resources */ = {
+		4480C4F71953B1F600B15428 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4480C3C0195348DA00B15428 /* InfoPlist.strings in Resources */,
-				4480C3C9195348DA00B15428 /* SIPE.xib in Resources */,
-				4480C3C6195348DA00B15428 /* SIPE.tiff in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4480C4FE195418D600B15428 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4480C507195418D600B15428 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXRezBuildPhase section */
-		4480C3B5195348DA00B15428 /* Rez */ = {
-			isa = PBXRezBuildPhase;
+/* Begin PBXSourcesBuildPhase section */
+		44170DA519589198005F433F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44170E0919589290005F433F /* sipe-cert-crypto-openssl.c in Sources */,
+				44170E0A19589290005F433F /* sipe-crypt-openssl.c in Sources */,
+				44170E0B19589290005F433F /* sipe-digest-openssl.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXRezBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
+		44170E0E195A1FB7005F433F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44170E1A195A2014005F433F /* sipe-xml.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44170E38195A3057005F433F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44170E44195A30A7005F433F /* sipe-mime.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44170EAA195B0834005F433F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44170EB8195B0834005F433F /* SIPETests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4480C3981953476E00B15428 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4480C3B1195348DA00B15428 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4480C3C4195348DA00B15428 /* SIPE.m in Sources */,
+				4480C4F419539E2100B15428 /* SIPEServicePlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,72 +1167,113 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4480C4F11953865A00B15428 /* sip-sec-ntlm-tests.c in Sources */,
-				4480C4F01953864200B15428 /* sip-transport.c in Sources */,
-				4480C4EF1953863200B15428 /* sip-sec.c in Sources */,
-				4480C4EE195385E400B15428 /* sip-sec-gssapi.c in Sources */,
-				4480C4ED195385D500B15428 /* sip-csta.c in Sources */,
-				4480C4EB195385A000B15428 /* sip-sec-basic.c in Sources */,
-				4480C4EC195385A000B15428 /* sip-sec-negotiate.c in Sources */,
-				4480C4EA1953855F00B15428 /* sip-sec-tls-dsk.c in Sources */,
-				4480C4E91953854800B15428 /* sip-sec-digest.c in Sources */,
-				4480C4E81953853800B15428 /* sip-sec-ntlm.c in Sources */,
-				4480C4E71953852500B15428 /* sip-soap.c in Sources */,
-				4480C4E61953850E00B15428 /* md4.c in Sources */,
-				4480C4E5195384F200B15428 /* sdpmsg.c in Sources */,
-				4480C4E4195384DE00B15428 /* uuid.c in Sources */,
-				4480C47F19534B9700B15428 /* sipe-cert-crypto-openssl.c in Sources */,
-				4480C48A19534B9700B15428 /* sipe-crypt-openssl.c in Sources */,
-				4480C48F19534B9700B15428 /* sipe-digest-openssl.c in Sources */,
-				4480C49E19534B9700B15428 /* sipe-http-request.c in Sources */,
-				4480C4A019534B9700B15428 /* sipe-http-transport.c in Sources */,
-				4480C4A219534B9700B15428 /* sipe-http.c in Sources */,
-				4480C47A19534B9700B15428 /* sipe-buddy.c in Sources */,
-				4480C47C19534B9700B15428 /* sipe-cal.c in Sources */,
-				4480C48319534B9700B15428 /* sipe-chat.c in Sources */,
-				4480C48519534B9700B15428 /* sipe-conf.c in Sources */,
-				4480C48819534B9700B15428 /* sipe-core.c in Sources */,
-				4480C48C19534B9700B15428 /* sipe-dialog.c in Sources */,
-				4480C49119534B9700B15428 /* sipe-domino.c in Sources */,
-				4480C49519534B9700B15428 /* sipe-ews.c in Sources */,
-				4480C49319534B9700B15428 /* sipe-ews-autodiscover.c in Sources */,
-				4480C49819534B9700B15428 /* sipe-ft.c in Sources */,
-				4480C4B119534B9700B15428 /* sipe-schedule.c in Sources */,
-				4480C4B319534B9700B15428 /* sipe-session.c in Sources */,
-				4480C4B519534B9700B15428 /* sipe-sign.c in Sources */,
-				4480C4C419534B9700B15428 /* sipe-utils.c in Sources */,
-				4480C4CB19534B9700B15428 /* sipe-xml.c in Sources */,
-				4480C49C19534B9700B15428 /* sipe-groupchat.c in Sources */,
-				4480C4A619534B9700B15428 /* sipe-incoming.c in Sources */,
-				4480C4C019534B9700B15428 /* sipe-ucs.c in Sources */,
-				4480C4B919534B9700B15428 /* sipe-subscriptions.c in Sources */,
-				4480C4C219534B9700B15428 /* sipe-user.c in Sources */,
-				4480C4A419534B9700B15428 /* sipe-im.c in Sources */,
-				4480C49719534B9700B15428 /* sipe-ft-tftp.c in Sources */,
-				4480C49A19534B9700B15428 /* sipe-group.c in Sources */,
-				4480C4BB19534B9700B15428 /* sipe-svc.c in Sources */,
-				4480C4AF19534B9700B15428 /* sipe-ocs2007.c in Sources */,
-				4480C4AD19534B9700B15428 /* sipe-ocs2005.c in Sources */,
-				4480C4B719534B9700B15428 /* sipe-status.c in Sources */,
-				4480C4AB19534B9700B15428 /* sipe-notify.c in Sources */,
-				4480C4C619534B9700B15428 /* sipe-webticket.c in Sources */,
-				4480C48119534B9700B15428 /* sipe-certificate.c in Sources */,
-				4480C4BD19534B9700B15428 /* sipe-tls-tester.c in Sources */,
-				4480C4BE19534B9700B15428 /* sipe-tls.c in Sources */,
+				44170E81195AFB01005F433F /* sip-sec-gssapi.c in Sources */,
+				44170E7E195AFAB4005F433F /* md4.c in Sources */,
+				44170E7F195AFAB4005F433F /* sip-sec-negotiate.c in Sources */,
+				44170E80195AFAB4005F433F /* sip-sec-ntlm.c in Sources */,
+				44170D8519589111005F433F /* sipe-notify.c in Sources */,
+				44170D8719589111005F433F /* sipe-ocs2005.c in Sources */,
+				44170D8919589111005F433F /* sipe-ocs2007.c in Sources */,
+				44170D8B19589111005F433F /* sipe-schedule.c in Sources */,
+				44170D8D19589111005F433F /* sipe-session.c in Sources */,
+				44170D8F19589111005F433F /* sipe-sign.c in Sources */,
+				44170D9119589111005F433F /* sipe-status.c in Sources */,
+				44170D9319589111005F433F /* sipe-subscriptions.c in Sources */,
+				44170D9519589111005F433F /* sipe-svc.c in Sources */,
+				44170D9719589111005F433F /* sipe-tls.c in Sources */,
+				44170D9919589111005F433F /* sipe-ucs.c in Sources */,
+				44170D9B19589111005F433F /* sipe-user.c in Sources */,
+				44170D9D19589111005F433F /* sipe-utils.c in Sources */,
+				44170D9F19589111005F433F /* sipe-webticket.c in Sources */,
+				44170DA219589111005F433F /* uuid.c in Sources */,
+				44170D701958909E005F433F /* sipe-ews-autodiscover.c in Sources */,
+				44170D721958909E005F433F /* sipe-ews.c in Sources */,
+				44170D741958909E005F433F /* sipe-ft-tftp.c in Sources */,
+				44170D751958909E005F433F /* sipe-ft.c in Sources */,
+				44170D771958909E005F433F /* sipe-group.c in Sources */,
+				44170D791958909E005F433F /* sipe-groupchat.c in Sources */,
+				44170D7B1958909E005F433F /* sipe-http-request.c in Sources */,
+				44170D7D1958909E005F433F /* sipe-http-transport.c in Sources */,
+				44170D7F1958909E005F433F /* sipe-http.c in Sources */,
+				44170D811958909E005F433F /* sipe-im.c in Sources */,
+				44170D831958909E005F433F /* sipe-incoming.c in Sources */,
+				44170D6D1958905E005F433F /* sipe-dialog.c in Sources */,
+				44170D5F1958904A005F433F /* sipe-buddy.c in Sources */,
+				44170D611958904A005F433F /* sipe-cal.c in Sources */,
+				44170D641958904A005F433F /* sipe-certificate.c in Sources */,
+				44170D661958904A005F433F /* sipe-chat.c in Sources */,
+				44170D681958904A005F433F /* sipe-conf.c in Sources */,
+				44170D6B1958904A005F433F /* sipe-core.c in Sources */,
+				44170D5D19588FE9005F433F /* sip-transport.c in Sources */,
+				44170D5B19588FDA005F433F /* sip-soap.c in Sources */,
+				44170D5919588FBA005F433F /* sip-sec-tls-dsk.c in Sources */,
+				44170D5419588FA6005F433F /* sip-sec-basic.c in Sources */,
+				44170D5619588FA6005F433F /* sip-sec-digest.c in Sources */,
+				44170D5219588F98005F433F /* sip-sec.c in Sources */,
+				44170D5019588F8C005F433F /* sip-csta.c in Sources */,
+				44170D4E19588F85005F433F /* sipmsg.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4480C4FB195418D600B15428 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44170E64195A3E3E005F433F /* SIPEStubs.m in Sources */,
+				44170E79195AF46D005F433F /* SIPEUser.m in Sources */,
+				44170E60195A3E03005F433F /* SIPEInstantMessenger.m in Sources */,
+				4480C50B195418D600B15428 /* SIPEService.m in Sources */,
+				44170E5C195A3DE1005F433F /* SIPEGroupChat.m in Sources */,
+				44170E71195ADB10005F433F /* SIPEStatus.m in Sources */,
+				44170E54195A3DA2005F433F /* SIPEDNSQuery.m in Sources */,
+				44170E50195A3D6A005F433F /* SIPEConnection.m in Sources */,
+				44170E69195A3EB1005F433F /* SIPESearch.m in Sources */,
+				44170E75195ADB88005F433F /* SIPETransport.m in Sources */,
+				44170E6D195ABDFF005F433F /* SIPESchedule.m in Sources */,
+				44170E58195A3DC2005F433F /* SIPEFileTransfer.m in Sources */,
+				44170E7D195AF67C005F433F /* SIPEBuddy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4480C4D41953559700B15428 /* PBXTargetDependency */ = {
+		44170E1C195A299F005F433F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4480C3D419534B1700B15428 /* SIPE Library */;
-			targetProxy = 4480C4D31953559700B15428 /* PBXContainerItemProxy */;
+			target = 4480C3D419534B1700B15428 /* SIPE Core Library */;
+			targetProxy = 44170E1B195A299F005F433F /* PBXContainerItemProxy */;
+		};
+		44170E1E195A29A7005F433F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 44170DA419589198005F433F /* SIPE Crypto Library */;
+			targetProxy = 44170E1D195A29A7005F433F /* PBXContainerItemProxy */;
+		};
+		44170E20195A29AB005F433F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 44170E0D195A1FB7005F433F /* SIPE XML Library */;
+			targetProxy = 44170E1F195A29AB005F433F /* PBXContainerItemProxy */;
+		};
+		44170E8C195AFE23005F433F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 44170E37195A3057005F433F /* SIPE MIME Library */;
+			targetProxy = 44170E8B195AFE23005F433F /* PBXContainerItemProxy */;
+		};
+		44170EBB195B0834005F433F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4480C4FF195418D600B15428 /* SIPE Framework */;
+			targetProxy = 44170EBA195B0834005F433F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		44170EB4195B0834005F433F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44170EB5195B0834005F433F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		4480C3A81953476F00B15428 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -717,25 +1282,247 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		4480C3BE195348DA00B15428 /* InfoPlist.strings */ = {
+		4480C505195418D600B15428 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4480C3BF195348DA00B15428 /* en */,
+				4480C506195418D600B15428 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		4480C3C7195348DA00B15428 /* SIPE.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4480C3C8195348DA00B15428 /* Base */,
-			);
-			name = SIPE.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		44170E0619589198005F433F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_WARN_BOOL_CONVERSION = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = NO;
+				CLANG_WARN_ENUM_CONVERSION = NO;
+				CLANG_WARN_INT_CONVERSION = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Frameworks",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks/libintl.framework/Headers",
+					"$(SRCROOT)/Frameworks/libglib.framework/Headers",
+					/usr/include/libxml2,
+				);
+				PRODUCT_NAME = sipe_core_crypto;
+				USER_HEADER_SEARCH_PATHS = /usr/include/libxml2;
+			};
+			name = Debug;
+		};
+		44170E0719589198005F433F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_WARN_BOOL_CONVERSION = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = NO;
+				CLANG_WARN_ENUM_CONVERSION = NO;
+				CLANG_WARN_INT_CONVERSION = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Frameworks",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks/libintl.framework/Headers",
+					"$(SRCROOT)/Frameworks/libglib.framework/Headers",
+					/usr/include/libxml2,
+				);
+				PRODUCT_NAME = sipe_core_crypto;
+				USER_HEADER_SEARCH_PATHS = /usr/include/libxml2;
+			};
+			name = Release;
+		};
+		44170E17195A1FB7005F433F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_WARN_BOOL_CONVERSION = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = NO;
+				CLANG_WARN_ENUM_CONVERSION = NO;
+				CLANG_WARN_INT_CONVERSION = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Frameworks",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks/libintl.framework/Headers",
+					"$(SRCROOT)/Frameworks/libglib.framework/Headers",
+					/usr/include/libxml2,
+				);
+				PRODUCT_NAME = sipe_core_libxml2;
+				USER_HEADER_SEARCH_PATHS = /usr/include/libxml2;
+			};
+			name = Debug;
+		};
+		44170E18195A1FB7005F433F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_WARN_BOOL_CONVERSION = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = NO;
+				CLANG_WARN_ENUM_CONVERSION = NO;
+				CLANG_WARN_INT_CONVERSION = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Frameworks",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks/libintl.framework/Headers",
+					"$(SRCROOT)/Frameworks/libglib.framework/Headers",
+					/usr/include/libxml2,
+				);
+				PRODUCT_NAME = sipe_core_libxml2;
+				USER_HEADER_SEARCH_PATHS = /usr/include/libxml2;
+			};
+			name = Release;
+		};
+		44170E41195A3057005F433F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_WARN_BOOL_CONVERSION = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = NO;
+				CLANG_WARN_ENUM_CONVERSION = NO;
+				CLANG_WARN_INT_CONVERSION = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Frameworks",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks/libintl.framework/Headers",
+					"$(SRCROOT)/Frameworks/libglib.framework/Headers",
+					/usr/include/libxml2,
+					"/usr/local/include/gmime-2.6",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/usr/local/Cellar/gmime/2.6.20/lib,
+				);
+				PRODUCT_NAME = sipe_core_mime;
+				USER_HEADER_SEARCH_PATHS = /usr/include/libxml2;
+			};
+			name = Debug;
+		};
+		44170E42195A3057005F433F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_WARN_BOOL_CONVERSION = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = NO;
+				CLANG_WARN_ENUM_CONVERSION = NO;
+				CLANG_WARN_INT_CONVERSION = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Frameworks",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks/libintl.framework/Headers",
+					"$(SRCROOT)/Frameworks/libglib.framework/Headers",
+					/usr/include/libxml2,
+					"/usr/local/include/gmime-2.6",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/usr/local/Cellar/gmime/2.6.20/lib,
+				);
+				PRODUCT_NAME = sipe_core_mime;
+				USER_HEADER_SEARCH_PATHS = /usr/include/libxml2;
+			};
+			name = Release;
+		};
+		44170EBD195B0834005F433F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SIPETests/SIPETests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SIPETests/SIPETests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		44170EBE195B0834005F433F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SIPETests/SIPETests-Prefix.pch";
+				INFOPLIST_FILE = "SIPETests/SIPETests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		4480C3AC1953476F00B15428 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -757,6 +1544,43 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"SIPE_TRANSLATIONS_URL=\\\"https://www.transifex.com/projects/p/pidgin-sipe/resource/mob/\\\"",
+					"LOCALEDIR=\\\"translations\\\"",
+					"PURPLE_STATIC_PRPL=1",
+					"HAVE_BIND_TEXTDOMAIN_CODESET=1",
+					"ENABLE_NLS=1",
+					"ADIUM=1",
+					"PACKAGE_NAME=\\\"pidgin-sipe\\\"",
+					"PACKAGE_TARNAME=\\\"pidgin-sipe\\\"",
+					"PACKAGE_VERSION=\\\"1.18.2\\\"",
+					"PACKAGE_STRING=\\\"pidgin-sipe\\ 1.18.2\\\"",
+					"PACKAGE_BUGREPORT=\\\"https://sourceforge.net/p/sipe/bugs/\\\"",
+					"PACKAGE_URL=\\\"http://sipe.sourceforge.net/\\\"",
+					"STDC_HEADERS=1",
+					"HAVE_SYS_TYPES_H=1",
+					"HAVE_SYS_STAT_H=1",
+					"HAVE_STDLIB_H=1",
+					"HAVE_STRING_H=1",
+					"HAVE_MEMORY_H=1",
+					"HAVE_STRINGS_H=1",
+					"HAVE_INTTYPES_H=1",
+					"HAVE_STDINT_H=1",
+					"HAVE_UNISTD_H=1",
+					"HAVE_DLFCN_H=1",
+					"LT_OBJDIR=\\\".libs/\\\"",
+					"STDC_HEADERS=1",
+					"HAVE_LOCALE_H=1",
+					"HAVE_LC_MESSAGES=1",
+					"HAVE_DLFCN_H=1",
+					"HAVE_DCGETTEXT=1",
+					"HAVE_GETTEXT=1",
+					"HAVE_LOCALE_H=1",
+					"HAVE_GSSAPI_GSSAPI_H=1",
+					"HAVE_LANGINFO_CODESET=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -793,91 +1617,6 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_PREPROCESSOR_DEFINITIONS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		4480C3AF1953476F00B15428 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SIPEServicePlugin/SIPEServicePlugin-Prefix.pch";
-				INFOPLIST_FILE = "SIPEServicePlugin/SIPEServicePlugin-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Messages/PlugIns/";
-				PRODUCT_NAME = SIPE;
-				WRAPPER_EXTENSION = imserviceplugin;
-			};
-			name = Debug;
-		};
-		4480C3B01953476F00B15428 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SIPEServicePlugin/SIPEServicePlugin-Prefix.pch";
-				INFOPLIST_FILE = "SIPEServicePlugin/SIPEServicePlugin-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Messages/PlugIns/";
-				PRODUCT_NAME = SIPE;
-				WRAPPER_EXTENSION = imserviceplugin;
-			};
-			name = Release;
-		};
-		4480C3CB195348DA00B15428 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SIPE/SIPE-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "SIPE/SIPE-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = impreferencepane;
-			};
-			name = Debug;
-		};
-		4480C3CC195348DA00B15428 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SIPE/SIPE-Prefix.pch";
-				INFOPLIST_FILE = "SIPE/SIPE-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = impreferencepane;
-			};
-			name = Release;
-		};
-		4480C3D719534B1700B15428 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = NO;
-				CLANG_WARN_BOOL_CONVERSION = NO;
-				CLANG_WARN_CONSTANT_CONVERSION = NO;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = NO;
-				CLANG_WARN_ENUM_CONVERSION = NO;
-				CLANG_WARN_INT_CONVERSION = NO;
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = lib;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/Frameworks",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"SIPE_TRANSLATIONS_URL=\\\"https://www.transifex.com/projects/p/pidgin-sipe/resource/mob/\\\"",
 					"LOCALEDIR=\\\"translations\\\"",
@@ -912,9 +1651,67 @@
 					"HAVE_LOCALE_H=1",
 					"HAVE_GSSAPI_GSSAPI_H=1",
 					"HAVE_LANGINFO_CODESET=1",
-					"DEBUG=1",
-					"$(inherited)",
 				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_PREPROCESSOR_DEFINITIONS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4480C3AF1953476F00B15428 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SIPEServicePlugin/SIPEServicePlugin-Prefix.pch";
+				INFOPLIST_FILE = "SIPEServicePlugin/SIPEServicePlugin-Info.plist";
+				INSTALL_PATH = /Library/Messages/PlugIns/;
+				PRODUCT_NAME = SIPE;
+				WRAPPER_EXTENSION = imserviceplugin;
+			};
+			name = Debug;
+		};
+		4480C3B01953476F00B15428 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SIPEServicePlugin/SIPEServicePlugin-Prefix.pch";
+				INFOPLIST_FILE = "SIPEServicePlugin/SIPEServicePlugin-Info.plist";
+				INSTALL_PATH = /Library/Messages/PlugIns/;
+				PRODUCT_NAME = SIPE;
+				WRAPPER_EXTENSION = imserviceplugin;
+			};
+			name = Release;
+		};
+		4480C3D719534B1700B15428 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_WARN_BOOL_CONVERSION = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = NO;
+				CLANG_WARN_ENUM_CONVERSION = NO;
+				CLANG_WARN_INT_CONVERSION = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Frameworks",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
@@ -924,7 +1721,7 @@
 					"$(SRCROOT)/Frameworks/libglib.framework/Headers",
 					/usr/include/libxml2,
 				);
-				PRODUCT_NAME = sipe;
+				PRODUCT_NAME = sipe_core;
 				USER_HEADER_SEARCH_PATHS = /usr/include/libxml2;
 			};
 			name = Debug;
@@ -945,41 +1742,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
 				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"SIPE_TRANSLATIONS_URL=\\\"https://www.transifex.com/projects/p/pidgin-sipe/resource/mob/\\\"",
-					"LOCALEDIR=\\\"translations\\\"",
-					"PURPLE_STATIC_PRPL=1",
-					"HAVE_BIND_TEXTDOMAIN_CODESET=1",
-					"ENABLE_NLS=1",
-					"ADIUM=1",
-					"PACKAGE_NAME=\\\"pidgin-sipe\\\"",
-					"PACKAGE_TARNAME=\\\"pidgin-sipe\\\"",
-					"PACKAGE_VERSION=\\\"1.18.2\\\"",
-					"PACKAGE_STRING=\\\"pidgin-sipe\\ 1.18.2\\\"",
-					"PACKAGE_BUGREPORT=\\\"https://sourceforge.net/p/sipe/bugs/\\\"",
-					"PACKAGE_URL=\\\"http://sipe.sourceforge.net/\\\"",
-					"STDC_HEADERS=1",
-					"HAVE_SYS_TYPES_H=1",
-					"HAVE_SYS_STAT_H=1",
-					"HAVE_STDLIB_H=1",
-					"HAVE_STRING_H=1",
-					"HAVE_MEMORY_H=1",
-					"HAVE_STRINGS_H=1",
-					"HAVE_INTTYPES_H=1",
-					"HAVE_STDINT_H=1",
-					"HAVE_UNISTD_H=1",
-					"HAVE_DLFCN_H=1",
-					"LT_OBJDIR=\\\".libs/\\\"",
-					"STDC_HEADERS=1",
-					"HAVE_LOCALE_H=1",
-					"HAVE_LC_MESSAGES=1",
-					"HAVE_DLFCN_H=1",
-					"HAVE_DCGETTEXT=1",
-					"HAVE_GETTEXT=1",
-					"HAVE_LOCALE_H=1",
-					"HAVE_GSSAPI_GSSAPI_H=1",
-					"HAVE_LANGINFO_CODESET=1",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
@@ -989,14 +1752,105 @@
 					"$(SRCROOT)/Frameworks/libglib.framework/Headers",
 					/usr/include/libxml2,
 				);
-				PRODUCT_NAME = sipe;
+				PRODUCT_NAME = sipe_core;
 				USER_HEADER_SEARCH_PATHS = /usr/include/libxml2;
+			};
+			name = Release;
+		};
+		4480C520195418D600B15428 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SIPE-Framework/SIPE-Framework-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks/libintl.framework/Headers",
+					"$(SRCROOT)/Frameworks/libglib.framework/Headers",
+				);
+				INFOPLIST_FILE = "SIPE-Framework/SIPE-Framework-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/gmime/2.6.20/lib,
+				);
+				PRODUCT_NAME = SIPE;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		4480C521195418D600B15428 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SIPE-Framework/SIPE-Framework-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks/libintl.framework/Headers",
+					"$(SRCROOT)/Frameworks/libglib.framework/Headers",
+				);
+				INFOPLIST_FILE = "SIPE-Framework/SIPE-Framework-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/gmime/2.6.20/lib,
+				);
+				PRODUCT_NAME = SIPE;
+				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		44170E0519589198005F433F /* Build configuration list for PBXNativeTarget "SIPE Crypto Library" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44170E0619589198005F433F /* Debug */,
+				44170E0719589198005F433F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44170E16195A1FB7005F433F /* Build configuration list for PBXNativeTarget "SIPE XML Library" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44170E17195A1FB7005F433F /* Debug */,
+				44170E18195A1FB7005F433F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44170E40195A3057005F433F /* Build configuration list for PBXNativeTarget "SIPE MIME Library" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44170E41195A3057005F433F /* Debug */,
+				44170E42195A3057005F433F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44170EBC195B0834005F433F /* Build configuration list for PBXNativeTarget "SIPETests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44170EBD195B0834005F433F /* Debug */,
+				44170EBE195B0834005F433F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		4480C3971953476E00B15428 /* Build configuration list for PBXProject "SIPEServicePlugin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1013,22 +1867,25 @@
 				4480C3B01953476F00B15428 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		4480C3CA195348DA00B15428 /* Build configuration list for PBXNativeTarget "SIPE Plugin PrefPane" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4480C3CB195348DA00B15428 /* Debug */,
-				4480C3CC195348DA00B15428 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		4480C3D619534B1700B15428 /* Build configuration list for PBXNativeTarget "SIPE Library" */ = {
+		4480C3D619534B1700B15428 /* Build configuration list for PBXNativeTarget "SIPE Core Library" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4480C3D719534B1700B15428 /* Debug */,
 				4480C3D819534B1700B15428 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4480C51F195418D600B15428 /* Build configuration list for PBXNativeTarget "SIPE Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4480C520195418D600B15428 /* Debug */,
+				4480C521195418D600B15428 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

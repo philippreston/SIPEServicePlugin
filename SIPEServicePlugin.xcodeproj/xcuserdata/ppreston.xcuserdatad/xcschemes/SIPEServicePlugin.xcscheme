@@ -33,12 +33,34 @@
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      launchStyle = "0"
+      debugAsWhichUser = "root"
+      launchStyle = "1"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
-      allowLocationSimulation = "YES">
+      allowLocationSimulation = "NO">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "killall imagent">
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "">
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
+      <PathRunnable
+         FilePath = "/System/Library/Frameworks/IMServicePlugIn.framework/IMServicePlugInAgent.app/Contents/MacOS/IMServicePlugInAgent">
+      </PathRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

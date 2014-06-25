@@ -15,8 +15,50 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4480C3D419534B1700B15428"
-               BuildableName = "libSIPE Library.a"
-               BlueprintName = "SIPE Library"
+               BuildableName = "libsipe_core.a"
+               BlueprintName = "SIPE Core Library"
+               ReferencedContainer = "container:SIPEServicePlugin.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "44170DA419589198005F433F"
+               BuildableName = "libsipe_core_crypto.a"
+               BlueprintName = "SIPE Crypto Library"
+               ReferencedContainer = "container:SIPEServicePlugin.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "44170E0D195A1FB7005F433F"
+               BuildableName = "libsipe_core_libxml2.a"
+               BlueprintName = "SIPE XML Library"
+               ReferencedContainer = "container:SIPEServicePlugin.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "44170E37195A3057005F433F"
+               BuildableName = "libsipe_core_mime.a"
+               BlueprintName = "SIPE MIME Library"
                ReferencedContainer = "container:SIPEServicePlugin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

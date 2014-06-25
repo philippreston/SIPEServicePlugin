@@ -7,9 +7,9 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string></string>
+	<string>Campfire.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.arkdev.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.apple.developer.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -22,9 +22,32 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>IMServiceIcon</key>
+	<string>Campfire.icns</string>
+	<key>IMUsesDescriptionAccountSetting</key>
+	<true/>
+	<key>IMUsesEnableSSLAccountSetting</key>
+	<false/>
+	<key>IMUsesLoginHandleAccountSetting</key>
+	<true/>
+	<key>IMUsesPasswordAccountSetting</key>
+	<true/>
+	<key>IMUsesServerHostAccountSetting</key>
+	<false/>
+	<key>IMUsesServerPortAccountSetting</key>
+	<false/>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2014 ArkDev. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
-	<string></string>
+	<string>SIPEServicePlugin</string>
+	<key>ServiceName</key>
+	<string>SIPE</string>
+	<key>IMServiceCapabilities</key>
+	<array>
+		<string>IMServiceCapabilityPresenceSupport</string>
+		<string>IMServiceCapabilityInstantMessagingSupport</string>
+		<string>IMServiceCapabilityGroupListSupport</string>
+		<string>IMServiceCapabilityGroupListOrderingSupport</string>
+	</array>
 </dict>
 </plist>
