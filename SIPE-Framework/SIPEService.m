@@ -14,12 +14,7 @@
 #import "sipe-backend.h"
 #import "sipe-core.h"
 #import "SIPEService.h"
-
-//===============================================================================
-// MACROS
-//===============================================================================
-// TODO: Make this dynamic
-#define FRAMEWORK_VERSION @"0.0.1"
+#import "SIPELogger.h"
 
 // Handle for C API
 SIPEService * refSIPEService;
@@ -32,19 +27,24 @@ SIPEService * refSIPEService;
 //===============================================================================
 @implementation SIPEService
 
-@synthesize enableDebug = _enableDebug;
 @synthesize version = _version;
+@synthesize mainBundle = _mainBundle;
 
+static SIPELogger * logger;
 
 -(instancetype) init
 {
+    logger = [SIPELogger getLogger];
+    [logger debugMessage:@"Initialising SIPEService"];
+
     if((self = [super init]))
     {
-        _version = FRAMEWORK_VERSION;
-
-        // Initialise reference for c
-        refSIPEService = self;
+        _mainBundle = [[NSBundle mainBundle] infoDictionary];
+        _version = [self.mainBundle objectForKey:@"CFBundleShortVersionString"];
     }
+
+    // Initialise reference for c
+    refSIPEService = self;
     return self;
 }
 
@@ -58,12 +58,14 @@ SIPEService * refSIPEService;
 {
     // TODO: "" may be better
     // Initialise the sipe core
+    [logger debugMessage:@"Initialising sipe_core"];
     sipe_core_init(LOCALEDIR);
 }
 
 -(void) logout
 {
     // Shudown the sipe core
+    [logger debugMessage:@"Destroying sipe_core"];
     sipe_core_destroy();
 }
 
@@ -80,32 +82,5 @@ gchar * sipe_backend_version(void)
     return (gchar *)[refSIPEService.version
                      cStringUsingEncoding: NSUTF8StringEncoding];
 }
-
-
-#pragma mark  -
-#pragma mark SIPE C Backend DEBUG Functions
-#pragma mark  -
-//===============================================================================
-// SIPE C Backend DEBUG Functions
-//===============================================================================
-gboolean sipe_backend_debug_enabled(void)
-{
-    return [refSIPEService enableDebug];
-}
-
-void sipe_backend_debug_literal(sipe_debug_level level,
-                                const gchar *msg)
-{
-    // TODO: Implement
-}
-
-void sipe_backend_debug(sipe_debug_level level,
-                        const gchar *format,
-                        ...)
-{
-    // TODO: Implement
-}
-
-
 
 

@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <IMServicePlugIn/IMServicePlugIn.h>
 
-@interface SIPEService : NSObject
+@interface SIPEService : NSObject {
+    
+}
 
 //===============================================================================
 // Initialisers
@@ -25,7 +27,7 @@
 //===============================================================================
 // Properties
 //===============================================================================
-@property (readwrite) BOOL enableDebug;
-@property (readwrite) NSString * version;
+@property (readonly) NSString * version;
+@property (readonly) NSDictionary * mainBundle;
 
 @end

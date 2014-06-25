@@ -148,9 +148,12 @@
 		44170E94195B0130005F433F /* Kerberos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E92195B0122005F433F /* Kerberos.framework */; };
 		44170EA7195B04B1005F433F /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170EA6195B04B1005F433F /* libcrypto.dylib */; };
 		44170EA8195B04F6005F433F /* SIPE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C500195418D600B15428 /* SIPE.framework */; };
-		44170EB6195B0834005F433F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44170EB4195B0834005F433F /* InfoPlist.strings */; };
-		44170EB8195B0834005F433F /* SIPETests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170EB7195B0834005F433F /* SIPETests.m */; };
-		44170EBF195B085C005F433F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C511195418D600B15428 /* XCTest.framework */; };
+		44170EC2195B12D4005F433F /* SIPELogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 44170EC0195B12D4005F433F /* SIPELogger.h */; };
+		44170EC3195B12D4005F433F /* SIPELogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170EC1195B12D4005F433F /* SIPELogger.m */; };
+		44170F02195B76DD005F433F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44170F00195B76DD005F433F /* InfoPlist.strings */; };
+		44170F0C195B775E005F433F /* SIPELoggerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170F0B195B775E005F433F /* SIPELoggerTest.m */; };
+		44170F0D195B7788005F433F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C511195418D600B15428 /* XCTest.framework */; };
+		44170F0E195B77FA005F433F /* SIPE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C500195418D600B15428 /* SIPE.framework */; };
 		442B56E7195862F7003FFA3F /* sipe-backend.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3DB19534B9600B15428 /* sipe-backend.h */; };
 		442B56E8195862F9003FFA3F /* sipe-common.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3DC19534B9600B15428 /* sipe-common.h */; };
 		442B56E9195862FC003FFA3F /* sipe-core.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3DD19534B9600B15428 /* sipe-core.h */; };
@@ -194,7 +197,7 @@
 			remoteGlobalIDString = 44170E37195A3057005F433F;
 			remoteInfo = "SIPE MIME Library";
 		};
-		44170EBA195B0834005F433F /* PBXContainerItemProxy */ = {
+		44170F06195B76DD005F433F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4480C3941953476E00B15428 /* Project object */;
 			proxyType = 1;
@@ -243,11 +246,13 @@
 		44170E92195B0122005F433F /* Kerberos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kerberos.framework; path = System/Library/Frameworks/Kerberos.framework; sourceTree = SDKROOT; };
 		44170EA0195B0218005F433F /* GSS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSS.framework; path = System/Library/Frameworks/GSS.framework; sourceTree = SDKROOT; };
 		44170EA6195B04B1005F433F /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
-		44170EAE195B0834005F433F /* SIPETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SIPETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		44170EB3195B0834005F433F /* SIPETests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SIPETests-Info.plist"; sourceTree = "<group>"; };
-		44170EB5195B0834005F433F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		44170EB7195B0834005F433F /* SIPETests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SIPETests.m; sourceTree = "<group>"; };
-		44170EB9195B0834005F433F /* SIPETests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SIPETests-Prefix.pch"; sourceTree = "<group>"; };
+		44170EC0195B12D4005F433F /* SIPELogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPELogger.h; sourceTree = "<group>"; };
+		44170EC1195B12D4005F433F /* SIPELogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPELogger.m; sourceTree = "<group>"; };
+		44170EFA195B76DD005F433F /* SIPETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SIPETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		44170EFF195B76DD005F433F /* SIPETests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SIPETests-Info.plist"; sourceTree = "<group>"; };
+		44170F01195B76DD005F433F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		44170F05195B76DD005F433F /* SIPETests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SIPETests-Prefix.pch"; sourceTree = "<group>"; };
+		44170F0B195B775E005F433F /* SIPELoggerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPELoggerTest.m; sourceTree = "<group>"; };
 		4480C39C1953476E00B15428 /* SIPE.imserviceplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SIPE.imserviceplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		4480C39F1953476E00B15428 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4480C3A21953476E00B15428 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -419,11 +424,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		44170EAB195B0834005F433F /* Frameworks */ = {
+		44170EF7195B76DD005F433F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44170EBF195B085C005F433F /* XCTest.framework in Frameworks */,
+				44170F0E195B77FA005F433F /* SIPE.framework in Frameworks */,
+				44170F0D195B7788005F433F /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,22 +515,22 @@
 			name = Libraries;
 			sourceTree = "<group>";
 		};
-		44170EB1195B0834005F433F /* SIPE Tests */ = {
+		44170EFD195B76DD005F433F /* SIPE Tests */ = {
 			isa = PBXGroup;
 			children = (
-				44170EB7195B0834005F433F /* SIPETests.m */,
-				44170EB2195B0834005F433F /* Supporting Files */,
+				44170EFE195B76DD005F433F /* Supporting Files */,
+				44170F0B195B775E005F433F /* SIPELoggerTest.m */,
 			);
 			name = "SIPE Tests";
 			path = SIPETests;
 			sourceTree = "<group>";
 		};
-		44170EB2195B0834005F433F /* Supporting Files */ = {
+		44170EFE195B76DD005F433F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				44170EB3195B0834005F433F /* SIPETests-Info.plist */,
-				44170EB4195B0834005F433F /* InfoPlist.strings */,
-				44170EB9195B0834005F433F /* SIPETests-Prefix.pch */,
+				44170EFF195B76DD005F433F /* SIPETests-Info.plist */,
+				44170F00195B76DD005F433F /* InfoPlist.strings */,
+				44170F05195B76DD005F433F /* SIPETests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -535,7 +541,7 @@
 				4480C3D919534B9600B15428 /* SIPE Backend */,
 				4480C3A51953476E00B15428 /* SIPE Plugin */,
 				4480C502195418D600B15428 /* SIPE Framework */,
-				44170EB1195B0834005F433F /* SIPE Tests */,
+				44170EFD195B76DD005F433F /* SIPE Tests */,
 				4480C39E1953476E00B15428 /* Frameworks */,
 				4480C39D1953476E00B15428 /* Products */,
 			);
@@ -550,7 +556,7 @@
 				44170E0819589198005F433F /* libsipe_core_crypto.a */,
 				44170E19195A1FB7005F433F /* libsipe_core_libxml2.a */,
 				44170E43195A3057005F433F /* libsipe_core_mime.a */,
-				44170EAE195B0834005F433F /* SIPETests.xctest */,
+				44170EFA195B76DD005F433F /* SIPETests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -774,6 +780,8 @@
 				44170E77195AF46D005F433F /* SIPEUser.m */,
 				44170E7A195AF67C005F433F /* SIPEBuddy.h */,
 				44170E7B195AF67C005F433F /* SIPEBuddy.m */,
+				44170EC0195B12D4005F433F /* SIPELogger.h */,
+				44170EC1195B12D4005F433F /* SIPELogger.m */,
 			);
 			name = "SIPE Framework";
 			path = "SIPE-Framework";
@@ -877,6 +885,7 @@
 				44170E53195A3DA2005F433F /* SIPEDNSQuery.h in Headers */,
 				44170E74195ADB88005F433F /* SIPETransport.h in Headers */,
 				44170E7C195AF67C005F433F /* SIPEBuddy.h in Headers */,
+				44170EC2195B12D4005F433F /* SIPELogger.h in Headers */,
 				44170E78195AF46D005F433F /* SIPEUser.h in Headers */,
 				44170E68195A3EB1005F433F /* SIPESearch.h in Headers */,
 				44170E57195A3DC2005F433F /* SIPEFileTransfer.h in Headers */,
@@ -945,22 +954,22 @@
 			productReference = 44170E43195A3057005F433F /* libsipe_core_mime.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		44170EAD195B0834005F433F /* SIPETests */ = {
+		44170EF9195B76DD005F433F /* SIPETests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 44170EBC195B0834005F433F /* Build configuration list for PBXNativeTarget "SIPETests" */;
+			buildConfigurationList = 44170F08195B76DD005F433F /* Build configuration list for PBXNativeTarget "SIPETests" */;
 			buildPhases = (
-				44170EAA195B0834005F433F /* Sources */,
-				44170EAB195B0834005F433F /* Frameworks */,
-				44170EAC195B0834005F433F /* Resources */,
+				44170EF6195B76DD005F433F /* Sources */,
+				44170EF7195B76DD005F433F /* Frameworks */,
+				44170EF8195B76DD005F433F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				44170EBB195B0834005F433F /* PBXTargetDependency */,
+				44170F07195B76DD005F433F /* PBXTargetDependency */,
 			);
 			name = SIPETests;
 			productName = SIPETests;
-			productReference = 44170EAE195B0834005F433F /* SIPETests.xctest */;
+			productReference = 44170EFA195B76DD005F433F /* SIPETests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		4480C39B1953476E00B15428 /* SIPE Plugin */ = {
@@ -1028,11 +1037,6 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = ArkDev;
-				TargetAttributes = {
-					44170EAD195B0834005F433F = {
-						TestTargetID = 4480C4FF195418D600B15428;
-					};
-				};
 			};
 			buildConfigurationList = 4480C3971953476E00B15428 /* Build configuration list for PBXProject "SIPEServicePlugin" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1053,7 +1057,7 @@
 				44170E37195A3057005F433F /* SIPE MIME Library */,
 				44170E0D195A1FB7005F433F /* SIPE XML Library */,
 				4480C4FF195418D600B15428 /* SIPE Framework */,
-				44170EAD195B0834005F433F /* SIPETests */,
+				44170EF9195B76DD005F433F /* SIPETests */,
 			);
 		};
 /* End PBXProject section */
@@ -1080,11 +1084,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		44170EAC195B0834005F433F /* Resources */ = {
+		44170EF8195B76DD005F433F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44170EB6195B0834005F433F /* InfoPlist.strings in Resources */,
+				44170F02195B76DD005F433F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1141,11 +1145,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		44170EAA195B0834005F433F /* Sources */ = {
+		44170EF6195B76DD005F433F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44170EB8195B0834005F433F /* SIPETests.m in Sources */,
+				44170F0C195B775E005F433F /* SIPELoggerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1223,6 +1227,7 @@
 				44170E50195A3D6A005F433F /* SIPEConnection.m in Sources */,
 				44170E69195A3EB1005F433F /* SIPESearch.m in Sources */,
 				44170E75195ADB88005F433F /* SIPETransport.m in Sources */,
+				44170EC3195B12D4005F433F /* SIPELogger.m in Sources */,
 				44170E6D195ABDFF005F433F /* SIPESchedule.m in Sources */,
 				44170E58195A3DC2005F433F /* SIPEFileTransfer.m in Sources */,
 				44170E7D195AF67C005F433F /* SIPEBuddy.m in Sources */,
@@ -1252,18 +1257,18 @@
 			target = 44170E37195A3057005F433F /* SIPE MIME Library */;
 			targetProxy = 44170E8B195AFE23005F433F /* PBXContainerItemProxy */;
 		};
-		44170EBB195B0834005F433F /* PBXTargetDependency */ = {
+		44170F07195B76DD005F433F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4480C4FF195418D600B15428 /* SIPE Framework */;
-			targetProxy = 44170EBA195B0834005F433F /* PBXContainerItemProxy */;
+			targetProxy = 44170F06195B76DD005F433F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		44170EB4195B0834005F433F /* InfoPlist.strings */ = {
+		44170F00195B76DD005F433F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				44170EB5195B0834005F433F /* en */,
+				44170F01195B76DD005F433F /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1300,6 +1305,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)\"/**",
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
 				);
@@ -1331,6 +1337,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)\"/**",
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
 				);
@@ -1362,6 +1369,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)\"/**",
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
 				);
@@ -1393,6 +1401,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)\"/**",
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
 				);
@@ -1424,6 +1433,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)\"/**",
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
 				);
@@ -1460,6 +1470,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)\"/**",
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
 				);
@@ -1483,7 +1494,7 @@
 			};
 			name = Release;
 		};
-		44170EBD195B0834005F433F /* Debug */ = {
+		44170F09195B76DD005F433F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1497,12 +1508,13 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "SIPETests/SIPETests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
-		44170EBE195B0834005F433F /* Release */ = {
+		44170F0A195B76DD005F433F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1512,6 +1524,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SIPETests/SIPETests-Prefix.pch";
 				INFOPLIST_FILE = "SIPETests/SIPETests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1583,6 +1596,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_PREPROCESS = YES;
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1653,6 +1667,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_PREPROCESS = YES;
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = macosx;
@@ -1702,6 +1717,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)\"/**",
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
 				);
@@ -1716,7 +1732,7 @@
 					/usr/include/libxml2,
 				);
 				PRODUCT_NAME = sipe_core;
-				USER_HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -1733,6 +1749,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)\"/**",
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
 				);
@@ -1747,7 +1764,7 @@
 					/usr/include/libxml2,
 				);
 				PRODUCT_NAME = sipe_core;
-				USER_HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -1758,8 +1775,9 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)\"/**",
+					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
-					"$(PROJECT_DIR)/Frameworks",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1770,6 +1788,7 @@
 					"$(SRCROOT)/Frameworks/libglib.framework/Headers",
 				);
 				INFOPLIST_FILE = "SIPE-Framework/SIPE-Framework-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/gmime/2.6.20/lib,
@@ -1786,8 +1805,9 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)\"/**",
+					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
-					"$(PROJECT_DIR)/Frameworks",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1798,6 +1818,7 @@
 					"$(SRCROOT)/Frameworks/libglib.framework/Headers",
 				);
 				INFOPLIST_FILE = "SIPE-Framework/SIPE-Framework-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/gmime/2.6.20/lib,
@@ -1837,11 +1858,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		44170EBC195B0834005F433F /* Build configuration list for PBXNativeTarget "SIPETests" */ = {
+		44170F08195B76DD005F433F /* Build configuration list for PBXNativeTarget "SIPETests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				44170EBD195B0834005F433F /* Debug */,
-				44170EBE195B0834005F433F /* Release */,
+				44170F09195B76DD005F433F /* Debug */,
+				44170F0A195B76DD005F433F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
