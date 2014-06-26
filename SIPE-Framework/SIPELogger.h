@@ -40,8 +40,7 @@ typedef int sipelogger_level;
 // Methods
 //===============================================================================
 -(void) write: (sipelogger_level) level
-   withFormat: (NSString *) fmt
-    arguments: (va_list) args;
+   withFormat: (NSString *) fmt, ...;
 -(void) trace: (NSString * ) fmt, ...;
 -(void) traceMessage: (NSString * ) msg;
 -(void) debug: (NSString * ) fmt, ...;
@@ -56,9 +55,6 @@ typedef int sipelogger_level;
 -(void) fatalMessage: (NSString * ) msg;
 -(NSString *) levelToString: (sipelogger_level) level;
 -(BOOL) shouldLog: (sipelogger_level) level;
-
-
-
 
 
 //===============================================================================

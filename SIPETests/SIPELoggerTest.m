@@ -113,6 +113,8 @@
     [logger errorMessage:@"A error message"];
     [logger fatalMessage:@"A fatal message"];
 
+    sipe_backend_debug_literal(SIPE_DEBUG_LEVEL_INFO, "Logging Literal from C");
+
     // No test - just convienience method
 }
 
@@ -128,6 +130,8 @@
     [logger warn:@"A formatted %@ message",@"warn"];
     [logger error:@"A formatted %@ message",@"error"];
     [logger fatal:@"A formatted %@ message",@"fatal"];
+
+    sipe_backend_debug(SIPE_DEBUG_LEVEL_INFO, "Logging from %s", "C function");
 
     // No test - just convienience method
 }

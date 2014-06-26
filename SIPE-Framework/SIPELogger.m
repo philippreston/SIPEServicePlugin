@@ -52,6 +52,12 @@ SIPELogger * refSIPELogger;
 }
 
 -(void) write: (sipelogger_level) level
+   withFormat: (NSString *) fmt, ...
+{
+    SIPELOGGER_WRITE_ATLEVEL(level,fmt);
+}
+
+-(void) write: (sipelogger_level) level
    withFormat: (NSString *) fmt
     arguments: (va_list) args
 {
@@ -200,10 +206,10 @@ void sipe_backend_debug_literal(sipe_debug_level level,
                                 const gchar *msg)
 {
     sipelogger_level logAtLevel =  sipeCoreToSIPELoggerLevel(level);
+    NSString * toWrite = [[NSString alloc] initWithCString:msg
+                                                  encoding:NSUTF8StringEncoding];
     [refSIPELogger write:logAtLevel
-              withFormat:@"%@"
-               arguments:(__bridge __va_list_tag *)([[NSString alloc] initWithCString:msg
-                                                                             encoding:NSUTF8StringEncoding])];
+              withFormat:@"%@", toWrite];
 }
 
 void sipe_backend_debug(sipe_debug_level level,
