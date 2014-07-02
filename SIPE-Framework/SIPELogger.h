@@ -14,8 +14,15 @@
 #define SIPELOGGER_LEVEL_WARN       4
 #define SIPELOGGER_LEVEL_ERROR      5
 #define SIPELOGGER_LEVEL_FATAL      6
+#ifdef DEBUG
+#define SIPELOGGER_DEFAULT_LEVEL    SIPELOGGER_LEVEL_DEBUG
+#define SIPELOGGER_DEFAULT_ENABLED  YES
+#else
 #define SIPELOGGER_DEFAULT_LEVEL    SIPELOGGER_LEVEL_ERROR
-#define SIPELOGGER_FORMAT           "[%@]:\t%@"
+#define SIPELOGGER_DEFAULT_ENABLED  NO
+#endif
+#define SIPELOGGER_FORMAT           "%@ %@"
+#define SIPELOGGER_ENCODING [NSString defaultCStringEncoding]
 
 #define SIPELOGGER_WRITE_ATLEVEL(level,format)      \
 do {                                                \
@@ -37,7 +44,7 @@ typedef int sipelogger_level;
 +(instancetype) getLogger;
 
 //===============================================================================
-// Methods
+// Public Methods
 //===============================================================================
 -(void) write: (sipelogger_level) level
    withFormat: (NSString *) fmt, ...;
@@ -58,7 +65,7 @@ typedef int sipelogger_level;
 
 
 //===============================================================================
-// Properties
+// Public Properties
 //===============================================================================
 @property (readwrite) BOOL              loggingEnabled;
 @property (readwrite) sipelogger_level  logLevel;

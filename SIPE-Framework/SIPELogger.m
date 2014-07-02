@@ -22,10 +22,6 @@ SIPELogger * refSIPELogger;
 
 @implementation SIPELogger
 
-@synthesize loggingEnabled = _loggingEnabled;
-@synthesize logLevel = _logLevel;
-@synthesize logFormat = _logFormat;
-
 +(instancetype) getLogger
 {
     static SIPELogger * logger;
@@ -41,7 +37,7 @@ SIPELogger * refSIPELogger;
 -(instancetype) init
 {
     if (self = [super init]) {
-        [self setLoggingEnabled: NO];
+        [self setLoggingEnabled: SIPELOGGER_DEFAULT_ENABLED];
         [self setLogLevel: SIPELOGGER_DEFAULT_LEVEL];
         [self setLogFormat: @SIPELOGGER_FORMAT];
     }
@@ -70,7 +66,7 @@ SIPELogger * refSIPELogger;
 
 }
 
--(void) trace:  (NSString * ) fmt, ...
+-(void) trace: (NSString * ) fmt, ...
 {
     SIPELOGGER_WRITE_ATLEVEL(SIPELOGGER_LEVEL_TRACE,fmt);
 }
@@ -79,12 +75,12 @@ SIPELogger * refSIPELogger;
     [self trace:@"%@", msg];
 }
 
--(void) debug:  (NSString * ) fmt, ...
+-(void) debug: (NSString * ) fmt, ...
 {
     SIPELOGGER_WRITE_ATLEVEL(SIPELOGGER_LEVEL_DEBUG,fmt);
 }
 
--(void) debugMessage:  (NSString * ) msg
+-(void) debugMessage: (NSString * ) msg
 {
     [self debug: @"%@", msg];
 }
@@ -94,7 +90,7 @@ SIPELogger * refSIPELogger;
     SIPELOGGER_WRITE_ATLEVEL(SIPELOGGER_LEVEL_INFO,fmt);
 }
 
--(void) infoMessage:  (NSString * ) msg
+-(void) infoMessage: (NSString * ) msg
 {
     [self info: @"%@", msg];
 }
@@ -109,12 +105,12 @@ SIPELogger * refSIPELogger;
     [self warn: @"%@", msg];
 }
 
--(void) error:  (NSString * ) fmt, ...
+-(void) error: (NSString * ) fmt, ...
 {
     SIPELOGGER_WRITE_ATLEVEL(SIPELOGGER_LEVEL_ERROR,fmt);
 }
 
--(void) errorMessage:  (NSString * ) msg
+-(void) errorMessage: (NSString * ) msg
 {
     [self error: @"%@", msg];
 }
@@ -124,7 +120,7 @@ SIPELogger * refSIPELogger;
     SIPELOGGER_WRITE_ATLEVEL(SIPELOGGER_LEVEL_FATAL,fmt);
 }
 
--(void) fatalMessage:  (NSString * ) msg
+-(void) fatalMessage: (NSString * ) msg
 {
     [self fatal: @"%@", msg];
 }
@@ -134,25 +130,25 @@ SIPELogger * refSIPELogger;
     NSString * string;
     switch (level) {
         case SIPELOGGER_LEVEL_TRACE:
-            string = @"TRACE";
+            string = @"[TRACE]:  ";
             break;
         case SIPELOGGER_LEVEL_DEBUG:
-            string = @"DEBUG";
+            string = @"[DEBUG]:  ";
             break;
         case SIPELOGGER_LEVEL_INFO:
-            string = @"INFO";
+            string = @"[INFO]:   ";
             break;
         case SIPELOGGER_LEVEL_WARN:
-            string = @"WARN";
+            string = @"[WARN]:   ";
             break;
         case SIPELOGGER_LEVEL_ERROR:
-            string = @"ERROR";
+            string = @"[ERROR]:  ";
             break;
         case SIPELOGGER_LEVEL_FATAL:
-            string = @"FATAL";
+            string = @"[FATAL]:  ";
             break;
         default:
-            string = @"UNKNOWN";
+            string = @"[UNKNOWN]:";
             break;
     }
     return string;
@@ -207,7 +203,7 @@ void sipe_backend_debug_literal(sipe_debug_level level,
 {
     sipelogger_level logAtLevel =  sipeCoreToSIPELoggerLevel(level);
     NSString * toWrite = [[NSString alloc] initWithCString:msg
-                                                  encoding:NSUTF8StringEncoding];
+                                                  encoding:SIPELOGGER_ENCODING];
     [refSIPELogger write:logAtLevel
               withFormat:@"%@", toWrite];
 }
@@ -221,6 +217,6 @@ void sipe_backend_debug(sipe_debug_level level,
     sipelogger_level logAtLevel =  sipeCoreToSIPELoggerLevel(level);
     [refSIPELogger write:logAtLevel
               withFormat: [[NSString alloc] initWithCString:format
-                                                   encoding:NSUTF8StringEncoding]
+                                                   encoding:SIPELOGGER_ENCODING]
                arguments: args];
 }

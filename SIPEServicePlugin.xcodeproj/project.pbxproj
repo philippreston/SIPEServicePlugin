@@ -150,15 +150,41 @@
 		44170EA8195B04F6005F433F /* SIPE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C500195418D600B15428 /* SIPE.framework */; };
 		44170EC2195B12D4005F433F /* SIPELogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 44170EC0195B12D4005F433F /* SIPELogger.h */; };
 		44170EC3195B12D4005F433F /* SIPELogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170EC1195B12D4005F433F /* SIPELogger.m */; };
-		44170F02195B76DD005F433F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44170F00195B76DD005F433F /* InfoPlist.strings */; };
 		44170F0C195B775E005F433F /* SIPELoggerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170F0B195B775E005F433F /* SIPELoggerTest.m */; };
 		44170F0D195B7788005F433F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C511195418D600B15428 /* XCTest.framework */; };
 		44170F0E195B77FA005F433F /* SIPE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C500195418D600B15428 /* SIPE.framework */; };
+		44170F10195B7B37005F433F /* libidn.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44170E26195A2EC7005F433F /* libidn.framework */; };
+		44170F11195B7B37005F433F /* libglib.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44170E27195A2EC7005F433F /* libglib.framework */; };
+		44170F12195B7B37005F433F /* libgthread.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44170E28195A2EC7005F433F /* libgthread.framework */; };
+		44170F13195B7B37005F433F /* libgobject.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44170E29195A2EC7005F433F /* libgobject.framework */; };
+		44170F14195B7B37005F433F /* libintl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44170E2A195A2EC7005F433F /* libintl.framework */; };
+		44170F15195B7B37005F433F /* libgcrypt.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44170E2B195A2EC7005F433F /* libgcrypt.framework */; };
+		44170F16195B7B37005F433F /* libgpgerror.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44170E2C195A2EC7005F433F /* libgpgerror.framework */; };
+		44170F17195B7B37005F433F /* libgmodule.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44170E2D195A2EC7005F433F /* libgmodule.framework */; };
+		44170F19195B7B99005F433F /* libffi.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44170F18195B7B8E005F433F /* libffi.framework */; };
+		44170F20195C3FF0005F433F /* SIPEServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170F1F195C3FF0005F433F /* SIPEServiceTest.m */; };
+		44170F23195C441F005F433F /* SIPEAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = 44170F21195C441F005F433F /* SIPEAccount.h */; };
+		44170F24195C441F005F433F /* SIPEAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 44170F22195C441F005F433F /* SIPEAccount.m */; };
 		442B56E7195862F7003FFA3F /* sipe-backend.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3DB19534B9600B15428 /* sipe-backend.h */; };
 		442B56E8195862F9003FFA3F /* sipe-common.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3DC19534B9600B15428 /* sipe-common.h */; };
 		442B56E9195862FC003FFA3F /* sipe-core.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3DD19534B9600B15428 /* sipe-core.h */; };
 		442B56EA195862FE003FFA3F /* sipe-mime.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3DE19534B9600B15428 /* sipe-mime.h */; };
 		442B56EB19586302003FFA3F /* sipe-nls.h in Headers */ = {isa = PBXBuildFile; fileRef = 4480C3DF19534B9600B15428 /* sipe-nls.h */; };
+		4457A1A8196206BC0052B1B4 /* SIPEAccountTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4457A1A7196206BC0052B1B4 /* SIPEAccountTest.m */; };
+		4457A1AA19620D4D0052B1B4 /* SIPEHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 4457A1A919620D4D0052B1B4 /* SIPEHelpers.h */; };
+		4457A1B119629FB70052B1B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4457A1B019629FB70052B1B4 /* Foundation.framework */; };
+		4457A1B419629FB70052B1B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4457A1B319629FB70052B1B4 /* main.m */; };
+		4457A1B819629FB70052B1B4 /* SIPE_TestApp.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4457A1B719629FB70052B1B4 /* SIPE_TestApp.1 */; };
+		4457A1C019629FF70052B1B4 /* SIPE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C500195418D600B15428 /* SIPE.framework */; };
+		4457A1C11962A2D00052B1B4 /* libffi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170F18195B7B8E005F433F /* libffi.framework */; };
+		4457A1C21962A2D00052B1B4 /* libidn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E26195A2EC7005F433F /* libidn.framework */; };
+		4457A1C31962A2D00052B1B4 /* libglib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E27195A2EC7005F433F /* libglib.framework */; };
+		4457A1C41962A2D00052B1B4 /* libgthread.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E28195A2EC7005F433F /* libgthread.framework */; };
+		4457A1C51962A2D00052B1B4 /* libgobject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E29195A2EC7005F433F /* libgobject.framework */; };
+		4457A1C61962A2D00052B1B4 /* libintl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E2A195A2EC7005F433F /* libintl.framework */; };
+		4457A1C71962A2D00052B1B4 /* libgcrypt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E2B195A2EC7005F433F /* libgcrypt.framework */; };
+		4457A1C81962A2D00052B1B4 /* libgpgerror.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E2C195A2EC7005F433F /* libgpgerror.framework */; };
+		4457A1C91962A2D00052B1B4 /* libgmodule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44170E2D195A2EC7005F433F /* libgmodule.framework */; };
 		4480C3A01953476E00B15428 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C39F1953476E00B15428 /* Cocoa.framework */; };
 		4480C3AA1953476F00B15428 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4480C3A81953476F00B15428 /* InfoPlist.strings */; };
 		4480C3CE195349D500B15428 /* IMServicePlugIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4480C3CD195349D500B15428 /* IMServicePlugIn.framework */; };
@@ -166,6 +192,8 @@
 		4480C4F61953B1DA00B15428 /* Campfire.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4480C4F51953B1DA00B15428 /* Campfire.icns */; };
 		4480C507195418D600B15428 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4480C505195418D600B15428 /* InfoPlist.strings */; };
 		4480C50B195418D600B15428 /* SIPEService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4480C50A195418D600B15428 /* SIPEService.m */; };
+		44A8DBFB1961851800B01A88 /* SIPEException.h in Headers */ = {isa = PBXBuildFile; fileRef = 44A8DBF91961851800B01A88 /* SIPEException.h */; };
+		44A8DBFC1961851800B01A88 /* SIPEException.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A8DBFA1961851800B01A88 /* SIPEException.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,7 +232,52 @@
 			remoteGlobalIDString = 4480C4FF195418D600B15428;
 			remoteInfo = "SIPE Framework";
 		};
+		4457A1BC19629FDF0052B1B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4480C3941953476E00B15428 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4480C4FF195418D600B15428;
+			remoteInfo = "SIPE Framework";
+		};
+		4457A1BE19629FE60052B1B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4480C3941953476E00B15428 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4480C4FF195418D600B15428;
+			remoteInfo = "SIPE Framework";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		44170F0F195B7B26005F433F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				44170F19195B7B99005F433F /* libffi.framework in CopyFiles */,
+				44170F10195B7B37005F433F /* libidn.framework in CopyFiles */,
+				44170F11195B7B37005F433F /* libglib.framework in CopyFiles */,
+				44170F12195B7B37005F433F /* libgthread.framework in CopyFiles */,
+				44170F13195B7B37005F433F /* libgobject.framework in CopyFiles */,
+				44170F14195B7B37005F433F /* libintl.framework in CopyFiles */,
+				44170F15195B7B37005F433F /* libgcrypt.framework in CopyFiles */,
+				44170F16195B7B37005F433F /* libgpgerror.framework in CopyFiles */,
+				44170F17195B7B37005F433F /* libgmodule.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4457A1AD19629FB70052B1B4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				4457A1B819629FB70052B1B4 /* SIPE_TestApp.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		44170E0819589198005F433F /* libsipe_core_crypto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsipe_core_crypto.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,10 +322,20 @@
 		44170EC0195B12D4005F433F /* SIPELogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPELogger.h; sourceTree = "<group>"; };
 		44170EC1195B12D4005F433F /* SIPELogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPELogger.m; sourceTree = "<group>"; };
 		44170EFA195B76DD005F433F /* SIPETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SIPETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		44170EFF195B76DD005F433F /* SIPETests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SIPETests-Info.plist"; sourceTree = "<group>"; };
-		44170F01195B76DD005F433F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		44170F05195B76DD005F433F /* SIPETests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SIPETests-Prefix.pch"; sourceTree = "<group>"; };
 		44170F0B195B775E005F433F /* SIPELoggerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPELoggerTest.m; sourceTree = "<group>"; };
+		44170F18195B7B8E005F433F /* libffi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libffi.framework; path = Frameworks/libffi.framework; sourceTree = "<group>"; };
+		44170F1D195B8D2E005F433F /* SIPETests-Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; path = "SIPETests-Info.plist"; sourceTree = "<group>"; };
+		44170F1E195B8D2E005F433F /* SIPETests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SIPETests-Prefix.pch"; sourceTree = "<group>"; };
+		44170F1F195C3FF0005F433F /* SIPEServiceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPEServiceTest.m; sourceTree = "<group>"; };
+		44170F21195C441F005F433F /* SIPEAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPEAccount.h; sourceTree = "<group>"; };
+		44170F22195C441F005F433F /* SIPEAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPEAccount.m; sourceTree = "<group>"; };
+		4457A1A7196206BC0052B1B4 /* SIPEAccountTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPEAccountTest.m; sourceTree = "<group>"; };
+		4457A1A919620D4D0052B1B4 /* SIPEHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPEHelpers.h; sourceTree = "<group>"; };
+		4457A1AF19629FB70052B1B4 /* SIPE TestApp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SIPE TestApp"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4457A1B019629FB70052B1B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4457A1B319629FB70052B1B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4457A1B619629FB70052B1B4 /* SIPE TestApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SIPE TestApp-Prefix.pch"; sourceTree = "<group>"; };
+		4457A1B719629FB70052B1B4 /* SIPE_TestApp.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SIPE_TestApp.1; sourceTree = "<group>"; };
 		4480C39C1953476E00B15428 /* SIPE.imserviceplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SIPE.imserviceplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		4480C39F1953476E00B15428 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4480C3A21953476E00B15428 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -396,6 +479,8 @@
 		4480C509195418D600B15428 /* SIPEService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SIPEService.h; sourceTree = "<group>"; };
 		4480C50A195418D600B15428 /* SIPEService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SIPEService.m; sourceTree = "<group>"; };
 		4480C511195418D600B15428 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		44A8DBF91961851800B01A88 /* SIPEException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPEException.h; sourceTree = "<group>"; };
+		44A8DBFA1961851800B01A88 /* SIPEException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPEException.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,6 +515,24 @@
 			files = (
 				44170F0E195B77FA005F433F /* SIPE.framework in Frameworks */,
 				44170F0D195B7788005F433F /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4457A1AC19629FB70052B1B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4457A1C11962A2D00052B1B4 /* libffi.framework in Frameworks */,
+				4457A1C21962A2D00052B1B4 /* libidn.framework in Frameworks */,
+				4457A1C31962A2D00052B1B4 /* libglib.framework in Frameworks */,
+				4457A1C41962A2D00052B1B4 /* libgthread.framework in Frameworks */,
+				4457A1C51962A2D00052B1B4 /* libgobject.framework in Frameworks */,
+				4457A1C61962A2D00052B1B4 /* libintl.framework in Frameworks */,
+				4457A1C71962A2D00052B1B4 /* libgcrypt.framework in Frameworks */,
+				4457A1C81962A2D00052B1B4 /* libgpgerror.framework in Frameworks */,
+				4457A1C91962A2D00052B1B4 /* libgmodule.framework in Frameworks */,
+				4457A1C019629FF70052B1B4 /* SIPE.framework in Frameworks */,
+				4457A1B119629FB70052B1B4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +584,7 @@
 		44170E25195A2EAF005F433F /* Project Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				44170F18195B7B8E005F433F /* libffi.framework */,
 				44170E26195A2EC7005F433F /* libidn.framework */,
 				44170E27195A2EC7005F433F /* libglib.framework */,
 				44170E28195A2EC7005F433F /* libgthread.framework */,
@@ -518,19 +622,30 @@
 		44170EFD195B76DD005F433F /* SIPE Tests */ = {
 			isa = PBXGroup;
 			children = (
-				44170EFE195B76DD005F433F /* Supporting Files */,
+				44170F1D195B8D2E005F433F /* SIPETests-Info.plist */,
+				44170F1E195B8D2E005F433F /* SIPETests-Prefix.pch */,
 				44170F0B195B775E005F433F /* SIPELoggerTest.m */,
+				44170F1F195C3FF0005F433F /* SIPEServiceTest.m */,
+				4457A1A7196206BC0052B1B4 /* SIPEAccountTest.m */,
 			);
 			name = "SIPE Tests";
 			path = SIPETests;
 			sourceTree = "<group>";
 		};
-		44170EFE195B76DD005F433F /* Supporting Files */ = {
+		4457A1B219629FB70052B1B4 /* SIPE TestApp */ = {
 			isa = PBXGroup;
 			children = (
-				44170EFF195B76DD005F433F /* SIPETests-Info.plist */,
-				44170F00195B76DD005F433F /* InfoPlist.strings */,
-				44170F05195B76DD005F433F /* SIPETests-Prefix.pch */,
+				4457A1B319629FB70052B1B4 /* main.m */,
+				4457A1B719629FB70052B1B4 /* SIPE_TestApp.1 */,
+				4457A1B519629FB70052B1B4 /* Supporting Files */,
+			);
+			path = "SIPE TestApp";
+			sourceTree = "<group>";
+		};
+		4457A1B519629FB70052B1B4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4457A1B619629FB70052B1B4 /* SIPE TestApp-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -542,6 +657,7 @@
 				4480C3A51953476E00B15428 /* SIPE Plugin */,
 				4480C502195418D600B15428 /* SIPE Framework */,
 				44170EFD195B76DD005F433F /* SIPE Tests */,
+				4457A1B219629FB70052B1B4 /* SIPE TestApp */,
 				4480C39E1953476E00B15428 /* Frameworks */,
 				4480C39D1953476E00B15428 /* Products */,
 			);
@@ -557,6 +673,7 @@
 				44170E19195A1FB7005F433F /* libsipe_core_libxml2.a */,
 				44170E43195A3057005F433F /* libsipe_core_mime.a */,
 				44170EFA195B76DD005F433F /* SIPETests.xctest */,
+				4457A1AF19629FB70052B1B4 /* SIPE TestApp */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -566,6 +683,7 @@
 			children = (
 				44170EA3195B02B2005F433F /* Libraries */,
 				44170E90195B00AC005F433F /* Linked Frameworks */,
+				4457A1B019629FB70052B1B4 /* Foundation.framework */,
 				4480C3A11953476E00B15428 /* Other Frameworks */,
 				44170E25195A2EAF005F433F /* Project Frameworks */,
 			);
@@ -782,6 +900,11 @@
 				44170E7B195AF67C005F433F /* SIPEBuddy.m */,
 				44170EC0195B12D4005F433F /* SIPELogger.h */,
 				44170EC1195B12D4005F433F /* SIPELogger.m */,
+				44170F21195C441F005F433F /* SIPEAccount.h */,
+				44170F22195C441F005F433F /* SIPEAccount.m */,
+				44A8DBF91961851800B01A88 /* SIPEException.h */,
+				44A8DBFA1961851800B01A88 /* SIPEException.m */,
+				4457A1A919620D4D0052B1B4 /* SIPEHelpers.h */,
 			);
 			name = "SIPE Framework";
 			path = "SIPE-Framework";
@@ -883,17 +1006,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				44170E53195A3DA2005F433F /* SIPEDNSQuery.h in Headers */,
+				44170F23195C441F005F433F /* SIPEAccount.h in Headers */,
 				44170E74195ADB88005F433F /* SIPETransport.h in Headers */,
 				44170E7C195AF67C005F433F /* SIPEBuddy.h in Headers */,
 				44170EC2195B12D4005F433F /* SIPELogger.h in Headers */,
 				44170E78195AF46D005F433F /* SIPEUser.h in Headers */,
 				44170E68195A3EB1005F433F /* SIPESearch.h in Headers */,
+				44A8DBFB1961851800B01A88 /* SIPEException.h in Headers */,
 				44170E57195A3DC2005F433F /* SIPEFileTransfer.h in Headers */,
 				44170E5F195A3E03005F433F /* SIPEInstantMessenger.h in Headers */,
 				44170E4F195A3D6A005F433F /* SIPEConnection.h in Headers */,
 				44170E5B195A3DE1005F433F /* SIPEGroupChat.h in Headers */,
 				44170E6C195ABDFF005F433F /* SIPESchedule.h in Headers */,
 				44170E70195ADB10005F433F /* SIPEStatus.h in Headers */,
+				4457A1AA19620D4D0052B1B4 /* SIPEHelpers.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -961,6 +1087,7 @@
 				44170EF6195B76DD005F433F /* Sources */,
 				44170EF7195B76DD005F433F /* Frameworks */,
 				44170EF8195B76DD005F433F /* Resources */,
+				44170F0F195B7B26005F433F /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -971,6 +1098,24 @@
 			productName = SIPETests;
 			productReference = 44170EFA195B76DD005F433F /* SIPETests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4457A1AE19629FB70052B1B4 /* SIPE TestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4457A1B919629FB80052B1B4 /* Build configuration list for PBXNativeTarget "SIPE TestApp" */;
+			buildPhases = (
+				4457A1AB19629FB70052B1B4 /* Sources */,
+				4457A1AC19629FB70052B1B4 /* Frameworks */,
+				4457A1AD19629FB70052B1B4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4457A1BF19629FE60052B1B4 /* PBXTargetDependency */,
+			);
+			name = "SIPE TestApp";
+			productName = "SIPE TestApp";
+			productReference = 4457A1AF19629FB70052B1B4 /* SIPE TestApp */;
+			productType = "com.apple.product-type.tool";
 		};
 		4480C39B1953476E00B15428 /* SIPE Plugin */ = {
 			isa = PBXNativeTarget;
@@ -983,6 +1128,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4457A1BD19629FDF0052B1B4 /* PBXTargetDependency */,
 			);
 			name = "SIPE Plugin";
 			productName = SIPEServicePlugin;
@@ -1037,6 +1183,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = ArkDev;
+				TargetAttributes = {
+					44170EF9195B76DD005F433F = {
+						TestTargetID = 4480C4FF195418D600B15428;
+					};
+				};
 			};
 			buildConfigurationList = 4480C3971953476E00B15428 /* Build configuration list for PBXProject "SIPEServicePlugin" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1058,6 +1209,7 @@
 				44170E0D195A1FB7005F433F /* SIPE XML Library */,
 				4480C4FF195418D600B15428 /* SIPE Framework */,
 				44170EF9195B76DD005F433F /* SIPETests */,
+				4457A1AE19629FB70052B1B4 /* SIPE TestApp */,
 			);
 		};
 /* End PBXProject section */
@@ -1088,7 +1240,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44170F02195B76DD005F433F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1149,7 +1300,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4457A1A8196206BC0052B1B4 /* SIPEAccountTest.m in Sources */,
+				44170F20195C3FF0005F433F /* SIPEServiceTest.m in Sources */,
 				44170F0C195B775E005F433F /* SIPELoggerTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4457A1AB19629FB70052B1B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4457A1B419629FB70052B1B4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1226,6 +1387,8 @@
 				44170E54195A3DA2005F433F /* SIPEDNSQuery.m in Sources */,
 				44170E50195A3D6A005F433F /* SIPEConnection.m in Sources */,
 				44170E69195A3EB1005F433F /* SIPESearch.m in Sources */,
+				44170F24195C441F005F433F /* SIPEAccount.m in Sources */,
+				44A8DBFC1961851800B01A88 /* SIPEException.m in Sources */,
 				44170E75195ADB88005F433F /* SIPETransport.m in Sources */,
 				44170EC3195B12D4005F433F /* SIPELogger.m in Sources */,
 				44170E6D195ABDFF005F433F /* SIPESchedule.m in Sources */,
@@ -1262,17 +1425,19 @@
 			target = 4480C4FF195418D600B15428 /* SIPE Framework */;
 			targetProxy = 44170F06195B76DD005F433F /* PBXContainerItemProxy */;
 		};
+		4457A1BD19629FDF0052B1B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4480C4FF195418D600B15428 /* SIPE Framework */;
+			targetProxy = 4457A1BC19629FDF0052B1B4 /* PBXContainerItemProxy */;
+		};
+		4457A1BF19629FE60052B1B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4480C4FF195418D600B15428 /* SIPE Framework */;
+			targetProxy = 4457A1BE19629FE60052B1B4 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		44170F00195B76DD005F433F /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				44170F01195B76DD005F433F /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		4480C3A81953476F00B15428 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1497,6 +1662,7 @@
 		44170F09195B76DD005F433F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SIPE.framework/Versions/A/SIPE";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
@@ -1507,9 +1673,14 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks/libintl.framework/Headers",
+					"$(SRCROOT)/Frameworks/libglib.framework/Headers",
+				);
 				INFOPLIST_FILE = "SIPETests/SIPETests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -1517,16 +1688,64 @@
 		44170F0A195B76DD005F433F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SIPE.framework/Versions/A/SIPE";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SIPETests/SIPETests-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks/libintl.framework/Headers",
+					"$(SRCROOT)/Frameworks/libglib.framework/Headers",
+				);
 				INFOPLIST_FILE = "SIPETests/SIPETests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		4457A1BA19629FB80052B1B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)\"/**",
+					"$(inherited)",
+					"$(SRCROOT)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SIPE TestApp/SIPE TestApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks/libintl.framework/Headers",
+					"$(SRCROOT)/Frameworks/libglib.framework/Headers",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4457A1BB19629FB80052B1B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)\"/**",
+					"$(inherited)",
+					"$(SRCROOT)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SIPE TestApp/SIPE TestApp-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Frameworks/libintl.framework/Headers",
+					"$(SRCROOT)/Frameworks/libglib.framework/Headers",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -1863,6 +2082,15 @@
 			buildConfigurations = (
 				44170F09195B76DD005F433F /* Debug */,
 				44170F0A195B76DD005F433F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4457A1B919629FB80052B1B4 /* Build configuration list for PBXNativeTarget "SIPE TestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4457A1BA19629FB80052B1B4 /* Debug */,
+				4457A1BB19629FB80052B1B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

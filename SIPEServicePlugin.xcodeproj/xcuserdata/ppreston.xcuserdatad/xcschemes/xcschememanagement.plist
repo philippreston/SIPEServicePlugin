@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>SIPE TestApp.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>SIPE-Framework.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -43,6 +48,11 @@
 			<true/>
 		</dict>
 		<key>44170EF9195B76DD005F433F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4457A1AE19629FB70052B1B4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

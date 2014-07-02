@@ -1,0 +1,118 @@
+//
+//  SIPEAccount.m
+//  SIPEServicePlugin
+//
+//  Created by Philip Preston on 26/06/2014.
+//  Copyright (c) 2014 ArkDev. All rights reserved.
+//
+
+#import <glib.h>
+#import "sipe-core.h"
+#import "SIPEHelpers.h"
+#import "SIPELogger.h"
+#import "SIPEAccount.h"
+#import "SIPEException.h"
+
+@interface SIPEAccount ()
+@property (readwrite) BOOL publishCalendar;
+@end
+
+@implementation SIPEAccount
+@synthesize sipePublic = sipe_public;
+
+// TODO - maybe move to transport and store here?
+@synthesize server = _server;
+@synthesize port = _port;
+@synthesize transport = _transport;
+
+static SIPELogger * logger;
+
+-(instancetype) init
+{
+    logger = [SIPELogger getLogger];
+    [logger debugMessage:@"Initialising SIPEAccount"];
+    if( self = [super init])
+    {
+        [self setUsername:nil];
+        [self setPassword:nil];
+        [self setAccount:nil];
+        [self setEmail:nil];
+        [self setEmailUrl:nil];
+        [self setDomain:nil];
+        [self setAuthentication:NTLM];
+        [self setSingleSignOn:NO];
+        [self setPublishCalendar:NO];
+
+        [self setServer:nil];
+        [self setPort:nil];
+        [self setTransport:AUTO];
+    }
+    return self;
+}
+
+
+-(void) open
+{
+    [logger debugMessage:@"Attempting to allocate account"];
+
+    // TODO: do we need password
+    //    _requiresPassword =
+    //    sipe_core_transport_sip_requires_password([self.account authentication],
+    //                                             [self.account singleSignOn]);
+
+    // Validate data prior to sipe core
+    [self validate];
+
+    // TODO: Single Sign on
+
+    // TODO: Domain name split
+
+    const gchar * errMessage;
+    sipe_public = sipe_core_allocate(NSSTRING_TO_GCHAR([self username]),
+                                     [self singleSignOn],
+                                     NSSTRING_TO_GCHAR([self domain]),
+                                     NSSTRING_TO_GCHAR([self account]),
+                                     NSSTRING_TO_GCHAR([self password]),
+                                     NSSTRING_TO_GCHAR([self email]),
+                                     NSSTRING_TO_GCHAR([self emailUrl]),
+                                     &errMessage);
+
+    // Cannot progress if this fails
+    if (!sipe_public) {
+        NSString * msg = [NSString stringWithFormat:@"Failed to allocate Account: %s", errMessage];
+        [logger errorMessage: msg];
+        NSException * ex = [SIPEException exceptionWithName: @"SIPEException"
+                                                     reason: msg
+                                                   userInfo: nil];
+        @throw ex;
+    }
+
+    // FIXME: publish calendar option - no supported - cannot change
+    SIPE_CORE_FLAG_UNSET(DONT_PUBLISH);
+    if(NO == [self publishCalendar])
+        SIPE_CORE_FLAG_SET(DONT_PUBLISH);
+
+}
+
+-(void) close
+{
+    if(sipe_public)
+    {
+        sipe_core_deallocate(sipe_public);
+    }
+}
+
+-(void) setServer:(NSString *) server
+         WithPort:(NSString*) port
+{
+    [self setServer:server];
+    [self setPort:port];
+}
+
+-(void) validate
+{
+    ASSERT_NOT_NIL(_username, @"SIPEAccount - username cannot be nil");
+    ASSERT_NOT_NIL(_password, @"SIPEAccount - password cannot be nil");
+    ASSERT_NOT_NIL(_account, @"SIPEAccount - account cannot be nil");
+}
+@end

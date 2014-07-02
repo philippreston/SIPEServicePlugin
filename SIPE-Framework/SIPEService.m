@@ -14,7 +14,10 @@
 #import "sipe-backend.h"
 #import "sipe-core.h"
 #import "SIPEService.h"
+#import "SIPEAccount.h"
 #import "SIPELogger.h"
+#import "SIPEConnection.h"
+#import "SIPEException.h"
 
 // Handle for C API
 SIPEService * refSIPEService;
@@ -25,10 +28,9 @@ SIPEService * refSIPEService;
 //===============================================================================
 // SIPEService Framework Implementations
 //===============================================================================
-@implementation SIPEService
 
-@synthesize version = _version;
-@synthesize mainBundle = _mainBundle;
+
+@implementation SIPEService
 
 static SIPELogger * logger;
 
@@ -39,33 +41,65 @@ static SIPELogger * logger;
 
     if((self = [super init]))
     {
+        // TODO: Fix Versioning
         _mainBundle = [[NSBundle mainBundle] infoDictionary];
         _version = [self.mainBundle objectForKey:@"CFBundleShortVersionString"];
+        _connection = nil;
+        _account = nil;
     }
 
-    // Initialise reference for c
+    [logger info:@"Running SIPE Framework version: %@", [self version]];
+    
+    // Initialise reference for C
     refSIPEService = self;
     return self;
 }
 
-
-- (void) dealloc
+-(void) loginWithAccount: (SIPEAccount *) acc
 {
-
+    [self setAccount:acc];
+    [self login];
 }
 
 -(void) login
 {
-    // TODO: "" may be better
     // Initialise the sipe core
     [logger debugMessage:@"Initialising sipe_core"];
     sipe_core_init(LOCALEDIR);
+
+    NSAssert(nil != _account, @"Account must be set before login attempted");
+
+    // Open and store the service to private
+    [self.account open];
+    [self.account sipePublic]->backend_private = (__bridge void*) self;
+
+    // Connect to transport
+    _connection = [[SIPEConnection alloc] initWithAccount: [self account]];
+    [self.connection start];
+
+
+    // TODO: Rejoin chats
+
+    // TODO: Set connection name and flags
+
+    // TODO: 
+
+    // Connect
+
 }
 
 -(void) logout
 {
     // Shudown the sipe core
-    [logger debugMessage:@"Destroying sipe_core"];
+    [logger debugMessage:@"Logging out sipe_core"];
+    [self.connection stop];
+    [self.account close];
+
+    // TODO - close down DNS
+
+    // TODO - close down Transport
+
+
     sipe_core_destroy();
 }
 

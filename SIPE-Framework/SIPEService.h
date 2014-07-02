@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <IMServicePlugIn/IMServicePlugIn.h>
 
-@interface SIPEService : NSObject {
-    
-}
+@class SIPEAccount;
+@class SIPEConnection;
+
+@interface SIPEService : NSObject
 
 //===============================================================================
 // Initialisers
@@ -21,6 +22,7 @@
 //===============================================================================
 // Methods
 //===============================================================================
+-(void) loginWithAccount: (SIPEAccount *) acc;
 -(void) login;
 -(void) logout;
 
@@ -29,5 +31,7 @@
 //===============================================================================
 @property (readonly) NSString * version;
 @property (readonly) NSDictionary * mainBundle;
+@property (readwrite) SIPEAccount * account;
+@property (readwrite) SIPEConnection * connection;
 
 @end

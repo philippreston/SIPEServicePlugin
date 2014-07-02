@@ -8,12 +8,61 @@
 
 #import <glib.h>
 #import "sipe-backend.h"
+#import "sipe-core.h"
 #import "SIPEConnection.h"
+#import "SIPETransport.h"
+#import "SIPEService.h"
+#import "SIPEAccount.h"
+#import "SIPELogger.h"
+#import "SIPEHelpers.h"
 
 @implementation SIPEConnection
 
-@end
+static SIPELogger * logger;
 
+-(instancetype) initWithAccount: (SIPEAccount *) account
+{
+    NSAssert(nil != account, @"Account must be set before login attempted");
+
+    logger = [SIPELogger getLogger];
+    [logger debugMessage:@"Initialising SIPEConection"];
+
+    if (self = [super init]) {
+        _account  = account;
+        _transport = [SIPETransport new];
+        _disconnecting = NO;
+        _connected = NO;
+    }
+    
+    return self;
+}
+
+-(void) start
+{
+    [logger debug:@"SIPEConnection staring", [self.account server], [self.account port]];
+
+    sipe_core_transport_sip_connect([self.account sipePublic],
+                                    [self.account transport],
+                                    [self.account authentication],
+                                    NSSTRING_TO_GCHAR([self.account server]),
+                                    NSSTRING_TO_GCHAR([self.account port]));
+}
+
+-(void) stop
+{
+    // TODO - make safe if not fully connected
+    [logger debugMessage:@"SIPEConnection stopping"];
+    [self setDisconnecting:YES];
+
+    // TODO - anything extra for shutdown (Offline)?
+
+    [self setConnected:NO];
+    [self setDisconnecting:NO];
+}
+
+// TODO: Event for when connection change;
+
+@end
 
 #pragma mark  -
 #pragma mark SIPE C Backend CONNECTION Functions
@@ -21,77 +70,44 @@
 //===============================================================================
 // SIPE C Backend CONNECTION Functions
 //===============================================================================
+// TODO: Review against Purple
 void sipe_backend_connection_completed(struct sipe_core_public *sipe_public)
 {
     // TODO: Implement
+    [logger debugMessage:@"SIPE backend connection completed"];
+    SIPEService * imService = SIPE_PUBLIC_TO_IMSERVICE;
+    assert(imService);
+
+    [imService.connection setDisconnecting:NO];
+    [imService.connection setConnected:YES];
 }
 
 void sipe_backend_connection_error(struct sipe_core_public *sipe_public,
                                    sipe_connection_error error,
                                    const gchar *msg)
 {
-    // TODO: Implement
+    [logger error:@"SIPE backend connection error: (%d) %s",error,msg];
+    SIPEService * imService = SIPE_PUBLIC_TO_IMSERVICE;
+    assert(imService);
+
+    [imService.connection stop];
 }
 
 gboolean sipe_backend_connection_is_disconnecting(struct sipe_core_public *sipe_public)
 {
-    // TODO: Implement
-    return NO;
+    [logger debugMessage:@"SIPE backend is disconnecting?"];
+    SIPEService * imService = SIPE_PUBLIC_TO_IMSERVICE;
+    assert(imService);
+
+    return [imService.connection isDisconnecting];
 }
 
 gboolean sipe_backend_connection_is_valid(struct sipe_core_public *sipe_public)
 {
-    // TODO: Implement
-    return NO;
+    [logger debugMessage:@"SIPE backend is valid?"];
+    SIPEService * imService = SIPE_PUBLIC_TO_IMSERVICE;
+    assert(imService);
+
+    return [imService.connection isConnected];
 }
 
-#pragma mark  -
-#pragma mark SIPE C Backend NETWORK Functions
-#pragma mark  -
-//===============================================================================
-// SIPE C Backend NETWORK Functions
-//===============================================================================
-const gchar *sipe_backend_network_ip_address(struct sipe_core_public *sipe_public)
-{
-    // TODO: Implement
-    return NULL;
-}
-
-struct sipe_backend_listendata * sipe_backend_network_listen_range(unsigned short port_min,
-                                  unsigned short port_max,
-                                  sipe_listen_start_cb listen_cb,
-                                  sipe_client_connected_cb connect_cb,
-                                  gpointer data)
-{
-    // TODO: Implement
-    return NULL;
-}
-void sipe_backend_network_listen_cancel(struct sipe_backend_listendata *ldata)
-{
-    // TODO: Implement
-}
-
-gboolean sipe_backend_fd_is_valid(struct sipe_backend_fd *fd)
-{
-    // TODO: Implement
-    return NO;
-}
-
-void sipe_backend_fd_free(struct sipe_backend_fd *fd)
-{
-    // TODO: Implement
-}
-
-// TODO: Network Callbacks
-
-#pragma mark  -
-#pragma mark SIPE C Backend SETTINGS Functions
-#pragma mark  -
-//===============================================================================
-// SIPE C Backend SETTINGS Functions
-//===============================================================================
-const gchar *sipe_backend_setting(struct sipe_core_public *sipe_public,
-                                  sipe_setting type)
-{
-    return NULL;
-}
