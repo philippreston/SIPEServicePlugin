@@ -7,7 +7,7 @@
 //
 
 #import <glib.h>
-#include <gio/gio.h>
+#import <gio/gio.h>
 #import "sipe-backend.h"
 #import "sipe-core.h"
 #import "SIPETransport.h"
@@ -21,6 +21,7 @@
     transport_connected_cb * _connectedCb;
 	transport_input_cb * _inputCb;
 	transport_error_cb * _errorCb;
+//    dispatch_queue_t _transportQueue;
 }
 
 //===============================================================================
@@ -49,12 +50,10 @@
 
 @implementation SIPETransport
 
-static SIPELogger * logger;
 
 -(instancetype) init
 {
-    logger = [SIPELogger getLogger];
-    [logger debugMessage:@"Initialising Transport"];
+    sipe_log_debug(@"SIPETransport Initialising");
 
     if(self = [super init]) {
         _connectedCb = NULL;
@@ -62,6 +61,7 @@ static SIPELogger * logger;
         _errorCb = NULL;
         _data = [NSData new];
         _status = SIPETransportStatusNotOpen;
+  //      _transportQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
 
         // FIXME - can this be moved to ARC
         _connection = (struct sipe_transport_connection *) malloc(sizeof(struct sipe_transport_connection));
@@ -96,19 +96,19 @@ static SIPELogger * logger;
     _connection->type = setup->type;
     _connection->user_data = setup->user_data;
 
-    [logger info:@"SIPETransport connecting to %@:%i", [self server], [self port]];
+    sipe_log_info(@"SIPETransport connecting to %@:%i", [self server], [self port]);
 
     // Connect
     switch ([self type]) {
         case SIPE_TRANSPORT_TLS:
         {
-            [logger infoMessage:@"SIPETransport connecting using SSL/TLS"];
+            sipe_log_info(@"SIPETransport connecting using SSL/TLS");
             [self connectSSL];
             break;
         }
         case SIPE_TRANSPORT_TCP:
         {
-            [logger infoMessage:@"SIPETransport connecting using TCP"];
+            sipe_log_info(@"SIPETransport connecting using TCP");
             [self connectTCP];
             break;
         }
@@ -117,7 +117,7 @@ static SIPELogger * logger;
         {
             // Should not get here
             NSString * msg = [NSString stringWithFormat:@"Connection type (%d) - should not happen",[self type]];
-            [logger fatal:msg];
+            sipe_log_fatal(msg);
             [self errorWithMsg:msg];
             [self setStatus:SIPETransportStatusError];
             sipe_backend_transport_disconnect([self connection]);
@@ -129,7 +129,7 @@ static SIPELogger * logger;
 
 -(void) disconnect
 {
-    [logger info:@"SIPETransport disconnecting from %@:%i", [self server], [self port]];
+    sipe_log_info(@"SIPETransport disconnecting from %@:%i", [self server], [self port]);
     [self disconnectWithStatus:SIPETransportStatusClosed];
 }
 
@@ -174,18 +174,21 @@ static SIPELogger * logger;
     [self.readStream setDelegate: self];
     [self.writeStream setDelegate: self];
 
-    // Run in loop in background
-    [self.readStream scheduleInRunLoop:[NSRunLoop currentRunLoop]
-                               forMode:NSDefaultRunLoopMode];
-    [self.writeStream scheduleInRunLoop:[NSRunLoop currentRunLoop]
-                                forMode:NSDefaultRunLoopMode];
+
 
     // Do we need TLS/SSL
     if (secure) {
-        [logger debugMessage:@"SIPETransport adding TLS Security level to connection"];
+        sipe_log_debug(@"SIPETransport adding TLS Security level to connection");
         [self.writeStream setProperty:NSStreamSocketSecurityLevelTLSv1 forKey:NSStreamSocketSecurityLevelKey];
         [self.readStream setProperty:NSStreamSocketSecurityLevelTLSv1 forKey:NSStreamSocketSecurityLevelKey];
     }
+
+
+
+    [self.readStream scheduleInRunLoop:[NSRunLoop mainRunLoop]
+                               forMode:NSDefaultRunLoopMode];
+    [self.writeStream scheduleInRunLoop:[NSRunLoop mainRunLoop]
+                                forMode:NSDefaultRunLoopMode];
 
     // Open the streams
     if([self.readStream streamStatus] == NSStreamStatusNotOpen)
@@ -193,8 +196,6 @@ static SIPELogger * logger;
     if([self.writeStream streamStatus] == NSStreamStatusNotOpen)
         [self.writeStream open];
 
-    // Testing
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:2.0]];
 
 }
 
@@ -202,12 +203,12 @@ static SIPELogger * logger;
 - (void)stream:(NSStream *)aStream
    handleEvent:(NSStreamEvent)eventCode;
 {
-    [logger debug:@"Stream Event Occured"];
+    sipe_log_debug(@"Stream Event Occured");
     switch (eventCode) {
 
         case NSStreamEventOpenCompleted:
         {
-            [logger debug:@"%@ Stream is open", (aStream == _readStream) ? @"Input":@"Output"];
+            sipe_log_debug(@"%@ Stream is open", (aStream == _readStream) ? @"Input":@"Output");
             [self setStatus:SIPETransportStatusOpen];
             [self connected];
             // TODO - client port to be stored
@@ -215,14 +216,14 @@ static SIPELogger * logger;
         }
         case NSStreamEventHasBytesAvailable:
         {
-            [logger debug:@"%@ Stream has bytes available", (aStream == _readStream) ? @"Input":@"Output"];
+            sipe_log_debug(@"%@ Stream has bytes available", (aStream == _readStream) ? @"Input":@"Output");
             [self setStatus:SIPETransportStatusReading];
             //TODO: Implement
             break;
         }
         case NSStreamEventHasSpaceAvailable:
         {
-            [logger debug:@"%@ Stream has space available", (aStream == _readStream) ? @"Input":@"Output"];
+            sipe_log_debug(@"%@ Stream has space available", (aStream == _readStream) ? @"Input":@"Output");
             [self setStatus:SIPETransportStatusWriting];
             //TODO: Implement
             break;
@@ -235,7 +236,7 @@ static SIPELogger * logger;
                                  (aStream == _readStream) ? @"Input":@"Output",
                                  [err code],
                                  [err localizedDescription]];
-            [logger errorMessage:errMsg];
+            sipe_log_error(errMsg);
             [self errorWithMsg:errMsg];
 
             // Clean up streams
@@ -245,7 +246,7 @@ static SIPELogger * logger;
         }
         case NSStreamEventEndEncountered:
         {
-            [logger debug:@"%@ Stream has end event", (aStream == _readStream) ? @"Input":@"Output"];
+            sipe_log_debug(@"%@ Stream has end event", (aStream == _readStream) ? @"Input":@"Output");
 
             // Clean up streams
             [self disconnectWithStatus:SIPETransportStatusAtEnd];
@@ -255,7 +256,7 @@ static SIPELogger * logger;
         case NSStreamEventNone:
         default:
         {
-            [logger warn:@"Encountered unsupported event type (%@)", eventCode];
+            sipe_log_warn(@"Encountered unsupported event type (%@)", eventCode);
             break;
         }
     }
@@ -294,7 +295,7 @@ static SIPELogger * logger;
 struct sipe_transport_connection *sipe_backend_transport_connect(struct sipe_core_public *sipe_public,
                                                                  const sipe_connect_setup *setup)
 {
-    [logger debugMessage:@"SIPE backend transport connect"];
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     SIPEService * imService = SIPE_PUBLIC_TO_IMSERVICE;
     assert(imService);
 
@@ -305,7 +306,7 @@ struct sipe_transport_connection *sipe_backend_transport_connect(struct sipe_cor
 
 void sipe_backend_transport_disconnect(struct sipe_transport_connection *conn)
 {
-    [logger debugMessage:@"SIPE backend transport disconnect"];
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     SIPEService * imService = SIPE_TRANSPORT_TO_IMSERVICE;
     assert(imService);
 
@@ -316,12 +317,12 @@ void sipe_backend_transport_message(struct sipe_transport_connection *conn,
                                     const gchar *buffer)
 {
     // TODO: Implement
-    [logger debugMessage:@"SIPE backend transport message"];
+    sipe_log_debug(@"sipe_backend transport message: %s", buffer);
 }
 
 void sipe_backend_transport_flush(struct sipe_transport_connection *conn)
 {
-    [logger debugMessage:@"SIPE backend transport flush"];
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }
 
 
@@ -334,6 +335,7 @@ void sipe_backend_transport_flush(struct sipe_transport_connection *conn)
 const gchar *sipe_backend_network_ip_address(struct sipe_core_public *sipe_public)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return NULL;
 }
 
@@ -344,21 +346,25 @@ struct sipe_backend_listendata * sipe_backend_network_listen_range(unsigned shor
                                                                    gpointer data)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return NULL;
 }
 void sipe_backend_network_listen_cancel(struct sipe_backend_listendata *ldata)
 {
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     // TODO: Implement
 }
 
 gboolean sipe_backend_fd_is_valid(struct sipe_backend_fd *fd)
 {
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     // TODO: Implement
     return NO;
 }
 
 void sipe_backend_fd_free(struct sipe_backend_fd *fd)
 {
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     // TODO: Implement
 }
 
@@ -373,5 +379,8 @@ void sipe_backend_fd_free(struct sipe_backend_fd *fd)
 const gchar *sipe_backend_setting(struct sipe_core_public *sipe_public,
                                   sipe_setting type)
 {
+    // FIXME: Should this be here?
+    // TODO: IMplement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return NULL;
 }

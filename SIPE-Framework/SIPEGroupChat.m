@@ -8,6 +8,7 @@
 
 #import <glib.h>
 #import "sipe-backend.h"
+#import "SIPELogger.h"
 #import "SIPEGroupChat.h"
 
 @implementation SIPEGroupChat
@@ -28,10 +29,12 @@ void sipe_backend_groupchat_room_add(struct sipe_core_public *sipe_public,
                                      guint32 flags)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }
 
 void sipe_backend_groupchat_room_terminate(struct sipe_core_public *sipe_public)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }
 

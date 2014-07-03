@@ -9,6 +9,7 @@
 #import <glib.h>
 #import "sipe-common.h"
 #import "sipe-backend.h"
+#import "SIPELogger.h"
 #import "SIPEBuddy.h"
 
 @implementation SIPEBuddy
@@ -26,6 +27,7 @@ sipe_backend_buddy sipe_backend_buddy_find(struct sipe_core_public *sipe_public,
                                            const gchar *group_name)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return NULL;
 }
 
@@ -35,6 +37,7 @@ GSList *sipe_backend_buddy_find_all(SIPE_UNUSED_PARAMETER struct sipe_core_publi
 {
 
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return NULL;
 }
 
@@ -43,6 +46,7 @@ gchar *sipe_backend_buddy_get_name(SIPE_UNUSED_PARAMETER struct sipe_core_public
 {
 
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return NULL;
 }
 
@@ -51,6 +55,7 @@ gchar *sipe_backend_buddy_get_alias(SIPE_UNUSED_PARAMETER struct sipe_core_publi
 {
 
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return NULL;
 }
 
@@ -59,6 +64,7 @@ gchar *sipe_backend_buddy_get_server_alias(struct sipe_core_public *sipe_public,
 {
 
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return NULL;
 }
 
@@ -67,6 +73,7 @@ gchar *sipe_backend_buddy_get_local_alias(struct sipe_core_public *sipe_public,
 {
 
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return NULL;
 }
 
@@ -75,6 +82,7 @@ gchar *sipe_backend_buddy_get_group_name(SIPE_UNUSED_PARAMETER struct sipe_core_
 {
 
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return NULL;
 }
 
@@ -84,6 +92,7 @@ gchar *sipe_backend_buddy_get_string(SIPE_UNUSED_PARAMETER struct sipe_core_publ
 {
 
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return NULL;
 }
 
@@ -93,12 +102,13 @@ void sipe_backend_buddy_set_string(struct sipe_core_public *sipe_public,
                                    const gchar *val)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }
 
 void sipe_backend_buddy_refresh_properties(struct sipe_core_public *sipe_public,
                                            const gchar *uri)
 {
-
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }
 
 guint sipe_backend_buddy_get_status(struct sipe_core_public *sipe_public,
@@ -114,6 +124,7 @@ void sipe_backend_buddy_set_alias(struct sipe_core_public *sipe_public,
                                   const gchar *alias)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }
 
 void sipe_backend_buddy_set_server_alias(SIPE_UNUSED_PARAMETER struct sipe_core_public *sipe_public,
@@ -121,11 +132,13 @@ void sipe_backend_buddy_set_server_alias(SIPE_UNUSED_PARAMETER struct sipe_core_
                                          SIPE_UNUSED_PARAMETER const gchar *alias)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }
 
 void sipe_backend_buddy_list_processing_finish(struct sipe_core_public *sipe_public)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }
 
 sipe_backend_buddy sipe_backend_buddy_add(struct sipe_core_public *sipe_public,
@@ -134,6 +147,7 @@ sipe_backend_buddy sipe_backend_buddy_add(struct sipe_core_public *sipe_public,
                                           const gchar *group_name)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return NULL;
 }
 
@@ -141,6 +155,7 @@ void sipe_backend_buddy_remove(struct sipe_core_public *sipe_public,
                                const sipe_backend_buddy who)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }
 
 void sipe_backend_buddy_set_status(struct sipe_core_public *sipe_public,
@@ -153,6 +168,7 @@ void sipe_backend_buddy_set_status(struct sipe_core_public *sipe_public,
 gboolean sipe_backend_uses_photo(void)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 	return NO;
 }
 
@@ -163,12 +179,14 @@ void sipe_backend_buddy_set_photo(struct sipe_core_public *sipe_public,
                                   const gchar *photo_hash)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }
 
 const gchar *sipe_backend_buddy_get_photo_hash(struct sipe_core_public *sipe_public,
                                                const gchar *uri)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return NULL;
 }
 
@@ -176,6 +194,7 @@ gboolean sipe_backend_buddy_group_add(struct sipe_core_public *sipe_public,
                                       const gchar *group_name)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return NO;
 }
 
@@ -183,7 +202,7 @@ void sipe_backend_buddy_group_remove(struct sipe_core_public *sipe_public,
                                      const gchar *group_name)
 {
     // TODO: Implement
-
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }
 
 

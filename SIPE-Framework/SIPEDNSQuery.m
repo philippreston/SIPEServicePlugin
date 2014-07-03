@@ -8,6 +8,7 @@
 
 #import <glib.h>
 #import "sipe-backend.h"
+#import "SIPELogger.h"
 #import "SIPEDNSQuery.h"
 
 @implementation SIPEDNSQuery
@@ -27,7 +28,7 @@ struct sipe_dns_query *sipe_backend_dns_query_srv(struct sipe_core_public *sipe_
                                                   sipe_dns_resolved_cb callback,
                                                   gpointer data)
 {
-    // TODO: Implement
+    sipe_log_trace(@"-->  %s",__FUNCTION__);
     return NULL;
 }
 
@@ -37,11 +38,12 @@ struct sipe_dns_query *sipe_backend_dns_query_a(struct sipe_core_public *sipe_pu
                                                 sipe_dns_resolved_cb callback,
                                                 gpointer data)
 {
-    // TODO: Implement
+    sipe_log_trace(@"-->  %s",__FUNCTION__);
     return NULL;
 }
 
 void sipe_backend_dns_query_cancel(struct sipe_dns_query *query)
 {
+    sipe_log_trace(@"-->  %s",__FUNCTION__);
     // TODO: Implement
 }

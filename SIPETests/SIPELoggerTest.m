@@ -62,12 +62,12 @@
 }
 
 - (void)testLevelToString {
-    XCTAssertEqualObjects(@"TRACE",[logger levelToString:SIPELOGGER_LEVEL_TRACE]);
-    XCTAssertEqualObjects(@"DEBUG",[logger levelToString:SIPELOGGER_LEVEL_DEBUG]);
-    XCTAssertEqualObjects(@"INFO",[logger levelToString:SIPELOGGER_LEVEL_INFO]);
-    XCTAssertEqualObjects(@"WARN",[logger levelToString:SIPELOGGER_LEVEL_WARN]);
-    XCTAssertEqualObjects(@"ERROR",[logger levelToString:SIPELOGGER_LEVEL_ERROR]);
-    XCTAssertEqualObjects(@"FATAL",[logger levelToString:SIPELOGGER_LEVEL_FATAL]);
+    XCTAssertEqualObjects(SIPELOGGER_LEVEL_TRACE_TEXT,[logger levelToString:SIPELOGGER_LEVEL_TRACE]);
+    XCTAssertEqualObjects(SIPELOGGER_LEVEL_DEBUG_TEXT,[logger levelToString:SIPELOGGER_LEVEL_DEBUG]);
+    XCTAssertEqualObjects(SIPELOGGER_LEVEL_INFO_TEXT,[logger levelToString:SIPELOGGER_LEVEL_INFO]);
+    XCTAssertEqualObjects(SIPELOGGER_LEVEL_WARN_TEXT,[logger levelToString:SIPELOGGER_LEVEL_WARN]);
+    XCTAssertEqualObjects(SIPELOGGER_LEVEL_ERROR_TEXT,[logger levelToString:SIPELOGGER_LEVEL_ERROR]);
+    XCTAssertEqualObjects(SIPELOGGER_LEVEL_FATAL_TEXT,[logger levelToString:SIPELOGGER_LEVEL_FATAL]);
 }
 
 - (void)testShouldLog {
@@ -106,16 +106,16 @@
     [logger setLogLevel:SIPELOGGER_LEVEL_TRACE];
     [logger setLoggingEnabled:YES];
 
-    [logger traceMessage:@"A trace message"];
-    [logger debugMessage:@"A debug message"];
-    [logger infoMessage:@"A info message"];
-    [logger warnMessage:@"A warning message"];
-    [logger errorMessage:@"A error message"];
-    [logger fatalMessage:@"A fatal message"];
+    [logger trace:@"A trace message"];
+    [logger debug:@"A debug message"];
+    [logger info:@"A info message"];
+    [logger warn:@"A warning message"];
+    [logger error:@"A error message"];
+    [logger fatal:@"A fatal message"];
 
     sipe_backend_debug_literal(SIPE_DEBUG_LEVEL_INFO, "Logging Literal from C");
 
-    // No test - just convienience method
+    // No test - just convienience method for checking
 }
 
 -(void) testFormattedMethods
@@ -133,7 +133,30 @@
 
     sipe_backend_debug(SIPE_DEBUG_LEVEL_INFO, "Logging from %s", "C function");
 
-    // No test - just convienience method
+    // No test - just convienience method for checking
+}
+
+-(void) testMacroMessageMethods
+{
+    sipe_log(TRACE_LEVEL, @"A trace message");
+    sipe_log(DEBUG_LEVEL, @"A debug message");
+    sipe_log(INFO_LEVEL, @"A info message");
+    sipe_log(WARN_LEVEL, @"A warn message");
+    sipe_log(ERROR_LEVEL, @"A error message");
+    sipe_log(FATAL_LEVEL, @"A fatal message");
+
+    // No test - just convienience method for checking }
+
+-(void) testMacroFormatMethods
+{
+    sipe_log(TRACE_LEVEL, @"A formatted trace %@ message",@"BOO1");
+    sipe_log(DEBUG_LEVEL, @"A formatted debug %@ message",@"BOO2");
+    sipe_log(INFO_LEVEL, @"A formatted info %@ message",@"BOO3");
+    sipe_log(WARN_LEVEL, @"A formatted warn %@ message",@"BOO4");
+    sipe_log(ERROR_LEVEL, @"A formatted error %@ message",@"BOO5");
+    sipe_log(FATAL_LEVEL, @"A formatted fatal %@ message",@"BOO6");
+
+    // No test - just convienience method for checking
 }
 
 @end

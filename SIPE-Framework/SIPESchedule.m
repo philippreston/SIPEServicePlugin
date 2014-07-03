@@ -8,6 +8,7 @@
 
 #import <glib.h>
 #import "sipe-backend.h"
+#import "SIPELogger.h"
 #import "SIPESchedule.h"
 
 @implementation SIPESchedule
@@ -26,6 +27,7 @@ gpointer sipe_backend_schedule_seconds(struct sipe_core_public *sipe_public,
                                        gpointer data)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return NULL;
 }
 
@@ -34,6 +36,7 @@ gpointer sipe_backend_schedule_mseconds(struct sipe_core_public *sipe_public,
                                         gpointer data)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return NULL;
 }
 
@@ -41,5 +44,6 @@ void sipe_backend_schedule_cancel(struct sipe_core_public *sipe_public,
                                   gpointer data)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }
 

@@ -9,6 +9,7 @@
 #import <glib.h>
 #import "sipe-backend.h"
 #import "SIPEInstantMessenger.h"
+#import "SIPELogger.h"
 
 @implementation SIPEInstantMessenger
 
@@ -25,6 +26,7 @@ void sipe_backend_im_message(struct sipe_core_public *sipe_public,
                              const gchar *html)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }
 
 void sipe_backend_im_topic(struct sipe_core_public *sipe_public,
@@ -32,4 +34,5 @@ void sipe_backend_im_topic(struct sipe_core_public *sipe_public,
                            const gchar *topic)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }

@@ -32,12 +32,9 @@ SIPEService * refSIPEService;
 
 @implementation SIPEService
 
-static SIPELogger * logger;
-
 -(instancetype) init
 {
-    logger = [SIPELogger getLogger];
-    [logger debugMessage:@"Initialising SIPEService"];
+    sipe_log_trace(@"Initialising SIPEService");
 
     if((self = [super init]))
     {
@@ -48,7 +45,7 @@ static SIPELogger * logger;
         _account = nil;
     }
 
-    [logger info:@"Running SIPE Framework version: %@", [self version]];
+    sipe_log_info(@"Running SIPE Framework version: %@", [self version]);
     
     // Initialise reference for C
     refSIPEService = self;
@@ -64,7 +61,7 @@ static SIPELogger * logger;
 -(void) login
 {
     // Initialise the sipe core
-    [logger debugMessage:@"Initialising sipe_core"];
+    sipe_log_info(@"Initialising sipe_core");
     sipe_core_init(LOCALEDIR);
 
     NSAssert(nil != _account, @"Account must be set before login attempted");
@@ -91,7 +88,7 @@ static SIPELogger * logger;
 -(void) logout
 {
     // Shudown the sipe core
-    [logger debugMessage:@"Logging out sipe_core"];
+    sipe_log_info(@"Logging out sipe_core");
     [self.connection stop];
     [self.account close];
 

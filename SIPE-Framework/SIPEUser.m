@@ -8,6 +8,7 @@
 
 #import <glib.h>
 #import "sipe-backend.h"
+#import "SIPELogger.h"
 #import "SIPEUser.h"
 
 @implementation SIPEUser
@@ -24,12 +25,14 @@ void sipe_backend_user_feedback_typing(struct sipe_core_public *sipe_public,
                                        const gchar *from)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }
 
 void sipe_backend_user_feedback_typing_stop(struct sipe_core_public *sipe_public,
                                             const gchar *from)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }
 
 void sipe_backend_user_ask(struct sipe_core_public *sipe_public,
@@ -39,9 +42,11 @@ void sipe_backend_user_ask(struct sipe_core_public *sipe_public,
                            gpointer key)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }
 
 void sipe_backend_user_close_ask(gpointer key)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }

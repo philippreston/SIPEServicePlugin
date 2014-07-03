@@ -12,9 +12,17 @@
 #import <glib.h>
 #import "sipe-backend.h"
 #import "SIPELogger.h"
+#import "SIPEHelpers.h"
 
 // Handle for C API
 SIPELogger * refSIPELogger;
+
+//===============================================================================
+// Private Prototypes
+//===============================================================================
+static sipelogger_level sipe_core_to_SIPELogger_level(sipe_debug_level level);
+
+
 
 @interface SIPELogger()
 @property (readwrite) NSString *    logFormat;
@@ -71,18 +79,9 @@ SIPELogger * refSIPELogger;
     SIPELOGGER_WRITE_ATLEVEL(SIPELOGGER_LEVEL_TRACE,fmt);
 }
 
--(void) traceMessage: (NSString * ) msg {
-    [self trace:@"%@", msg];
-}
-
 -(void) debug: (NSString * ) fmt, ...
 {
     SIPELOGGER_WRITE_ATLEVEL(SIPELOGGER_LEVEL_DEBUG,fmt);
-}
-
--(void) debugMessage: (NSString * ) msg
-{
-    [self debug: @"%@", msg];
 }
 
 -(void) info:   (NSString * ) fmt, ...
@@ -90,19 +89,9 @@ SIPELogger * refSIPELogger;
     SIPELOGGER_WRITE_ATLEVEL(SIPELOGGER_LEVEL_INFO,fmt);
 }
 
--(void) infoMessage: (NSString * ) msg
-{
-    [self info: @"%@", msg];
-}
-
 -(void) warn:   (NSString * ) fmt, ...
 {
     SIPELOGGER_WRITE_ATLEVEL(SIPELOGGER_LEVEL_WARN,fmt);
-}
-
--(void) warnMessage:(NSString *) msg
-{
-    [self warn: @"%@", msg];
 }
 
 -(void) error: (NSString * ) fmt, ...
@@ -110,19 +99,9 @@ SIPELogger * refSIPELogger;
     SIPELOGGER_WRITE_ATLEVEL(SIPELOGGER_LEVEL_ERROR,fmt);
 }
 
--(void) errorMessage: (NSString * ) msg
-{
-    [self error: @"%@", msg];
-}
-
 -(void) fatal:  (NSString * ) fmt, ...
 {
     SIPELOGGER_WRITE_ATLEVEL(SIPELOGGER_LEVEL_FATAL,fmt);
-}
-
--(void) fatalMessage: (NSString * ) msg
-{
-    [self fatal: @"%@", msg];
 }
 
 -(NSString *) levelToString: (sipelogger_level) level
@@ -130,25 +109,25 @@ SIPELogger * refSIPELogger;
     NSString * string;
     switch (level) {
         case SIPELOGGER_LEVEL_TRACE:
-            string = @"[TRACE]:  ";
+            string = SIPELOGGER_LEVEL_TRACE_TEXT;
             break;
         case SIPELOGGER_LEVEL_DEBUG:
-            string = @"[DEBUG]:  ";
+            string = SIPELOGGER_LEVEL_DEBUG_TEXT;
             break;
         case SIPELOGGER_LEVEL_INFO:
-            string = @"[INFO]:   ";
+            string = SIPELOGGER_LEVEL_INFO_TEXT;
             break;
         case SIPELOGGER_LEVEL_WARN:
-            string = @"[WARN]:   ";
+            string = SIPELOGGER_LEVEL_WARN_TEXT;
             break;
         case SIPELOGGER_LEVEL_ERROR:
-            string = @"[ERROR]:  ";
+            string = SIPELOGGER_LEVEL_ERROR_TEXT;
             break;
         case SIPELOGGER_LEVEL_FATAL:
-            string = @"[FATAL]:  ";
+            string = SIPELOGGER_LEVEL_FATAL_TEXT;
             break;
         default:
-            string = @"[UNKNOWN]:";
+            string = SIPELOGGER_LEVEL_UNKNOWN_TEXT;
             break;
     }
     return string;
@@ -179,8 +158,11 @@ SIPELogger * refSIPELogger;
 Making INFO from the core as debug as we dont want that on all the time
  */
 
-static sipelogger_level sipeCoreToSIPELoggerLevel(sipe_debug_level level)
+static sipelogger_level sipe_core_to_SIPELogger_level(sipe_debug_level level)
 {
+
+    // TODO - option to disable backend logging - only front
+
     switch(level) {
         case SIPE_DEBUG_LEVEL_INFO:
             return SIPELOGGER_LEVEL_DEBUG;
@@ -201,11 +183,9 @@ gboolean sipe_backend_debug_enabled(void)
 void sipe_backend_debug_literal(sipe_debug_level level,
                                 const gchar *msg)
 {
-    sipelogger_level logAtLevel =  sipeCoreToSIPELoggerLevel(level);
-    NSString * toWrite = [[NSString alloc] initWithCString:msg
-                                                  encoding:SIPELOGGER_ENCODING];
+    sipelogger_level logAtLevel =  sipe_core_to_SIPELogger_level(level);
     [refSIPELogger write:logAtLevel
-              withFormat:@"%@", toWrite];
+              withFormat:@"%@", GCHAR_TO_NSSTRING(msg)];
 }
 
 void sipe_backend_debug(sipe_debug_level level,
@@ -214,9 +194,8 @@ void sipe_backend_debug(sipe_debug_level level,
 {
     va_list args;                                   \
     va_start(args, format);
-    sipelogger_level logAtLevel =  sipeCoreToSIPELoggerLevel(level);
+    sipelogger_level logAtLevel =  sipe_core_to_SIPELogger_level(level);
     [refSIPELogger write:logAtLevel
-              withFormat: [[NSString alloc] initWithCString:format
-                                                   encoding:SIPELOGGER_ENCODING]
+              withFormat: GCHAR_TO_NSSTRING(format)
                arguments: args];
 }

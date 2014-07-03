@@ -18,14 +18,10 @@
 
 @implementation SIPEConnection
 
-static SIPELogger * logger;
-
 -(instancetype) initWithAccount: (SIPEAccount *) account
 {
     NSAssert(nil != account, @"Account must be set before login attempted");
-
-    logger = [SIPELogger getLogger];
-    [logger debugMessage:@"Initialising SIPEConection"];
+    sipe_log_trace(@"Initialising SIPEConection");
 
     if (self = [super init]) {
         _account  = account;
@@ -39,8 +35,7 @@ static SIPELogger * logger;
 
 -(void) start
 {
-    [logger debug:@"SIPEConnection staring", [self.account server], [self.account port]];
-
+    sipe_log_debug(@"Starting connection...");
     sipe_core_transport_sip_connect([self.account sipePublic],
                                     [self.account transport],
                                     [self.account authentication],
@@ -51,7 +46,7 @@ static SIPELogger * logger;
 -(void) stop
 {
     // TODO - make safe if not fully connected
-    [logger debugMessage:@"SIPEConnection stopping"];
+    sipe_log_debug(@"Stopping connection");
     [self setDisconnecting:YES];
 
     // TODO - anything extra for shutdown (Offline)?
@@ -73,8 +68,7 @@ static SIPELogger * logger;
 // TODO: Review against Purple
 void sipe_backend_connection_completed(struct sipe_core_public *sipe_public)
 {
-    // TODO: Implement
-    [logger debugMessage:@"SIPE backend connection completed"];
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     SIPEService * imService = SIPE_PUBLIC_TO_IMSERVICE;
     assert(imService);
 
@@ -86,7 +80,7 @@ void sipe_backend_connection_error(struct sipe_core_public *sipe_public,
                                    sipe_connection_error error,
                                    const gchar *msg)
 {
-    [logger error:@"SIPE backend connection error: (%d) %s",error,msg];
+    sipe_log_error(@"sipe_backend connection error: (%d) %s",error,msg);
     SIPEService * imService = SIPE_PUBLIC_TO_IMSERVICE;
     assert(imService);
 
@@ -95,7 +89,7 @@ void sipe_backend_connection_error(struct sipe_core_public *sipe_public,
 
 gboolean sipe_backend_connection_is_disconnecting(struct sipe_core_public *sipe_public)
 {
-    [logger debugMessage:@"SIPE backend is disconnecting?"];
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     SIPEService * imService = SIPE_PUBLIC_TO_IMSERVICE;
     assert(imService);
 
@@ -104,7 +98,7 @@ gboolean sipe_backend_connection_is_disconnecting(struct sipe_core_public *sipe_
 
 gboolean sipe_backend_connection_is_valid(struct sipe_core_public *sipe_public)
 {
-    [logger debugMessage:@"SIPE backend is valid?"];
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     SIPEService * imService = SIPE_PUBLIC_TO_IMSERVICE;
     assert(imService);
 

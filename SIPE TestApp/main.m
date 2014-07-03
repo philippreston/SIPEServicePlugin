@@ -11,14 +11,13 @@
 #import "SIPEService.h"
 #import "SIPEAccount.h"
 
-static SIPELogger * logger;
 
 int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
-        logger = [SIPELogger getLogger];
-        [logger infoMessage:@"Starting the SIPE TestApp"];
+
+        sipe_log_info(@"Starting the SIPE TestApp");
 
         // Create an account
         NSString * username = @"ppreston@nyx.com";
@@ -35,13 +34,13 @@ int main(int argc, const char * argv[])
         [account setTransport:SSL_TLS];
         [account setSingleSignOn:NO];
         [account setAuthentication:NTLM];
-        [logger info:@"Creating account: %@", account];
+        sipe_log_info(@"Creating account: %@", account);
 
         // Create an IM instance
         SIPEService * imService = [SIPEService new];
         [imService loginWithAccount:account];
 
-        sleep(10);
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10.0]];
 
         [imService logout];
 

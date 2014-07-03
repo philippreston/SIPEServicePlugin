@@ -8,6 +8,7 @@
 
 #import <glib.h>
 #import "sipe-backend.h"
+#import "SIPELogger.h"
 #import "SIPEStatus.h"
 
 @implementation SIPEStatus
@@ -23,6 +24,7 @@
 guint sipe_backend_status(struct sipe_core_public *sipe_public)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return 0;
 }
 
@@ -31,6 +33,7 @@ gboolean sipe_backend_status_changed(struct sipe_core_public *sipe_public,
                                      const gchar *message)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
     return NO;
 }
 
@@ -39,4 +42,5 @@ void sipe_backend_status_and_note(struct sipe_core_public *sipe_public,
                                   const gchar *message)
 {
     // TODO: Implement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
 }

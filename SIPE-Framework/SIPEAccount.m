@@ -25,12 +25,10 @@
 @synthesize port = _port;
 @synthesize transport = _transport;
 
-static SIPELogger * logger;
 
 -(instancetype) init
 {
-    logger = [SIPELogger getLogger];
-    [logger debugMessage:@"Initialising SIPEAccount"];
+    sipe_log_trace(@"Initialising SIPEAccount");
     if( self = [super init])
     {
         [self setUsername:nil];
@@ -53,7 +51,7 @@ static SIPELogger * logger;
 
 -(void) open
 {
-    [logger debugMessage:@"Attempting to allocate account"];
+    sipe_log_debug(@"Attempting to allocate account");
 
     // TODO: do we need password
     //    _requiresPassword =
@@ -80,7 +78,7 @@ static SIPELogger * logger;
     // Cannot progress if this fails
     if (!sipe_public) {
         NSString * msg = [NSString stringWithFormat:@"Failed to allocate Account: %s", errMessage];
-        [logger errorMessage: msg];
+        sipe_log_error(msg);
         NSException * ex = [SIPEException exceptionWithName: @"SIPEException"
                                                      reason: msg
                                                    userInfo: nil];
