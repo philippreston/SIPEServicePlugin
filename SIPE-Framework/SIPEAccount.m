@@ -7,10 +7,12 @@
 //
 
 #import <glib.h>
+#import "sipe-backend.h"
 #import "sipe-core.h"
 #import "SIPEHelpers.h"
 #import "SIPELogger.h"
 #import "SIPEAccount.h"
+#import "SIPEService.h"
 #import "SIPEException.h"
 
 @interface SIPEAccount ()
@@ -20,17 +22,13 @@
 @implementation SIPEAccount
 @synthesize sipePublic = sipe_public;
 
-// TODO - maybe move to transport and store here?
-@synthesize server = _server;
-@synthesize port = _port;
-@synthesize transport = _transport;
-
 
 -(instancetype) init
 {
     sipe_log_trace(@"Initialising SIPEAccount");
     if( self = [super init])
     {
+        [self setUserAgent:nil];
         [self setUsername:nil];
         [self setPassword:nil];
         [self setAccount:nil];
@@ -114,3 +112,36 @@
     ASSERT_NOT_NIL(_account, @"SIPEAccount - account cannot be nil");
 }
 @end
+
+#pragma mark  -
+#pragma mark SIPE C Backend SETTINGS Functions
+#pragma mark  -
+//===============================================================================
+// SIPE C Backend SETTINGS Functions
+//===============================================================================
+const gchar *sipe_backend_setting(struct sipe_core_public *sipe_public,
+                                  sipe_setting type)
+{
+    // TODO: IMplement
+    sipe_log_trace(@"--> %s",__FUNCTION__);
+    SIPEService * imService = SIPE_PUBLIC_TO_IMSERVICE;
+    assert(imService);
+
+    const gchar * tmp;
+    switch (type) {
+        case SIPE_SETTING_EMAIL_URL:
+            tmp = NSSTRING_TO_GCHAR([imService.account emailUrl]);
+            break;
+        case SIPE_SETTING_USER_AGENT:
+            tmp = NSSTRING_TO_GCHAR([imService.account userAgent]);
+            break;
+        case SIPE_SETTING_LAST:
+        case SIPE_SETTING_EMAIL_LOGIN:
+        case SIPE_SETTING_EMAIL_PASSWORD:
+        case SIPE_SETTING_GROUPCHAT_USER:
+        default:
+            sipe_log_warn(@"sipe_setting (%d) type not supporter or found",type);
+            break;
+    }
+    return tmp;
+}

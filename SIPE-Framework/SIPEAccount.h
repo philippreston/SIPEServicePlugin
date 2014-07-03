@@ -44,6 +44,7 @@ typedef enum {
 //===============================================================================
 // Properties
 //===============================================================================
+@property (readwrite) NSString * userAgent;
 @property (readwrite) NSString * username;
 @property (readwrite) NSString * password;
 @property (readwrite) NSString * account;

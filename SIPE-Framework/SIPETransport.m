@@ -370,17 +370,4 @@ void sipe_backend_fd_free(struct sipe_backend_fd *fd)
 
 // TODO: Network Callbacks
 
-#pragma mark  -
-#pragma mark SIPE C Backend SETTINGS Functions
-#pragma mark  -
-//===============================================================================
-// SIPE C Backend SETTINGS Functions
-//===============================================================================
-const gchar *sipe_backend_setting(struct sipe_core_public *sipe_public,
-                                  sipe_setting type)
-{
-    // FIXME: Should this be here?
-    // TODO: IMplement
-    sipe_log_trace(@"--> %s",__FUNCTION__);
-    return NULL;
-}
+

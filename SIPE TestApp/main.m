@@ -25,8 +25,10 @@ int main(int argc, const char * argv[])
         NSString * accountName = @"ppreston.nyx.com@reuters.net";
         NSString * server = @"sip.reuters.net";
         NSString * port = @"443";
+        NSString * userAgent = @"MacOSX Messages";
 
         SIPEAccount * account = [SIPEAccount new];
+        [account setUserAgent:userAgent];
         [account setUsername:username];
         [account setPassword:password];
         [account setAccount:accountName];

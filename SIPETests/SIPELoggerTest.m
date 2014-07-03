@@ -145,7 +145,8 @@
     sipe_log(ERROR_LEVEL, @"A error message");
     sipe_log(FATAL_LEVEL, @"A fatal message");
 
-    // No test - just convienience method for checking }
+    // No test - just convienience method for checking
+}
 
 -(void) testMacroFormatMethods
 {
