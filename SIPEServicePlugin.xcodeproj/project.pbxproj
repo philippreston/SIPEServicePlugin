@@ -192,6 +192,7 @@
 		4480C4F61953B1DA00B15428 /* Campfire.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4480C4F51953B1DA00B15428 /* Campfire.icns */; };
 		4480C507195418D600B15428 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4480C505195418D600B15428 /* InfoPlist.strings */; };
 		4480C50B195418D600B15428 /* SIPEService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4480C50A195418D600B15428 /* SIPEService.m */; };
+		4491F0521968B35000B193E9 /* SIPEScheduleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4491F0511968B35000B193E9 /* SIPEScheduleTest.m */; };
 		44A8DBFB1961851800B01A88 /* SIPEException.h in Headers */ = {isa = PBXBuildFile; fileRef = 44A8DBF91961851800B01A88 /* SIPEException.h */; };
 		44A8DBFC1961851800B01A88 /* SIPEException.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A8DBFA1961851800B01A88 /* SIPEException.m */; };
 /* End PBXBuildFile section */
@@ -479,6 +480,7 @@
 		4480C509195418D600B15428 /* SIPEService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SIPEService.h; sourceTree = "<group>"; };
 		4480C50A195418D600B15428 /* SIPEService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SIPEService.m; sourceTree = "<group>"; };
 		4480C511195418D600B15428 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		4491F0511968B35000B193E9 /* SIPEScheduleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPEScheduleTest.m; sourceTree = "<group>"; };
 		44A8DBF91961851800B01A88 /* SIPEException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPEException.h; sourceTree = "<group>"; };
 		44A8DBFA1961851800B01A88 /* SIPEException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPEException.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -627,6 +629,7 @@
 				44170F0B195B775E005F433F /* SIPELoggerTest.m */,
 				44170F1F195C3FF0005F433F /* SIPEServiceTest.m */,
 				4457A1A7196206BC0052B1B4 /* SIPEAccountTest.m */,
+				4491F0511968B35000B193E9 /* SIPEScheduleTest.m */,
 			);
 			name = "SIPE Tests";
 			path = SIPETests;
@@ -1303,6 +1306,7 @@
 				4457A1A8196206BC0052B1B4 /* SIPEAccountTest.m in Sources */,
 				44170F20195C3FF0005F433F /* SIPEServiceTest.m in Sources */,
 				44170F0C195B775E005F433F /* SIPELoggerTest.m in Sources */,
+				4491F0521968B35000B193E9 /* SIPEScheduleTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2093,6 +2097,7 @@
 				4457A1BB19629FB80052B1B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4480C3971953476E00B15428 /* Build configuration list for PBXProject "SIPEServicePlugin" */ = {
 			isa = XCConfigurationList;

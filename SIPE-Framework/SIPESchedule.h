@@ -7,7 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <glib.h>
 
 @interface SIPESchedule : NSObject
 
+//===============================================================================
+// Static Methods
+//===============================================================================
++(instancetype) getScheduler;
+
+//===============================================================================
+// Public Methods
+//===============================================================================
+-(void) sendData: (gpointer) data afterTime: (NSTimeInterval) time;
+-(void) cancel;
 @end

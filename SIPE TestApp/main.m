@@ -42,7 +42,7 @@ int main(int argc, const char * argv[])
         SIPEService * imService = [SIPEService new];
         [imService loginWithAccount:account];
 
-        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10.0]];
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:60.0]];
 
         [imService logout];
 
