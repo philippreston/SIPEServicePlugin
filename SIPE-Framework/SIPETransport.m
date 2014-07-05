@@ -17,11 +17,13 @@
 #import "SIPEException.h"
 #import "SIPEHelpers.h"
 
+#define TRANSPORT_QUEUE_NAME    "transport_queue"
+
 @interface SIPETransport () {
     transport_connected_cb * _connectedCb;
 	transport_input_cb * _inputCb;
 	transport_error_cb * _errorCb;
-//    dispatch_queue_t _transportQueue;
+    dispatch_queue_t _transportQueue;
 }
 
 //===============================================================================
@@ -45,6 +47,7 @@
 @property (readwrite) gpointer * pointer;
 @property (readwrite) NSInputStream * readStream;
 @property (readwrite) NSOutputStream * writeStream;
+@property (readwrite) NSRunLoop * runLoop;
 
 @end
 
@@ -61,7 +64,8 @@
         _errorCb = NULL;
         _data = [NSData new];
         _status = SIPETransportStatusNotOpen;
-  //      _transportQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
+        _transportQueue = dispatch_queue_create(TRANSPORT_QUEUE_NAME, nil);
+        _runLoop = nil;
 
         // FIXME - can this be moved to ARC
         _connection = (struct sipe_transport_connection *) malloc(sizeof(struct sipe_transport_connection));
@@ -138,11 +142,14 @@
 
     // Close the input stream
     [self.readStream close];
-    [self.readStream removeFromRunLoop: [NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    [self.readStream removeFromRunLoop: [self runLoop] forMode:NSDefaultRunLoopMode];
 
     // Close the output stream
     [self.writeStream close];
-    [self.writeStream removeFromRunLoop: [NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    [self.writeStream removeFromRunLoop: [self runLoop] forMode:NSDefaultRunLoopMode];
+
+    CFRunLoopRef cfRunLoop = [self.runLoop getCFRunLoop];
+    CFRunLoopStop(cfRunLoop);
 
     [self setStatus:status];
 
@@ -174,8 +181,6 @@
     [self.readStream setDelegate: self];
     [self.writeStream setDelegate: self];
 
-
-
     // Do we need TLS/SSL
     if (secure) {
         sipe_log_debug(@"SIPETransport adding TLS Security level to connection");
@@ -183,19 +188,30 @@
         [self.readStream setProperty:NSStreamSocketSecurityLevelTLSv1 forKey:NSStreamSocketSecurityLevelKey];
     }
 
+    // Run in transport thread
+    dispatch_async(_transportQueue, ^(void) {
 
+        // Store the run loop
+        [self setRunLoop:[NSRunLoop currentRunLoop]];
 
-    [self.readStream scheduleInRunLoop:[NSRunLoop mainRunLoop]
-                               forMode:NSDefaultRunLoopMode];
-    [self.writeStream scheduleInRunLoop:[NSRunLoop mainRunLoop]
-                                forMode:NSDefaultRunLoopMode];
+        // Set the streams to be scheduled in the loop
+        [self.readStream scheduleInRunLoop:[NSRunLoop mainRunLoop]
+                                   forMode:NSDefaultRunLoopMode];
+        [self.writeStream scheduleInRunLoop:[NSRunLoop mainRunLoop]
+                                    forMode:NSDefaultRunLoopMode];
 
-    // Open the streams
-    if([self.readStream streamStatus] == NSStreamStatusNotOpen)
-        [self.readStream open];
-    if([self.writeStream streamStatus] == NSStreamStatusNotOpen)
-        [self.writeStream open];
+        // Open the streams
+        if([self.readStream streamStatus] == NSStreamStatusNotOpen)
+            [self.readStream open];
+        if([self.writeStream streamStatus] == NSStreamStatusNotOpen)
+            [self.writeStream open];
 
+        // TODO: May need a break condidition (e.g. run for few secs - check then run again)
+        // Run the loop
+        [self.runLoop run];
+        sipe_log_trace(@"Loop ending...");
+
+    });
 
 }
 
