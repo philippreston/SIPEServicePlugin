@@ -37,12 +37,13 @@ typedef NS_ENUM(NSUInteger, SIPETransportStatus) {
 //===============================================================================
 -(void) connect:(struct sipe_core_public*) sipe_public  WithSetup:(const sipe_connect_setup*) setup;
 -(void) disconnect;
--(void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode;
+-(void) stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode;
 
 //===============================================================================
 // Public Properties
 //===============================================================================
 @property (readwrite) struct sipe_transport_connection * connection;
 @property (readwrite) SIPETransportStatus status;
+@property (readonly) NSString * localIPAddress;
 
 @end

@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 ArkDev. All rights reserved.
 //
 
+#import <netinet/in.h>
+#import <arpa/inet.h>
 #import <glib.h>
 #import <gio/gio.h>
 #import "sipe-backend.h"
@@ -48,6 +50,7 @@
 @property (readwrite) NSInputStream * readStream;
 @property (readwrite) NSOutputStream * writeStream;
 @property (readwrite) NSRunLoop * runLoop;
+@property (readwrite) NSString * localIPAddress;
 
 @end
 
@@ -195,9 +198,9 @@
         [self setRunLoop:[NSRunLoop currentRunLoop]];
 
         // Set the streams to be scheduled in the loop
-        [self.readStream scheduleInRunLoop:[NSRunLoop mainRunLoop]
+        [self.readStream scheduleInRunLoop:[self runLoop]
                                    forMode:NSDefaultRunLoopMode];
-        [self.writeStream scheduleInRunLoop:[NSRunLoop mainRunLoop]
+        [self.writeStream scheduleInRunLoop:[self runLoop]
                                     forMode:NSDefaultRunLoopMode];
 
         // Open the streams
@@ -227,7 +230,49 @@
             sipe_log_debug(@"%@ Stream is open", (aStream == _readStream) ? @"Input":@"Output");
             [self setStatus:SIPETransportStatusOpen];
             [self connected];
-            // TODO - client port to be stored
+
+            if(aStream == [self readStream]) {
+
+                CFReadStreamRef tmpReadStream = (__bridge CFReadStreamRef)(aStream);
+                CFDataRef socketData = CFReadStreamCopyProperty(tmpReadStream, kCFStreamPropertySocketNativeHandle);
+                if(nil == socketData) {
+                    sipe_log_warn(@"Could not retrieve socket data for input stream");
+                    return;
+                }
+
+                // Get the socket handle
+                CFSocketNativeHandle socketHandle;
+                CFDataGetBytes(socketData,CFRangeMake(0, sizeof(CFSocketNativeHandle)),
+                               (UInt8 *)&socketHandle);
+                if(0 == socketHandle) {
+                    sipe_log_warn(@"Could not retrieve socket handle for input stream");
+                    return;
+                }
+
+                // Get the socket
+                CFSocketRef socket = CFSocketCreateWithNative (NULL,socketHandle,kCFSocketNoCallBack,NULL,NULL);
+                if(nil == socket) {
+                    sipe_log_warn(@"Could not retrieve socket for input stream");
+                    return;
+                }
+
+                // Get the socket addr info
+                CFDataRef sockAddrData = CFSocketCopyAddress(socket);
+                struct sockaddr_in * sockaddr = (struct sockaddr_in *) CFDataGetBytePtr(sockAddrData);
+                if(NULL == socket) {
+                    sipe_log_warn(@"Could not retrieve socket address for input stream");
+                    return;
+                }
+
+                // Store the IP and Port
+                self.connection->client_port = sockaddr->sin_port;
+                char ipAddress[INET_ADDRSTRLEN];
+                inet_ntop(AF_INET, &(sockaddr->sin_addr), ipAddress, INET_ADDRSTRLEN);
+                [self setLocalIPAddress:GCHAR_TO_NSSTRING((const char *)ipAddress)];
+
+            }
+
+
             break;
         }
         case NSStreamEventHasBytesAvailable:
@@ -350,9 +395,17 @@ void sipe_backend_transport_flush(struct sipe_transport_connection *conn)
 //===============================================================================
 const gchar *sipe_backend_network_ip_address(struct sipe_core_public *sipe_public)
 {
-    // TODO: Implement
     sipe_log_trace(@"--> %s",__FUNCTION__);
-    return NULL;
+    SIPEService * imService = SIPE_PUBLIC_TO_IMSERVICE;
+    assert(imService);
+
+    NSString * ipAddr = [imService.connection.transport localIPAddress];
+    if(nil == ipAddr) {
+        sipe_log_error(@"Could not retrieve the IP Address");
+        return NULL;
+    }
+
+    return NSSTRING_TO_GCHAR(ipAddr);
 }
 
 struct sipe_backend_listendata * sipe_backend_network_listen_range(unsigned short port_min,
@@ -361,27 +414,27 @@ struct sipe_backend_listendata * sipe_backend_network_listen_range(unsigned shor
                                                                    sipe_client_connected_cb connect_cb,
                                                                    gpointer data)
 {
-    // TODO: Implement
+    // TODO: Move to Stub
     sipe_log_trace(@"--> %s",__FUNCTION__);
     return NULL;
 }
 void sipe_backend_network_listen_cancel(struct sipe_backend_listendata *ldata)
 {
     sipe_log_trace(@"--> %s",__FUNCTION__);
-    // TODO: Implement
+    // TODO: Move to Stub
 }
 
 gboolean sipe_backend_fd_is_valid(struct sipe_backend_fd *fd)
 {
     sipe_log_trace(@"--> %s",__FUNCTION__);
-    // TODO: Implement
+    // TODO: Move to Stub
     return NO;
 }
 
 void sipe_backend_fd_free(struct sipe_backend_fd *fd)
 {
     sipe_log_trace(@"--> %s",__FUNCTION__);
-    // TODO: Implement
+    // TODO: Move to Stub
 }
 
 // TODO: Network Callbacks
