@@ -50,6 +50,7 @@
     [self setDisconnecting:YES];
 
     // TODO - anything extra for shutdown (Offline)?
+    [self.transport disconnect];
 
     [self setConnected:NO];
     [self setDisconnecting:NO];

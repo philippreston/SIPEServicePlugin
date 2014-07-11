@@ -10,6 +10,7 @@
 #import <arpa/inet.h>
 #import <glib.h>
 #import <gio/gio.h>
+#import <string.h>
 #import "sipe-backend.h"
 #import "sipe-core.h"
 #import "SIPETransport.h"
@@ -19,6 +20,7 @@
 #import "SIPEException.h"
 #import "SIPEHelpers.h"
 
+#define READ_MAX_SIZE           1024
 #define TRANSPORT_QUEUE_NAME    "transport_queue"
 
 @interface SIPETransport () {
@@ -37,7 +39,7 @@
 -(void) connectWithSecure:(BOOL) secure;
 -(void) connectSSL;
 -(void) connectTCP;
--(void) disconnectWithStatus:(SIPETransportStatus) status;
+-(void) disconnectWithState:(SIPETransportState) status;
 
 //===============================================================================
 // Private Properties
@@ -51,6 +53,7 @@
 @property (readwrite) NSOutputStream * writeStream;
 @property (readwrite) NSRunLoop * runLoop;
 @property (readwrite) NSString * localIPAddress;
+@property (readonly) NSMutableArray * writeQueue;
 
 @end
 
@@ -66,12 +69,11 @@
         _inputCb = NULL;
         _errorCb = NULL;
         _data = [NSData new];
-        _status = SIPETransportStatusNotOpen;
+        _state = SIPETransportStateUnknown;
         _transportQueue = dispatch_queue_create(TRANSPORT_QUEUE_NAME, nil);
         _runLoop = nil;
-
-        // FIXME - can this be moved to ARC
-        _connection = (struct sipe_transport_connection *) malloc(sizeof(struct sipe_transport_connection));
+        _writeQueue = [NSMutableArray new];
+        _connection = (struct sipe_transport_connection *) calloc(1,sizeof(struct sipe_transport_connection));
     }
 
     return self;
@@ -87,7 +89,7 @@
 -(void) connect:(struct sipe_core_public*) sipe_public
       WithSetup:(const sipe_connect_setup*) setup;
 {
-    [self setStatus:SIPETransportStatusOpening];
+    [self setState:SIPETransportStateInitialising];
 
     // Store the connection details
     [self setType: setup->type];
@@ -103,19 +105,19 @@
     _connection->type = setup->type;
     _connection->user_data = setup->user_data;
 
-    sipe_log_info(@"SIPETransport connecting to %@:%i", [self server], [self port]);
+    sipe_log_info(@"Connecting to %@:%i", [self server], [self port]);
 
     // Connect
     switch ([self type]) {
         case SIPE_TRANSPORT_TLS:
         {
-            sipe_log_info(@"SIPETransport connecting using SSL/TLS");
+            sipe_log_info(@"Connecting using SSL/TLS");
             [self connectSSL];
             break;
         }
         case SIPE_TRANSPORT_TCP:
         {
-            sipe_log_info(@"SIPETransport connecting using TCP");
+            sipe_log_info(@"Connecting using TCP");
             [self connectTCP];
             break;
         }
@@ -126,7 +128,7 @@
             NSString * msg = [NSString stringWithFormat:@"Connection type (%d) - should not happen",[self type]];
             sipe_log_fatal(msg);
             [self errorWithMsg:msg];
-            [self setStatus:SIPETransportStatusError];
+            [self setState:SIPETransportStateError];
             sipe_backend_transport_disconnect([self connection]);
             break;
         }
@@ -137,24 +139,26 @@
 -(void) disconnect
 {
     sipe_log_info(@"SIPETransport disconnecting from %@:%i", [self server], [self port]);
-    [self disconnectWithStatus:SIPETransportStatusClosed];
+    [self disconnectWithState:SIPETransportStateClosed];
 }
 
--(void) disconnectWithStatus:(SIPETransportStatus) status
+-(void) disconnectWithState:(SIPETransportState) status
 {
 
     // Close the input stream
     [self.readStream close];
     [self.readStream removeFromRunLoop: [self runLoop] forMode:NSDefaultRunLoopMode];
+    _readStream = nil;
 
     // Close the output stream
     [self.writeStream close];
     [self.writeStream removeFromRunLoop: [self runLoop] forMode:NSDefaultRunLoopMode];
+    _writeStream = nil;
 
     CFRunLoopRef cfRunLoop = [self.runLoop getCFRunLoop];
     CFRunLoopStop(cfRunLoop);
 
-    [self setStatus:status];
+    [self setState:status];
 
 }
 
@@ -198,16 +202,16 @@
         [self setRunLoop:[NSRunLoop currentRunLoop]];
 
         // Set the streams to be scheduled in the loop
-        [self.readStream scheduleInRunLoop:[self runLoop]
-                                   forMode:NSDefaultRunLoopMode];
         [self.writeStream scheduleInRunLoop:[self runLoop]
                                     forMode:NSDefaultRunLoopMode];
+        [self.readStream scheduleInRunLoop:[self runLoop]
+                                   forMode:NSDefaultRunLoopMode];
 
         // Open the streams
-        if([self.readStream streamStatus] == NSStreamStatusNotOpen)
-            [self.readStream open];
         if([self.writeStream streamStatus] == NSStreamStatusNotOpen)
             [self.writeStream open];
+        if([self.readStream streamStatus] == NSStreamStatusNotOpen)
+            [self.readStream open];
 
         // TODO: May need a break condidition (e.g. run for few secs - check then run again)
         // Run the loop
@@ -215,6 +219,36 @@
         sipe_log_trace(@"Loop ending...");
 
     });
+
+}
+
+
+-(void) sendMessage:(NSData *) data
+{
+    sipe_log_debug(@"Sending data");
+
+    // Check the stream is open
+    if ([self.writeStream streamStatus] != NSStreamStatusOpen) {
+        sipe_log_error(@"Output stream not open");
+        return;
+    }
+
+    // Send the data
+    if([self.writeStream hasSpaceAvailable]) {
+        NSInteger written = [self.writeStream write: [data bytes]
+                                          maxLength: [data length]];
+
+        // post remaining data to queue to be written (asynchronous)
+        if (written < [data length]) {
+            sipe_log_debug(@"Not all data could be sent to stream - queueing");
+            NSData * stillToWrite = [data subdataWithRange:NSMakeRange(written, [data length])];
+            [self.writeQueue addObject:stillToWrite];
+        }
+    }
+    else {
+        sipe_log_debug(@"No space on the writeStream");
+        [self.writeQueue addObject: data];
+    }
 
 }
 
@@ -228,8 +262,6 @@
         case NSStreamEventOpenCompleted:
         {
             sipe_log_debug(@"%@ Stream is open", (aStream == _readStream) ? @"Input":@"Output");
-            [self setStatus:SIPETransportStatusOpen];
-            [self connected];
 
             if(aStream == [self readStream]) {
 
@@ -272,21 +304,91 @@
 
             }
 
+            // Tell the backend
+            if([self.readStream streamStatus] == NSStreamStatusOpen &&
+               [self.writeStream streamStatus] == NSStreamStatusOpen) {
+
+                sipe_log_debug(@"Both streams are open - tell backend");
+                [self setState:SIPETransportStateOpen];
+                [self connected];
+            }
 
             break;
         }
         case NSStreamEventHasBytesAvailable:
         {
             sipe_log_debug(@"%@ Stream has bytes available", (aStream == _readStream) ? @"Input":@"Output");
-            [self setStatus:SIPETransportStatusReading];
-            //TODO: Implement
+            if(aStream == [self readStream]) {
+
+                sipe_log_debug(@"Current buffer length is: %d", _connection->buffer_length);
+                NSInteger length = 0;
+
+                do {
+
+                    // Adjust the buffer size
+                    if (_connection->buffer_length < _connection->buffer_used + READ_MAX_SIZE) {
+                        _connection->buffer_length += READ_MAX_SIZE;
+                        _connection->buffer = (gchar *)realloc(_connection->buffer, _connection->buffer_length);
+                        sipe_log_debug(@"Resized buffer length to: %d", _connection->buffer_length);
+                    }
+
+                    // Create container for this read
+                    length = [self.readStream read:(uint8_t *)(_connection->buffer + _connection->buffer_used) maxLength:READ_MAX_SIZE];
+
+                    // Not worked
+                    if (length < 0) {
+                        // TODO: Error handling
+                        NSString * errString = [NSString stringWithFormat:@"Error (%ld) occured reading input stream", (long)length];
+                        sipe_log_error(errString);
+                        [self errorWithMsg:errString];
+                    }
+
+                    _connection->buffer_used += length;
+                }
+                while ([self.readStream hasBytesAvailable]);
+
+                // Add string terminator and send
+                _connection->buffer[_connection->buffer_used] = '\0';
+                [self input];
+
+            }
             break;
         }
         case NSStreamEventHasSpaceAvailable:
         {
             sipe_log_debug(@"%@ Stream has space available", (aStream == _readStream) ? @"Input":@"Output");
-            [self setStatus:SIPETransportStatusWriting];
-            //TODO: Implement
+
+            sipe_log_debug(@"Queued data objects to write: %d", [self.writeQueue count]);
+            if (aStream == [self writeStream]) {
+
+                // While there is something to write and space available - write
+                while ([self.writeQueue count] > 0 && [self.writeStream hasSpaceAvailable]) {
+
+                    // Get the next data object
+                    NSData * data = [self.writeQueue firstObject];
+
+                    // Write data object
+                    NSInteger written = [self.writeStream write: [data bytes]
+                                                      maxLength: [data length]];
+
+                    // post remaining data to queue to be written and wait for next availability
+                    if (written < [data length]) {
+                        sipe_log_debug(@"Not all data could be sent to stream in event - updating slot 0 in queue");
+                        NSData * stillToWrite = [data subdataWithRange:NSMakeRange(written, [data length])];
+
+                        // Overwrite data at front of queue as needs to be written next
+                        [self.writeQueue setObject:stillToWrite atIndexedSubscript:0];
+                    }
+                    else {
+                        sipe_log_debug(@"Done with top object - ditch");
+
+                        // Remove the first object
+                        [self.writeQueue removeObjectAtIndex:0];
+                    }
+
+                }
+
+            }
             break;
         }
         case NSStreamEventErrorOccurred:
@@ -301,7 +403,7 @@
             [self errorWithMsg:errMsg];
 
             // Clean up streams
-            [self disconnectWithStatus:SIPETransportStatusError];
+            [self disconnectWithState:SIPETransportStateError];
 
             break;
         }
@@ -310,7 +412,7 @@
             sipe_log_debug(@"%@ Stream has end event", (aStream == _readStream) ? @"Input":@"Output");
 
             // Clean up streams
-            [self disconnectWithStatus:SIPETransportStatusAtEnd];
+            [self disconnectWithState:SIPETransportStateClosed];
 
             break;
         }
@@ -328,6 +430,7 @@
 {
     NSAssert(_connection,@"sipe_transport_connection is NULL");
     NSAssert(_connectedCb,@"SIPE Transport connect callback not set");
+    sipe_log_trace(@"SIPETransport calling connect for sipe_core");
     _connectedCb([self connection]);
 }
 
@@ -335,6 +438,7 @@
 {
     NSAssert(_connection,@"sipe_transport_connection is NULL");
     NSAssert(_inputCb,@"SIPE Transport input callback not set");
+    sipe_log_trace(@"SIPETransport calling input for sipe_core");
     _inputCb([self connection]);
 }
 
@@ -342,6 +446,7 @@
 {
     NSAssert(_connection,@"sipe_transport_connection is NULL");
     NSAssert(_errorCb,@"SIPE Transport error callback not set");
+    sipe_log_trace(@"SIPETransport calling error for sipe_core");
     _errorCb([self connection] ,NSSTRING_TO_GCHAR(msg));
 }
 
@@ -356,7 +461,7 @@
 struct sipe_transport_connection *sipe_backend_transport_connect(struct sipe_core_public *sipe_public,
                                                                  const sipe_connect_setup *setup)
 {
-    sipe_log_trace(@"--> %s",__FUNCTION__);
+    sipe_log_trace(@"%s",__FUNCTION__);
     SIPEService * imService = SIPE_PUBLIC_TO_IMSERVICE;
     assert(imService);
 
@@ -367,7 +472,7 @@ struct sipe_transport_connection *sipe_backend_transport_connect(struct sipe_cor
 
 void sipe_backend_transport_disconnect(struct sipe_transport_connection *conn)
 {
-    sipe_log_trace(@"--> %s",__FUNCTION__);
+    sipe_log_trace(@"%s",__FUNCTION__);
     SIPEService * imService = SIPE_TRANSPORT_TO_IMSERVICE;
     assert(imService);
 
@@ -378,7 +483,17 @@ void sipe_backend_transport_message(struct sipe_transport_connection *conn,
                                     const gchar *buffer)
 {
     // TODO: Implement
-    sipe_log_debug(@"sipe_backend transport message: %s", buffer);
+    sipe_log_trace(@"%s",__FUNCTION__);
+    SIPEService * imService = SIPE_TRANSPORT_TO_IMSERVICE;
+    assert(imService);
+
+    // Get buffer size and NSData
+    NSUInteger size = strlen(buffer);
+    NSData * data = [NSData dataWithBytes: (void *) buffer
+                                   length: size];
+
+    [imService.connection.transport sendMessage: data];
+
 }
 
 void sipe_backend_transport_flush(struct sipe_transport_connection *conn)
@@ -395,7 +510,7 @@ void sipe_backend_transport_flush(struct sipe_transport_connection *conn)
 //===============================================================================
 const gchar *sipe_backend_network_ip_address(struct sipe_core_public *sipe_public)
 {
-    sipe_log_trace(@"--> %s",__FUNCTION__);
+    sipe_log_trace(@"%s",__FUNCTION__);
     SIPEService * imService = SIPE_PUBLIC_TO_IMSERVICE;
     assert(imService);
 
@@ -404,6 +519,8 @@ const gchar *sipe_backend_network_ip_address(struct sipe_core_public *sipe_publi
         sipe_log_error(@"Could not retrieve the IP Address");
         return NULL;
     }
+
+    sipe_log_debug(@"Local IP address is %@", ipAddr);
 
     return NSSTRING_TO_GCHAR(ipAddr);
 }

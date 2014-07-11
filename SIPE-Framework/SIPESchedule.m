@@ -48,7 +48,7 @@
        afterTime: (NSTimeInterval) time
 {
     sipe_log_debug(@"Running timer for %f", time);
-    NSValue * userData = [NSValue valueWithPointer:data];
+    NSValue * userData = [NSValue valueWithPointer: data];
     _timer = [NSTimer scheduledTimerWithTimeInterval: time
                                               target: self
                                             selector: @selector(timerCallback:)
@@ -89,7 +89,7 @@ gpointer sipe_backend_schedule_seconds(struct sipe_core_public *sipe_public,
                                        guint timeout,
                                        gpointer data)
 {
-    sipe_log_trace(@"--> %s",__FUNCTION__);
+    sipe_log_trace(@"%s",__FUNCTION__);
     SIPESchedule * scheduler = [SIPESchedule getScheduler];
     [scheduler sendData:data
               afterTime:timeout];
@@ -100,7 +100,7 @@ gpointer sipe_backend_schedule_mseconds(struct sipe_core_public *sipe_public,
                                         guint timeout,
                                         gpointer data)
 {
-    sipe_log_trace(@"--> %s",__FUNCTION__);
+    sipe_log_trace(@"%s",__FUNCTION__);
     SIPESchedule * scheduler = [SIPESchedule getScheduler];
     [scheduler sendData:data
               afterTime:(NSTimeInterval)(timeout / 1000)];
@@ -110,8 +110,8 @@ gpointer sipe_backend_schedule_mseconds(struct sipe_core_public *sipe_public,
 void sipe_backend_schedule_cancel(struct sipe_core_public *sipe_public,
                                   gpointer data)
 {
-    sipe_log_trace(@"--> %s",__FUNCTION__);
-    SIPESchedule * scheduler = (__bridge SIPESchedule *) data;
+    sipe_log_trace(@"%s",__FUNCTION__);
+    SIPESchedule * scheduler = [SIPESchedule getScheduler];
     assert(scheduler);
     [scheduler cancel];
 }

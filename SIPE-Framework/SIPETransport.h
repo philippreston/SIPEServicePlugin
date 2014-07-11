@@ -14,15 +14,12 @@
 //===============================================================================
 // Typedefs
 //===============================================================================
-typedef NS_ENUM(NSUInteger, SIPETransportStatus) {
-    SIPETransportStatusNotOpen = 0,
-    SIPETransportStatusOpening = 1,
-    SIPETransportStatusOpen = 2,
-    SIPETransportStatusReading = 3,
-    SIPETransportStatusWriting = 4,
-    SIPETransportStatusAtEnd = 5,
-    SIPETransportStatusClosed = 6,
-    SIPETransportStatusError = 7
+typedef NS_ENUM(NSUInteger, SIPETransportState) {
+    SIPETransportStateUnknown = 0,
+    SIPETransportStateInitialising = 1,
+    SIPETransportStateClosed = 2,
+    SIPETransportStateOpen = 3,
+    SIPETransportStateError = 4,
 };
 
 @interface SIPETransport : NSObject <NSStreamDelegate>
@@ -38,12 +35,13 @@ typedef NS_ENUM(NSUInteger, SIPETransportStatus) {
 -(void) connect:(struct sipe_core_public*) sipe_public  WithSetup:(const sipe_connect_setup*) setup;
 -(void) disconnect;
 -(void) stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode;
+-(void) sendMessage:(NSData *) data;
 
 //===============================================================================
 // Public Properties
 //===============================================================================
 @property (readwrite) struct sipe_transport_connection * connection;
-@property (readwrite) SIPETransportStatus status;
+@property (readwrite) SIPETransportState state;
 @property (readonly) NSString * localIPAddress;
 
 @end
