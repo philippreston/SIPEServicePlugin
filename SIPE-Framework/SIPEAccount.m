@@ -110,6 +110,7 @@
     ASSERT_NOT_NIL(_username, @"SIPEAccount - username cannot be nil");
     ASSERT_NOT_NIL(_password, @"SIPEAccount - password cannot be nil");
     ASSERT_NOT_NIL(_account, @"SIPEAccount - account cannot be nil");
+    ASSERT_NOT_NIL(_userAgent, @"SIPEAccount - user agent cannot be nil");
 }
 @end
 
@@ -123,25 +124,47 @@ const gchar *sipe_backend_setting(struct sipe_core_public *sipe_public,
                                   sipe_setting type)
 {
     // TODO: IMplement
-    sipe_log_trace(@"--> %s",__FUNCTION__);
+    sipe_log_trace(@"%s",__FUNCTION__);
     SIPEService * imService = SIPE_PUBLIC_TO_IMSERVICE;
     assert(imService);
 
-    const gchar * tmp;
+    NSString * stringForType = @"";
+    BOOL supported = NO;
+
+    const gchar * tmp = NULL;
     switch (type) {
         case SIPE_SETTING_EMAIL_URL:
+            stringForType = @"Email";
+            supported = YES;
             tmp = NSSTRING_TO_GCHAR([imService.account emailUrl]);
             break;
         case SIPE_SETTING_USER_AGENT:
+            stringForType = @"UserAgent";
+            supported = YES;
             tmp = NSSTRING_TO_GCHAR([imService.account userAgent]);
             break;
         case SIPE_SETTING_LAST:
+            stringForType = @"Setting Last";
+            break;
         case SIPE_SETTING_EMAIL_LOGIN:
+            stringForType = @"Email Login";
+            break;
         case SIPE_SETTING_EMAIL_PASSWORD:
+            stringForType = @"Email Password";
+            break;
         case SIPE_SETTING_GROUPCHAT_USER:
+            stringForType = @"Group Chat User";
+            break;
         default:
-            sipe_log_warn(@"sipe_setting (%d) type not supporter or found",type);
+            stringForType = @"Unknown";
             break;
     }
+
+    if (supported) {
+        sipe_log_debug(@"Looking up setting %@ which is %s",stringForType,tmp);
+    } else {
+        sipe_log_warn(@"sipe_setting (%@) type not supported",stringForType);
+    }
+
     return tmp;
 }
