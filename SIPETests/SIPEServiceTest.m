@@ -10,10 +10,7 @@
 #import <glib.h>
 #import "SIPEService.h"
 
-@interface SIPEServiceTest : XCTestCase {
-    SIPEService * _service;
-}
-
+@interface SIPEServiceTest : XCTestCase
 @end
 
 @implementation SIPEServiceTest
@@ -21,7 +18,6 @@
 - (void)setUp
 {
     [super setUp];
-    _service = [SIPEService new];
 }
 
 - (void)tearDown
@@ -32,7 +28,7 @@
 
 - (void)testLogin
 {
-    [_service login];
+    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }
 
 @end

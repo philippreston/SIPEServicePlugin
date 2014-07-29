@@ -337,10 +337,10 @@
 
                     // Not worked
                     if (length < 0) {
-                        // TODO: Error handling
                         NSString * errString = [NSString stringWithFormat:@"Error (%ld) occured reading input stream", (long)length];
                         sipe_log_error(errString);
                         [self errorWithMsg:errString];
+                        return;
                     }
 
                     _connection->buffer_used += length;
@@ -482,7 +482,6 @@ void sipe_backend_transport_disconnect(struct sipe_transport_connection *conn)
 void sipe_backend_transport_message(struct sipe_transport_connection *conn,
                                     const gchar *buffer)
 {
-    // TODO: Implement
     sipe_log_trace(@"%s",__FUNCTION__);
     SIPEService * imService = SIPE_TRANSPORT_TO_IMSERVICE;
     assert(imService);

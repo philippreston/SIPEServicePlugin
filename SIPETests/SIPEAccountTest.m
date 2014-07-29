@@ -45,28 +45,36 @@
     NSString * username = @"ppreston";
     NSString * password = @"password123";
     NSString * accountName = @"p.mac.com@reuters.net";
+    NSString * userAgent = @"MacOSX Messages";
 
-    [self setUsername:nil Password:password Account: accountName];
+    [self setUsername:nil Password:password Account: accountName UserAgent:userAgent];
     XCTAssertThrowsSpecificNamed([account validate],
                                  NSException,
                                  NSInvalidArgumentException,
                                  @"Nil username should throw exception");
 
 
-    [self setUsername:username Password:nil Account: accountName];
+    [self setUsername:username Password:nil Account: accountName UserAgent:userAgent];
     XCTAssertThrowsSpecificNamed([account validate],
                                  NSException,
                                  NSInvalidArgumentException,
                                  @"Nil password should throw exception");
 
 
-    [self setUsername:username Password:password Account: nil];
+    [self setUsername:username Password:password Account: nil UserAgent:userAgent];
     XCTAssertThrowsSpecificNamed([account validate],
                                  NSException,
                                  NSInvalidArgumentException,
                                  @"Nil username should throw exception");
 
-    [self setUsername:username Password:password Account: accountName];
+
+    [self setUsername:username Password:password Account: accountName UserAgent:nil];
+    XCTAssertThrowsSpecificNamed([account validate],
+                                 NSException,
+                                 NSInvalidArgumentException,
+                                 @"Nil useragent should throw exception");
+
+    [self setUsername:username Password:password Account: accountName UserAgent:userAgent];
     XCTAssertNoThrowSpecificNamed([account validate],
                                  NSException,
                                  NSInvalidArgumentException,
@@ -76,11 +84,12 @@
 -(void) setUsername:(NSString *) u
            Password:(NSString*) p
             Account:(NSString*) a
+          UserAgent:(NSString*) ua
 {
     [account setUsername:u];
     [account setPassword:p];
     [account setAccount:a];
-
+    [account setUserAgent:ua];
 }
 
 
